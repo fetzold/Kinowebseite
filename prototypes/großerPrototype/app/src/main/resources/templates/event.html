@@ -1,0 +1,143 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+        <link rel="stylesheet" type="text/css" th:href="@{/resources/css/seatselection.css}" />
+    <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+    <script type="text/javascript" th:src="@{/resources/js/jquery-1.11.0.min.js}"></script> 
+	<script type="text/javascript" th:src="@{/resources/js/jquery.seat-charts.min.js}"></script> 
+    <title>UFO Kino</title>
+
+</head>
+<body>
+
+<header th:include="header :: header"></header>
+
+<div class="row">
+
+    <nav th:include="navigation :: navigation"> </nav>
+
+
+
+    <div class="large-9 columns">
+
+		<h2>Film: <span th:text="${event.name}">Waterfall</span></h2>
+        <div>
+			Ted gets a girls number at the bar and wants to call her right away, but Barney says he can't call her because of the three days rule, you have to wait until three days from receiving the number to call the person. Ted agrees not to call her, but instead texts her saying he never promised he wouldn't do that. When he gets a response Holli says that shes in the bath, which makes Ted do his "Naked Lady Noise". A noise that Robin points out to him, flashing back to moments where he has seen naked women. Robin asks if it's Holli that is texting him and saying that he promised to wait three days. Ted points out it's different than calling. Robin sighs and leaves telling him to keep the "naked lady" noise to a minimum. Ted still thinks he doesn't make a noise, so Robin opens her robe and then walks away as Ted makes the noise.
+
+			Ted and Holli spend the next couple of days texting one another. Ted thinks she's perfect, and comments about a text to Robin saying that Holli told him what she's wearing right now, and it's pretty hot. Robin guarantees she's not wearing "her old cheerleading uniform while reading architecture magazines" and is only saying it to make Ted like her. Then he gets a text from Holli "Hey baby I picked up some take out from Genero's. Be home soon." stating it was clearly meant for someone else. Robin says maybe its to a brother or sick dad, but when she scrolls down it says "and then I want you to do me on the couch.
+        </div>
+           <div class="demo">
+   		<div id="seat-map">
+			<div class="front">Leinwand</div>					
+		</div>
+		<div class="booking-details">
+
+			<p>Zeit: <span>November 3, 21:00</span></p>
+			<p>Plätze: </p>
+			<p style="width: 100px; max-height: 80px" id="selected-seats"></p>
+			<p>Tickets: <span id="counter">0</span></p>
+			<p>Total: <b>$<span id="total">0</span></b></p>
+
+			<form th:action="@{/reserve.html}">
+				<input style="float: right;" class="small button" type="submit" href="reserve.html" value="Reservieren" />
+				<input style="float: right;" class="small button" type="submit" href="reserve.html" value="In den Warenkorb legen." />
+			</form>
+			<br />
+			<br />
+			<br />
+					
+			<div id="legend"></div>
+		</div>
+		<div style="clear:both"></div>
+   </div>
+	<script type="text/javascript">
+	var price = 7.41; //price
+	$(document).ready(function() {
+		var $cart = $('#selected-seats'), //Sitting Area
+		$counter = $('#counter'), //Votes
+		$total = $('#total'); //Total money
+
+		var sc = $('#seat-map').seatCharts({
+			map: [  //Seating chart
+				'aaaaaaaaaa',
+				'aaaaaaaaaa',
+				'__________',
+				'_aaaaaaaa_',
+				'aaaaaaaaaa',
+				'aaaaaaaaaa',
+				'aaaaabaaaa',
+				'aaaaaaaaaa',
+				'aaaaabaaaa',
+				'__________',
+				'aaaaaaaaaa',
+				'aaaaaaaaaa',
+				'aa__aa__aa'
+			],
+			naming : {
+				top : false,
+				getLabel : function (character, row, column) {
+					return column;
+				}
+			},
+			legend : { //Definition legend
+				node : $('#legend'),
+				items : [
+					[ 'a', 'available',   'Frei' ],
+					[ 'a', 'unavailable', 'Belegt'],
+					[ 'a', 'defective', 'defekt']
+				]
+			},
+			click: function () { //Click event
+				if (this.status() == 'available') { //optional seat
+					$('<div>R'+(this.settings.row+1)+' S'+this.settings.label+'</div>')
+						.attr('id', 'cart-item-'+this.settings.id)
+						.data('seatId', this.settings.id)
+						.appendTo($cart);
+
+					$counter.text(sc.find('selected').length+1);
+					$total.text(recalculateTotal(sc)+price);
+
+					return 'selected';
+				} else if (this.status() == 'selected') { //Checked
+						//Update Number
+						$counter.text(sc.find('selected').length-1);
+						//update totalnum
+						$total.text(recalculateTotal(sc)-price);
+
+						//Delete reservation
+						$('#cart-item-'+this.settings.id).remove();
+						//optional
+						return 'available';
+				} else if (this.status() == 'unavailable') { //sold
+					return 'unavailable';
+				} else {
+					return this.style();
+				}
+			}
+		});
+		//sold seat
+		sc.get(['1_2', '4_4','4_5','6_6','6_7','8_5','8_6','8_7','8_8', '10_1', '10_2']).status('unavailable');
+		sc.get(['1_5', '3_4']).status('defective');
+
+	});
+	//sum total money
+	function recalculateTotal(sc) {
+		var total = 0;
+		sc.find('selected').each(function () {
+			total += price;
+		});
+
+		return total;
+	}
+	</script>
+    </div>
+
+
+
+
+</div>
+
+</body>
+</html>

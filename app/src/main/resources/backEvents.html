@@ -1,0 +1,27 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <table>
+        <tr>
+            <td>Datum</td>
+            <td>Film</td>
+            <td>Raum</td>
+            <td>Auslastung</td>
+        </tr>
+        <tr th:each="event : ${events}">
+            <!--/*@thymesVar id="event" type="kickstart.SavedClasses.CEvent"*/-->
+            <td th:text="${event.getO_startDate()}"> startzeit </td>
+            <td th:text="${event.getMovie().getName()}"> filmtitel </td>
+            <td th:text="${event.getO_room().getS_name()}"> raum </td>
+            <td th:text="${event.g}"
+
+        </tr>
+    </table>
+</body>
+</html>

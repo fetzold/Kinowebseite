@@ -1,0 +1,101 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/resources/css/foundation.css}" />
+<script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+<title>UFO Kino</title>
+</head>
+
+<body>
+	<header th:include="header :: header"></header>
+
+	<div class="row">
+		<nav th:include="navigation :: navigation"></nav>
+		<div class="large-9 columns">
+		<div th:if="${error == 'time'}" class="alert-box secondary">
+        <b>Stornierungen sind f&uuml;r diese Vorstellung nicht mehr m&ouml;glich.</b></div>
+        <div th:if="${error == 'one'}" class="alert-box secondary">
+        <b>Stornierungen sind f&uuml;r mindestens eine Vorstellung nicht mehr m&ouml;glich.</b></div>
+
+			<table width="650">
+				<caption>Transaktion gefunden</caption>
+				<thead>
+					<tr>
+						<th th:text="#{tickets.buyer}">Datum</th>
+						<th th:text="#{tickets.state}">Typ</th>
+						<th th:if="${found.cartType.name() == 'RESERVATION'}" th:text="#{tickets.label}">Reservierungsnummer</th>
+						<th th:text="#{cart.date}">Datum</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td th:text="${found.user}">A</td>
+						<td th:if="${found.cartType.name() == 'CANCELED'}">Storniert</td>
+						<td th:if="${found.cartType.name() == 'RESERVATION'}">Reservierung</td>
+						<td th:if="${found.cartType.name() == 'PURCHASE'}">Bezahlt</td>
+						<td th:if="${found.cartType.name() == 'RESERVATION'}" th:text="${found.resCode}">ID</td>
+						<td th:text="${found.time}">C</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="large-9 columns">
+			<table width="700">
+				<thead>
+					<th th:text="#{cart.movie}">Film</th>
+					<th th:text="#{cart.time}">Filmstart</th>
+					<th><span th:text="#{cart.row} + ' / ' + #{cart.seat}">Reihe und Platz</span><br /><span th:text="#{cart.room}">Saal</span></th>
+					<th th:text="#{cart.price}">Preis</th>
+					<th th:text="#{cart.type}">Klasse</th>
+					<th></th>
+				</thead>
+				<tr th:each="item : ${included}">
+					<td th:text="${item.moviename}"></td>
+					<td th:text="${item.time}">></td>
+					<td><span th:text="'R ' + ${item.i_row} + ' / P ' + ${item.i_seat}">Reihe und Platz</span><br /><span th:text="${item.s_room}">Saal</span></td>
+					<td><span th:text="${item.moneyToString() + '€'}">Preis</span><br />
+						<span th:if="${item.priceClass.name() == 'FULL'}">Vollpreis</span>
+						<span th:if="${item.priceClass.name() == 'REDUCED'}">Ermäßigt</span>
+						</td>
+					<td th:text="${item.seattype}"></td>
+					<td th:if="${#lists.contains(item.categories, 'canceled')}">Storniert</td>
+					<td th:unless="${#lists.contains(item.categories, 'canceled')}">
+ 						<form method="post" action="/cancelOne/">
+							<input type="hidden" th:value="${found.id}" name="resCode" />
+							<input type="hidden" th:value="${item.identifier}" name="ident" />
+							<input type="hidden" th:value="${item.eventID}" name="eventID" />
+							<input type="submit" class="tiny alert button radius" th:value="#{tickets.cancel}" />
+						</form>
+						</td>
+				</tr>
+			</table>
+			
+			<p th:unless="${found.cartType.name() == 'CANCELED'}" th:text="#{cart.total} + ': ' + ${total} + '€'">100€</p>
+		</div>
+		<div style="float: right;">
+			<ul class="button-group radius">
+ 					<li th:if="${found.cartType.name() == 'PURCHASE'}"><form method="post" action="/print/">
+						<input type="hidden" th:value="${found.id}" name="resCode" />
+						<input type="submit" class="small button radius" value="Drucken" th:value="#{tickets.print}" />
+					</form></li>
+					
+ 					<li th:if="${found.cartType.name() == 'RESERVATION'}"><form method="post" action="/pay/">
+						<input type="hidden" th:value="${found.resCode}" name="resCode" />
+						<input type="submit" class="small button radius" value="Bezahlen" th:value="#{tickets.pay}" />
+					</form></li>
+					
+				<li th:unless="${found.cartType.name() == 'CANCELED'}"><form method="post" action="/cancelAll/">
+						<input type="hidden" th:value="${found.id}" name="resCode" />
+						<input type="submit" class="small alert button radius" value="Stornieren" th:value="#{tickets.cancel}" />
+					</form></li>
+			</ul>
+			
+		</div>
+	</div>
+</body>
+</html>

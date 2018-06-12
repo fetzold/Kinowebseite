@@ -1,0 +1,30 @@
+
+[options="header"]
+|===
+2+|*Costumer*
+|*_Staff_*       |*_Oberklasse_*
+|Verantwortlichkeiten
+
+Login
+
+Ticket reservieren
+
+Rent Room
+
+Print Ticket
+
+Delete Resevation
+
+|Mithelfer
+
+Program
+
+2+|Beschreibung
+
+Kleinstes Benutzerlevel
+
+2+|Attribute
+
+Namen, Vornamen, Email, Passwort, Telefonnummer
+
+|===

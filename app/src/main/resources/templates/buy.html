@@ -1,0 +1,79 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+<script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+<title>UFO Kino</title>
+</head>
+
+<body>
+	<header th:include="header :: header"></header>
+
+	<div class="row">
+		<div class="large-9 columns" sec:authorize="hasAnyRole('ROLE_BOSS','ROLE_AUTHORIZED','ROLE_EMPLOYEE')">
+			<div style="border: 2px dashed; padding: 20px; margin-bottom: 10px; height: 200px;" th:each="item : ${tickets}">
+				<table style="border: none;" width="600">
+					<tr>
+						<td width="80"><b th:text="#{cart.movie} + ':' ">Name</b></td>
+						<td colspan="3" th:text="${item.moviename}">Name</td>
+						<td width="80"><b th:text="#{cart.time} + ':' ">Zeit</b></td>
+						<td colspan="3" th:text="${item.time}">Zeit</td>
+					</tr>
+					<tr style="background-color: white;">
+						<td colspan="6"></td>
+					</tr>
+					<tr style="background: transparent;">
+						<td width="80"><b th:text="#{cart.room} + ':' ">Saal</b></td>
+						<td th:text="${item.s_room}">Saal</td>
+						<td width="80"><b th:text="#{cart.row} + ':' ">Reihe</b></td>
+						<td th:text="${item.i_row}">Reihe</td>
+						<td width="80"><b th:text="#{cart.seat} + ':  ' ">Platz</b></td>
+						<td th:text="${item.i_seat} + ' ' + ${item.seattype}">Sitz</td>
+					</tr>
+					<tr style="background-color: white;">
+						<td colspan="6"></td>
+					</tr>
+					<tr>
+						<td><b th:text="#{cart.priceclass} + ':' ">Preisklasse:</b></td>
+						<td th:if="${item.priceClass.name() == 'FULL'}">Vollpreis</td>
+						<td th:if="${item.priceClass.name() == 'REDUCED'}">Ermäßigt</td>
+						<td width="80"><b th:text="#{cart.price} + ':' ">Preis</b></td>
+						<td colspan="3" th:text="${item.moneyToString()} + '€'">Preis</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<div class="large-9 columns" sec:authorize="hasAnyRole('ROLE_CUSTOMER')">
+			<div style="border: 2px dashed; padding: 20px; margin-bottom: 10px;">
+			<p th:text="'Hallo ' + ${customer} + ','">Hallo Nutzer</p>
+			<p>Bitte drucken oder speichern Sie sich diese Ansicht und bringen sie Sie direkt zum Einlass. Bei Verlust wenden Sie sich bitte vor Ort and die Kasse.</p>
+			<br />
+				<table width="600" th:each="item : ${tickets}">
+					<tr>
+						<td width="80"><b th:text="#{cart.movie} + ':' ">Name</b></td>
+						<td th:text="${item.moviename}">Name</td>
+						<td width="80"><b th:text="#{cart.time} + ':' ">Zeit</b></td>
+						<td th:text="${item.time}">Zeit</td>
+						<td width="80"><b th:text="#{cart.seat} + ':' ">Platz</b></td>
+						<td th:text="${item.s_room} + ' ' + ${item.i_row} + ' / ' + ${item.i_seat}">Ort</td>
+					</tr>
+					<tr style="background-color: white;">
+						<td><b>Platztyp:</b></td>
+						<td th:text="${item.seattype}"></td>
+						<td><b th:text="#{cart.price} + ':' ">Name</b></td>
+						<td th:text="${item.moneyToString()} + '€'"></td>
+						<td><b th:text="#{cart.priceclass} + ':' ">Preisklasse:</b></td>
+						<td th:if="${item.priceClass.name() == 'FULL'}">Vollpreis</td>
+						<td th:if="${item.priceClass.name() == 'REDUCED'}">Ermäßigt</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="large-9 columns" style="float: left;">
+		<a href="/index.html" class="button small radius success" th:text="#{button.home}">Home</a>
+		</div>
+	</div>
+</body>
+</html>

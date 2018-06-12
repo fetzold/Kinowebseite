@@ -1,0 +1,55 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+        <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+        <title>UFO Kino</title>
+    </head>
+    <body>
+        <header th:include="header :: header"></header>
+        
+        <div class="row">
+            <nav th:include="navigation :: navigation"></nav>
+
+            <div class="large-9 columns">
+            <nav th:include="subnavAccountManagement :: subnavAccountManagement"></nav>
+
+			<div th:if="${orders.empty}" class="alert-box secondary">
+       		Sie haben keine abgeschlossenen K&auml;ufe.
+       		</div>
+
+			<div th:unless="${orders.empty}">
+			<table width="650" style="padding: 0px;border-spacing: 0px;" th:each="order,iterationStatus : ${orders}" th:unless="${order.cartType.name() == 'CANCELED'}">
+				<caption th:if="${order.cartType.name() == 'PURCHASE'}" th:text="'Kauf vom ' + ${order.time}" style="text-align: left"></caption>
+				<caption th:if="${order.cartType.name() == 'RESERVATION'}" th:text="'Reservierung vom ' + ${order.time}" style="text-align: left"></caption>
+				<thead>
+					<tr>
+						<th width="20px"></th>
+						<th th:text="#{cart.movie}">Film</th>
+						<th th:text="#{cart.time}">Zeit</th>
+                        <th width="110px"><span th:text="#{cart.row} + ' / ' + #{cart.seat}">Reihe und Platz</span><br /><span th:text="#{cart.room}">Saal</span></th>
+                        <th width="80px" th:text="#{cart.type}">Klasse</th>
+                        <th width="80px" th:text="#{cart.price}">Preis</th>
+                        <th width="90px" th:text="#{tickets.state}">Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="ticket : ${order.getTickets()}">
+						<td></td>
+						<td th:text="${ticket.moviename}"></td>
+						<td th:text="${ticket.time}"></td>
+						<td><span th:text="'R ' + ${ticket.i_row} + ' / P ' + ${ticket.i_seat}">Reihe und Platz</span><br /><span th:text="${ticket.s_room}">Saal</span></td>
+						<td th:text="${ticket.seattype}"></td>
+						<td th:text="${ticket.moneyToString()} + '€'"></td>
+						<td th:if="${ticket.getCategories().contains('canceled')}">Storniert</td>
+						<td th:if="${ticket.getCategories().contains('reservation')}">Reserviert</td>
+						<td th:unless="${ticket.getCategories().contains('reservation')} or ${ticket.getCategories().contains('canceled')}">Bezahlt</td>
+					</tr>
+				</tbody>
+			</table>
+			</div>
+		</div>
+        </div>
+    </body>
+</html>

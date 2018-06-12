@@ -1,0 +1,56 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+        <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+        <title>UFO Kino</title>
+    </head>
+
+    <body>
+        <header th:include="header :: header"></header>
+
+        <div class="row">
+            <nav th:include="navigation :: navigation"> </nav>
+
+			<div class="large-9 columns">
+
+                <nav th:include="subnav :: subnav"> </nav>
+                <nav th:include="subnavProgramManagement :: subnavProgramManagement"></nav> <br/>
+                <div  class="large-9 columns">
+            	<p>Bitte wählen sie ein Startzeit für die Vorstellung aus.</p>
+            	Die Farbmarkierungen haben die folgenden Bedeutungen:<br /><br />
+            		<div style="height: 20px; width: 78px; background-color: green; float: left;"></div><div style="height: 20px;">&nbsp;&nbsp; Verfügbare Startzeit</div><br />
+            		<div style="height: 20px; width: 78px; background-color: red; float: left;"></div><div style="height: 20px;">&nbsp;&nbsp; Zeitraum ist bereits mit einer anderen Vorstellung belegt</div><br />
+            		<div style="height: 20px; width: 78px; background-color: gray; float: left;"></div><div style="height: 20px;">&nbsp;&nbsp; Die Startzeit wäre zu nah an einer folgenden Vorstellung</div><br />
+                    <div style="height: 20px; width: 78px; background-color: lightgrey; float: left;"></div><div style="height: 20px;">&nbsp;&nbsp; Die Startzeit liegt in der Vergangenheit</div><br />
+            	</div>
+            	<div  class="large-12 columns">
+                <!--/*@thymesVar id="days" type="java.util.ArrayList"*/-->
+                    <!--/*@thymesVar id="day" type="kickstart.model.programOverView.Day"*/-->
+                <div style="width: 60px" class="large-1 columns">
+                    <div style="border: 1px solid; height: 40px; width: 60px" th:text="#{addEvent2nd.Zeit}"></div>
+                    <div style="border: 1px solid; height: 60px; width: 80px" th:each="time : ${times}" th:text="${time}"></div>
+                </div>
+                
+                <div style="float: left; width: 80px" class="large-1 columns" th:each="day : ${days}">
+                    <div style=" border: 1px solid; height: 40px; width: 80px" th:text="${day.getDate().getDate()}"></div>
+                    <!--<div style="border: 1px solid; height: 40px; width: 60px" th:each="timestap : ${day.getCollection()}">
+                        <a style="height: 40px; width: 60px; color: #74bfdd" th:if="${timestap.getColorId().equals(1)}">frei</a>
+                        /*@thymesVar id="day" type="kickstart.model.programOverView.Day"*/
+                        <a style="height: 40px; width: 60px; color: green" th:href="'add/'+ ${form.getRoomID()} + '/'+ ${form.getMovieID()} + '/'+ ${day.getDate().getYear()} + '/'+ ${day.getDate().getMonth()} +'/'+ ${day.getDate().getDay()} + '/'+ ${timestap.getHour()} +'/'+ ${timestap.getMinute()}" th:if="${timestap.getColorId().equals(2)}">start</a>
+                        <a style="height: 40px; width: 60px; color: red" th:if="${timestap.getColorId().equals(3)}">belget</a>
+                    </div> -->
+                    <div style="border: 1px solid; height: 20px; width: 80px" th:each="timestap : ${day.getCollection()}">
+                        <div style="height: 20px; width: 78px; background-color: gray;" th:if="${timestap.getColorId().equals(1)}"></div>
+                        <a style="color: green;" th:href="'add/'+ ${form.getRoomID()} + '/'+ ${form.getMovieID()} + '/'+ ${day.getDate().getYear()} + '/'+ ${day.getDate().getMonth()} +'/'+ ${day.getDate().getDay()} + '/'+ ${timestap.getHour()} +'/'+ ${timestap.getMinute()} + '/0'"><div style="height: 20px; width: 78px; background-color: green;" th:if="${timestap.getColorId().equals(2)} and ${!isPrivate}"></div></a>
+                        <a style="color: green;" th:href="'add/'+ ${form.getRoomID()} + '/'+ ${form.getMovieID()} + '/'+ ${day.getDate().getYear()} + '/'+ ${day.getDate().getMonth()} +'/'+ ${day.getDate().getDay()} + '/'+ ${timestap.getHour()} +'/'+ ${timestap.getMinute()}+ '/1'"><div style="height: 20px; width: 78px; background-color: green;" th:if="${timestap.getColorId().equals(2)} and ${isPrivate}"></div></a>
+                        <div style="height: 20px; width: 78px; background-color: red;" th:if="${timestap.getColorId().equals(3)}"></div>
+                        <div style="height: 20px; width: 78px; background-color: lightgrey;" th:if="${timestap.getColorId().equals(4)}"></div>
+                    </div>
+                    <br />
+                </div></div>
+            </div>
+        </div>
+    </body>
+</html>

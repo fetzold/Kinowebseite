@@ -1,0 +1,22 @@
+=Josias Zeiten:
+
+|===
+|Datum |Von |Bis |Was?
+|18.10.2015    |19.00       |21.00      |Einarbeitung Git
+|19.10.2015|17.00|18.00|Protokolle Updaten,Vorbereiten
+|20.10.2015|9.30|10.10|added Milestones
+|21.10.2015|9.00|9.45|Protocol fertig machen
+|~|13.30|15.34|Videoshop Aufgabe
+|22.10.2015|9.00|13.18|Issues Aktualisieren, Git Upload -.-
+|~|17.00|19.30|Meeting Kickoff Diagramme
+|24.10.2015|9.30|11.10|Entwurf Use-Case
+|~|13.00|13.32|Organisatorisches(Issues/Protokoll nach Brandons Mail Vervollständigen)
+|27.10.2015|10.00|10.40|Diagramme lesen, Szenarien lesen, Pflichtenheft start
+|28.10.2015|12.00|14.00|CRC-Karten
+|29.10.2015|20.00|20.30|Uploads
+|30.10.2015|12.00|16.15|Kickstart+GUIPrototyp
+|31.10.2015|14.00|15.00|Interaktiver Aufbau des Menus Protype
+|01.11.2015|20.00|22.00|Diagramme lesen
+|02.11.2015|11.10|12.40|HTML GUI Entwurf
+|~	   |17.00|20.00|Pflichtenheft finished
+|===

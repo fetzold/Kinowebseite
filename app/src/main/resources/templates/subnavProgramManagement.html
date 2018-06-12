@@ -1,0 +1,31 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+        <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+        <title>UFO Kino</title>
+    </head>
+    
+    <body>
+        <nav th:fragment="subnavProgramManagement">
+        <ul class="button-group even-4">
+            <li>
+                <a th:if="${#httpServletRequest.requestURI.contains('rentafilm')}" sec:authorize="hasAnyRole('ROLE_BOSS','ROLE_AUTHORIZED')" class="small success button" style="background-color: #368A55; width: 160px" th:href="@{/rentafilm.html}" href="account.html" th:text="#{changeprogram.rentafilm}">Film mieten</a>
+                <a th:unless="${#httpServletRequest.requestURI.contains('rentafilm')}" sec:authorize="hasAnyRole('ROLE_BOSS','ROLE_AUTHORIZED')" class="small success button" style="width: 160px" th:href="@{/rentafilm.html}" href="account.html" th:text="#{changeprogram.rentafilm}">Film mieten</a>
+            </li>
+            <li>
+                <a th:if="${#httpServletRequest.requestURI.contains('changeprogram')}" sec:authorize="hasAnyRole('ROLE_BOSS','ROLE_AUTHORIZED')" class="small success button" style="background-color: #368A55; width: 160px" th:href="@{/changeprogram.html}" href="changeprogram.html" th:text="#{changeprogram.changeprogram}">Film ändern</a>
+                <a th:unless="${#httpServletRequest.requestURI.contains('changeprogram')}" sec:authorize="hasAnyRole('ROLE_BOSS','ROLE_AUTHORIZED')" class="small success button" style="width: 160px" th:href="@{/changeprogram.html}" href="changeprogram.html" th:text="#{changeprogram.changeprogram}">Film ändern</a>
+            </li>
+            <li>
+                <a th:if="${#httpServletRequest.requestURI.contains('addEvent')}" sec:authorize="hasAnyRole('ROLE_BOSS','ROLE_AUTHORIZED')" class="small success button" style="background-color: #368A55; width: 160px" th:href="@{/addEvent.html}" href="addEvent.html" th:text="#{changeprogram.addEvent}">Event erstellen</a>
+                <a th:unless="${#httpServletRequest.requestURI.contains('addEvent')}" sec:authorize="hasAnyRole('ROLE_BOSS','ROLE_AUTHORIZED')" class="small success button" style="width: 160px" th:href="@{/addEvent.html}" href="addEvent.html" th:text="#{changeprogram.addEvent}">Event erstellen</a>
+            </li>
+            <li>
+                <a th:if="${#httpServletRequest.requestURI.contains('changeEvent')}" sec:authorize="hasAnyRole('ROLE_BOSS','ROLE_AUTHORIZED')" class="small success button" style="background-color: #368A55; width: 160px" th:href="@{/changeEvent.html}" href="changeEvent.html" th:text="#{changeprogram.changeEvent}">Event ändern</a>
+                <a th:unless="${#httpServletRequest.requestURI.contains('changeEvent')}" sec:authorize="hasAnyRole('ROLE_BOSS','ROLE_AUTHORIZED')" class="small success button" style="width: 160px" th:href="@{/changeEvent.html}" href="changeEvent.html" th:text="#{changeprogram.changeEvent}">Event ändern</a>
+            </li>
+        </ul></nav>
+    </body>
+</html>

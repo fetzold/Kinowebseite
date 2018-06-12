@@ -1,0 +1,36 @@
+= Persönliches Feedback eines Teammitgliedes des Softwarepraktikums 2015/16
+
+**Von: Josia Mädler**
+
+**Gruppe: 19**
+
+== Was habe ich gelernt?
+* wenn ich etwas nicht weiß dann fragen
+* Lesen von offiziellen Dokumentationen
+* Tests sind sinnvoll und wichtig, wenn auch zu Beginn etwas lästig
+* Funtionsweise von Java verstanden
+* Code von Anderen verstehen
+
+= Welche Erfahrungen habe ich mit der Zusammenarbeit im Team gemacht?
+* Organisation von großen Projekten
+* Persöliche Treffen wichtig
+* Je klarer die Organisationsmittel genutzt werden, desto besser (Deutliche Nachrichten)
+* Nutzen und Arbeitsweise eines Git Repositorys
+
+== Welche Erfahrungen habe ich bei der Wiederverwendung von Bibliotheken/Frameworks (insbesondere SalesPoint) gemacht?
+* Wiederverwendung ist gut und wichtig
+* auch wenn es Zeit kostet sich einzuarbeiten spart es am Ende doch viel mehr Zeit ein
+* Nur Dinge benutzen, von welchen die Funktionsweise klar ist
+
+== Welche Vorschläge zur weiteren Verbesserung des Softwarepraktikums gibt es?
+* Noch mehr Vorträge und Übungen mit Oliver Gierke vorher
+* Früheres veröffentlichen von Übungsaufgaben bzgl. Spring und Salespoint (Kleiner Protype)
+* Integration von Spring und Salespoint in den Praktomaten
+* Stärkere Zugangsbedinungen vor allem bei Java (Praktomatsaufgaben Pflicht)
+
+== Sonstiges und Anmerkungen
+Die Arbeitsverteilung in den Teams ist oft ungleich. Daher wären mehr Zugangsbedingungen und eine bessere Teambildung gut.
+Als Ansporn könnte es auch helfen, Punkte auf Praktomatsaufgaben zu geben und die Teams danach zu Klassifizieren. Bei der Punkte vergabe dabei
+sollte auch der gute Willen berücksichtigt werden(z.B. Häufigkeit des Uploads zum Test). Ich denke wenn die Teams noch besser auf
+einem Stand sind, ist die Arbeitsverteilung auch wieder besser. Bei ungleichstarken Teammitgliedern passiert es leider häufig, dass die mit mehr Erfahrung eben mal schnell was runterschreiben,
+wo Andere länger brauchen würden. Diese Teammitglieder machen daher mehr und nehmen gleichzeitig den Anderen den Erfahrungsgewinn.

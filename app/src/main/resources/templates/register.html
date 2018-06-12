@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+        <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+        <title>UFO Kino</title>
+    </head>
+    
+    <body>
+        <header th:include="header :: header"></header>
+        
+        <div class="row">
+            <nav th:include="navigation :: navigation"></nav>
+
+            <div class="content">
+                <div class="salespoint">
+                    <form method="post" action="/registerNew" th:object="${registrationForm}">
+                        <fieldset>
+                            <legend th:text="#{register.title}">Benutzerkonto</legend>
+                                
+                            <div th:if="${#fields.hasErrors('*')}">
+                                <p>Einige Angaben sind nicht korrekt.</p>
+                            </div>
+
+                            <label th:text="#{register.forename}" for="forename">Vorname</label>
+                            <label class="error" th:if="${#fields.hasErrors('forename')}" th:errors="*{forename}"></label>
+                            <input id="forename" th:field="*{forename}" th:errorclass="fieldError" type="text" name="forename" />
+
+                            <label th:text="#{register.name}" for="name">Name</label>
+                            <label class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></label>
+                            <input id="name" th:field="*{name}" th:errorclass="fieldError" type="text" name="name" />
+
+                            <label th:text="#{register.phone}" for="phone">Telefonnummer</label>
+                            <label class="error" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></label>
+                            <input id="phone" th:field="*{phone}" th:errorclass="fieldError" type="tel" name="phone" />
+
+                            <label th:text="#{register.email}" for="email">E-Mail</label>
+                            <label class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></label>
+                            <input id="email" th:field="*{email}" th:errorclass="fieldError" type="email" name="email" />
+
+                            <label th:text="#{register.password}" for="password">Passwort</label>
+                            <label class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></label>
+                            <input id="password" th:field="*{password}" th:errorclass="fieldError" type="password" name="password" /><br /> 
+                                
+                            <input class="small button" style="float: right" type="submit" th:value="#{register.submit}" value="Registrieren" />
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

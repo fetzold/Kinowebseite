@@ -1,0 +1,31 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+        <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+        <title>UFO Kino</title>
+    </head>
+    
+    <body>
+        <header th:include="header :: header"></header>
+
+        <div class="row">
+            <nav th:include="navigation :: navigation"> </nav>
+
+            <div class="large-9 columns">
+                <div th:if="${param.error} ? true : false" class="panel">Falscher Benutzer oder Passwort.</div>
+                <form th:action="@{/login}"  method="post">
+                <fieldset>
+           		<legend th:text="#{register.login}">Benutzerkonto</legend>
+                    <label for="username">Username/Email</label>
+                    <input type="text" id="username" name="username" autofocus="autofocus" /> <br />
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" /> <br />
+                    <input style="float: right;" class="small button success radius" type="submit" value="Bestätigen" />
+                </fieldset>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

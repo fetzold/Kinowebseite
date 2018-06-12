@@ -1,0 +1,57 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+    <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+    <title>UFO Kino</title>
+</head>
+<body>
+
+<header th:include="header :: header"></header>
+
+<div class="row">
+
+
+    <nav th:include="navigation :: navigation"> </nav>
+
+
+
+    <div class="large-9 columns">
+
+        <table border="1">
+
+            <tr>
+                <td>Titel</td>
+                <td>Beschreibung</td>
+                <td>Mietdauer</td>
+
+            </tr>
+            <tr>
+                <td>My little Pony</td>
+                <td>Kinderfilm</td>
+                <td>bis 21.10.2016</td>
+            </tr>
+        </table>
+        <br />
+        <br />
+        <form th:action="@{/checkreservation}" method="post">
+            <label for="Titel">Titel</label>
+            <input type="text" id="Titel" name="Titel" autofocus="autofocus" />
+            <label for="description">Beschreibung</label>
+            <input type="text" id="description" name="description"/>
+            <label for="rentUntil">Gemietet bis:</label>
+            <input type="text" id="rentUntil" name="rentUntil"/> <br />
+
+            <input style="float: right;" class="small button" type="submit" value="Film zur Sammlung hinzufügen." />
+        </form>
+
+    </div>
+
+
+
+
+</div>
+
+</body>
+</html>

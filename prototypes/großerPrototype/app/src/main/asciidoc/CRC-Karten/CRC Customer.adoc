@@ -1,0 +1,41 @@
+[options="header"]
+|===
+2+|*Customer*
+|*_Unterklasse:_* Employee
+|*_Oberklasse:_*        
+
+|*_Verantwortlichkeiten:_* 
+
+- reserveTicket
+- renntRoom
+- printTicket
+- deleteReservation
+- seeProgram
+
+|*_Mithelfer:_*
+
+- System/DB
+
+- Time
+
+- Cinema
+
+
+2+|*_Beschreibung:_*
+Der Kunde repräsentiert das geringste Userlevel, dieser besitzt nur grundlegende Rechte.
+Er kann das Kinoprogramm anschauen, Tickets kaufen/verwalten und Räume für eine Veranstaltung mieten.
+
+2+|*_Attribute:_*
+
+- name
+
+- forename
+
+- username
+
+- password
+
+- e-Mail
+
+- telephoneNumber
+|===

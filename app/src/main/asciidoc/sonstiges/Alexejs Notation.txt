@@ -1,0 +1,57 @@
+/* 	Alexejs Notation
+	
+	Kommentare:
+	
+	Wenn ihr eine Methode schreibt gebt an wann wer sie geschrieben hat und was sie macht in etwa so:
+	Die Start und Ende Zeilen sind nicht verplflichtend aber wer, was, wann geschrieben hat, und was das Ding macht will ich haben!
+	
+	//-------------------------------------------------Start Method1-------------------------------------------------------------------------
+	// Author Alexej... 07.11.2015 
+	//Die Metode Method1 solll das und das machen
+	
+	public void Method1(...){...}
+	
+	//-------------------------------------------------Method1 End---------------------------------------------------------------------------
+	
+
+	
+	Klassennamen Regeln	: Klassen beginnen immer mit einem GROßEN Buchstaben!
+	Methoden Regeln 	: Beginnen mit einem großen Buchstaben!
+	Variablen		: Beginnen mit einem kleinen Buchstaben!
+	ÜbergabeParameter	: Haben als Prefix immer passed_ 
+	
+	Dazu gilt die allumfassende Regel neue Wörter, die konkateniert werden, beginnen mit einem Großbuchstaben z.B.: myPosX, DiesIstEineMethodeNicht(), ThatsAMethod()...
+
+	variable prefix rules:
+			
+	(GESTRICHEN)m	: MEMBER	private Variable in ner klasse z.b. m_zeit, m_xPos.
+	o	: OBJECT	sollte klar sein z.B. "var o_myCinema = new......" gilt auch für Container
+	d 	: Doubble	d_zpos
+	f	: FLOAT		f_xpos
+	i	: int		i_ypos
+	b	: boo(lean)	b_alive
+	g   	: logische Gruppen (Container)
+	a	: array  
+	u   	: unsigned z.b "int ui_var23 oder mit member uim_var24;
+	s	: string
+	ch	: char
+	ref     : referenz auf ein Objekt. "ref = o_myCinema"
+	c	: collection/container
+	
+
+	E	: Enum		z.B: EMyEnum....
+	
+	Clases prefix rules:
+
+	C	: Class 	"CCinema"
+	M	: My		(If a classname is olready taken by the systhem)		
+				Note:  if classname is olready taken it's M_CRandomClass not CMRandomClass
+		
+
+	Methods prefix rules:
+
+	H	: Help  for helping methods they are private
+
+	
+	Falls wer Fälle findet, die nicht abgeklärt worden sind bescheid geben. 
+*/

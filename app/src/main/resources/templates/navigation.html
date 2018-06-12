@@ -1,0 +1,90 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+        <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+
+    </head>
+    
+    <body>
+        <nav th:fragment="navigation">
+
+            <div class="large-3 columns">
+                <!--<div th:remove="all-but-first">
+                    <a class="small button" style="width: 200px" th:each="menuPoint : ${menu}" th:href="${menuPoint.getLink()}" th:v xt="${menuPoint.getName()}">
+                    MENU
+                    </a>
+                    <h1>INDEX</h1>
+                </div>-->
+                <div>
+                <ul class="stack button-group">
+                	<li><a th:if="${#httpServletRequest.requestURI} == ${'/index.html'}" class="small button" style="background-color: #007095; width: 200px" th:href="@{/index.html}" href="index.html" th:text="#{nav.home}">Home</a>
+                        <a th:unless="${#httpServletRequest.requestURI} == ${'/index.html'}" class="small button" style="width: 200px" th:href="@{/index.html}" href="index.html" th:text="#{nav.home}">Home</a>
+                    </li>
+                	<li><a th:if="${#httpServletRequest.requestURI} == ${'/program.html'} or ${#httpServletRequest.requestURI.contains('/event')}" class="small button" style="background-color: #007095; width: 200px" th:href="@{/program.html}" href="program.html" th:text="#{nav.program}">Programm</a>
+                        <a th:unless="${#httpServletRequest.requestURI} == ${'/program.html'} or ${#httpServletRequest.requestURI.contains('/event')}" class="small button" style="width: 200px" th:href="@{/program.html}" href="program.html" th:text="#{nav.program}">Programm</a></li>
+                	<li><a th:if="${#httpServletRequest.requestURI} == ${'/cart.html'}" class="small button" style="background-color: #007095; width: 200px" th:href="@{/cart.html}" href="cart.html" th:text="#{nav.cart}">Warenkorb</a>
+                        <a th:unless="${#httpServletRequest.requestURI} == ${'/cart.html'}" class="small button" style="width: 200px" th:href="@{/cart.html}" href="cart.html" th:text="#{nav.cart}">Warenkorb</a></li>
+                </ul><br />
+                </div>
+                
+                <div>
+                <ul class="stack button-group">
+                	<li sec:authorize="hasAnyRole('ROLE_BOSS','ROLE_AUTHORIZED','ROLE_EMPLOYEE')">
+                        <a th:if="${#httpServletRequest.requestURI} == ${'/checkreservation.html'}" class="small button" style="background-color: #007095; width: 200px" th:href="@{/checkreservation.html}" href="checkreservation.html" th:text="#{nav.checkreservation}">Reservierung Prüfen</a>
+                        <a th:unless="${#httpServletRequest.requestURI} == ${'/checkreservation.html'}" class="small button" style="width: 200px" th:href="@{/checkreservation.html}" href="checkreservation.html" th:text="#{nav.checkreservation}">Reservierung Prüfen</a>
+                    </li>
+                    <li sec:authorize="hasAnyRole('ROLE_BOSS','ROLE_AUTHORIZED','ROLE_EMPLOYEE')">
+                        <a th:if="${#httpServletRequest.requestURI} == ${'/options.html'}
+                           or ${#httpServletRequest.requestURI.contains('/staff')}
+                           or ${#httpServletRequest.requestURI.contains('/detailEmployee')}
+                           or ${#httpServletRequest.requestURI.contains('Event')}
+                           or ${#httpServletRequest.requestURI.contains('Room')}
+                           or ${#httpServletRequest.requestURI.contains('/account.html')}
+                           or ${#httpServletRequest.requestURI.contains('/changeprogram.html')}
+                           or ${#httpServletRequest.requestURI.contains('film')}"
+                        class="small button" style="background-color: #007095; width: 200px" th:href="@{/options.html}" href="account.html" th:text="#{nav.account}">Verwaltung</a>
+
+                        <a th:unless="${#httpServletRequest.requestURI} == ${'/options.html'}
+                           or ${#httpServletRequest.requestURI.contains('/staff')}
+                           or ${#httpServletRequest.requestURI.contains('/detailEmployee')}
+                           or ${#httpServletRequest.requestURI.contains('Event')}
+                           or ${#httpServletRequest.requestURI.contains('Room')}
+                           or ${#httpServletRequest.requestURI.contains('/account.html')}
+                           or ${#httpServletRequest.requestURI.contains('/changeprogram.html')}
+                           or ${#httpServletRequest.requestURI.contains('film')}" class="small button" style="width: 200px" th:href="@{/options.html}" href="account.html" th:text="#{nav.account}">Verwaltung</a>
+                    </li>
+                    <li sec:authorize="hasAnyRole('ROLE_CUSTOMER')">
+                        <a th:if="${#httpServletRequest.requestURI} == ${'/myorders.html'}" class="small button" style="background-color: #007095; width: 200px" th:href="@{/myorders.html}" href="myorders.html" th:text="#{nav.account}">Verwaltung</a>
+                        <a th:unless="${#httpServletRequest.requestURI} == ${'/myorders.html'}" class="small button" style="width: 200px" th:href="@{/myorders.html}" href="myorders.html" th:text="#{nav.account}">Verwaltung</a>
+                    </li>
+               		<li sec:authorize="hasAnyRole('ROLE_BOSS')">
+                        <a th:if="${#httpServletRequest.requestURI.contains('get')}" class="small button" style="background-color: #007095; width: 200px" th:href="@{/getMoneyDay.html}" href="getMoneyDay.html" th:text="#{nav.getMoneyDay}">Statistik</a>
+                        <a th:unless="${#httpServletRequest.requestURI.contains('get')}" class="small button" style="width: 200px" th:href="@{/getMoneyDay.html}" href="getMoneyDay.html" th:text="#{nav.getMoneyDay}">Statistik</a>
+                    </li>
+                </ul>
+                </div>
+                
+                <div sec:authorize="isAuthenticated()"><br />
+                <ul class="stack button-group">
+                	<li><form th:action="@{/logout}" method="post"><input class="small button" style="width: 200px" type="submit" value="Logout" th:value="#{nav.logout}" /></form></li>
+                </ul>
+                </div>
+                
+                <div sec:authorize="!isAuthenticated()">
+                <ul class="stack button-group">
+                    <li>
+                        <a th:if="${#httpServletRequest.requestURI} == ${'/login'}" class="small button" style="background-color: #007095; width: 200px" th:href="@{/login}" th:text="#{nav.login}">Login</a>
+                        <a th:unless="${#httpServletRequest.requestURI} == ${'/login'}" class="small button" style="width: 200px" th:href="@{/login}" th:text="#{nav.login}">Login</a>
+                    </li>
+                	<li>
+                        <a th:if="${#httpServletRequest.requestURI} == ${'/register.html'}" class="small button" style="background-color: #007095; width: 200px" th:href="@{/register.html}" th:text="#{nav.register}">Registrierung</a>
+                        <a th:unless="${#httpServletRequest.requestURI} == ${'/register.html'}" class="small button" style="width: 200px" th:href="@{/register.html}" th:text="#{nav.register}">Registrierung</a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+    </body>
+</html>

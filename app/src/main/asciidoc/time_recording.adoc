@@ -1,0 +1,30 @@
+= Zeiterfassung für Gruppe 19
+
+Notieren Sie die Zeit in Minuten für jeden Entwickler und für Team-Treffen pro Woche.
+Die verwendete Zeit beinhaltet auch das Lesen von Dokumentationen, Besprechungen mit Teamkollegen und sonstige auf das Praktikum bezogene Aufgaben.
+
+// See http://asciidoctor.org/docs/user-manual/#tables
+[option="headers"]
+|===
+|Von                    |Bis        |Josia   |Beatrice|Marco   |Alexej  |Felix    |Meeting 
+|13.10.2015             |19.10.2015 |6h      |4h      |4 1/2h  |16h     |4 1/2h   |3h      
+|20.10.2015             |26.10.2015 |12h     |16h     |12 1/2h |16h     |10h      |3h      
+|27.10.2015             |02.11.2015 |17h     |21h     |14h     |17h     |9 1/2h   |5h 30min
+|03.11.2015             |09.11.2015 |14h     |12h     |13h     |15h     |13 1/2h  |5h      
+|10.11.2015             |16.11.2015 |14h     |15h     |12h     |7h      |12h      |5h      
+|17.11.2015             |23.11.2015 |12h     |19h     |11h     |16h     |10h      |4h 30min
+|24.11.2015             |30.11.2015 |16h     |20h     |13h     |8h      |13h      |4h      
+|01.12.2015             |07.12.2015 |17h     |21h     |12h     |15h     |8h       |4h      
+|08.12.2015             |14.12.2015 |20h     |25h     |18h     |16h     |15h      |5h      
+|15.12.2015             |21.12.2015 |25h     |25h     |32h     |16h     |25h      |4h      
+|22.12.2015             |28.12.2015 |16h     |17h     |8h      |16h     |14h      |2h      
+|29.12.2015             |04.01.2016 |5h      |19h     |9h      |15h     |6h       |2h      
+|05.01.2016             |11.01.2016 |14h     |22h     |18h     |16h     |21h      |3h 30min
+|12.01.2016             |15.01.2016 |20h     |21h     |24h     |        |5h       |4h 30min
+|Gesamt	                |           |208h    |257h    |201h    |189h    |161h30min|55h     
+|Mit Meetings           |           |263h    |312h    |256h    |244h    |216h30min|        
+|Durschnitt (pro Woche) |           |17h20min|21h25min|16h45min|15h45min|13h28min |        
+|Durschnitt mit Meetings|           |21h55min|26h     |21h10min|20h20min|18h3min  |        
+|===
+
+Durchschnitt pro Woche pro Person: 21h 30min

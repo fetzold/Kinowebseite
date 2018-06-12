@@ -1,0 +1,45 @@
+﻿= Protokoll Gruppe 19
+__Treffen am 15.12.2015__
+
+__Schriftführer:__
+Beatrice Gräßler
+
+__Nächstes Treffen:__ 18.12.2015
+
+__Teilnehmer:__
+
+Josia Mädler, Felix Etzold, Beatrice Gräßler, Alexej Sentschenko, Marco Schwabe
+
+
+== Bemerkungen
+
+einzelne Muss-Kriterien überprüft
+
+persönliche Arbeit jedes Teammitglieds an der Software durchgegangen
+
+mehr Fragen stellen!
+
+Benutzer müssen noch bearbeitbar werden
+
+Probleme bezüglich Email und Useraccount gelöst
+
+== Aktueller Stand
+
+* Filme können bearbeitet werden
+* Karten werden verkauft, Plätze reserviert, Preis berechnet
+* Formulare werden großteils validiert
+* Benutzerfreundlichkeit an vielen Stellen mangelhaft
+* Personal kann eingestellt werden
+* Säle werden nach Platztyp farbig markiert
+* Vorstellungen werden graphisch erstellt
+* vergangene Veranstaltungen verschwinden aus dem Programm
+* Eingaben brauchen noch Duplikatsprüfungen
+* viele Bugs sind aufgetaucht
+
+== Planung des nächsten Sprints
+
+* letzte fehlende Punkte bis Freitag fertig stellen
+* Rest ordentlich validieren
+* Navigation muss verbessert werden
+* viele Fehler zu prüfen und entfernen
+* Vorbereitung der fertigen Jar für das Cross-Testing

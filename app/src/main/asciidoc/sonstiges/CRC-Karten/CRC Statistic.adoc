@@ -1,0 +1,29 @@
+[options="header"]
+|===
+2+|*Statistic*
+|*_Unterklasse:_* 
+|*_Oberklasse:_*      
+
+|*_Verantwortlichkeiten:_* 
+
+- createOverview
+
+|*_Mithelfer:_*
+
+- System/DB
+
+- Time
+
+- Boss
+
+- Movie
+
+2+|*_Beschreibung:_*
+Die Statistic hat Zugriff auf die Datenbank um eine Übersicht über Saalauslastung, Kosten und Personal für den Admin zu erstellen.
+
+2+|*_Attribute:_*
+
+- costs
+
+- income
+|===

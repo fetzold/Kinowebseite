@@ -1,0 +1,33 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+    <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+    <title>UFO Kino</title>
+</head>
+
+<body>
+<header th:include="header :: header"></header>
+
+<div class="row">
+    <nav th:include="navigation :: navigation"> </nav>
+
+    <div class="large-9 columns">
+
+        <form method="post" role="form" class="gb-form" id="form" th:action="@{/addEvent2nd}" th:object="${form}">
+            <!--erstzten durch radiobuttons-->
+            <label for="room" th:text="#{chooseRoom.Raum}">Name</label>
+            <select id="room" class="form-control" th:field="*{roomID}">
+                <!--/*@thymesVar id="room" type="kickstart.SavedClasses.SaveRoom"*/-->
+                <option th:each="room : ${rooms}" th:value="${room.getId()}" th:text="${room.getName()}">Option</option>
+            </select>
+            Private Veranstaltung: <input id="private" type="checkbox" th:field="*{b_private}"/>
+            <br />
+            <input type="hidden" th:field="*{movieID}"/>
+            <input type="submit" class="btn btn-default" th:value="Bestätigen" value="Senden" />
+        </form>
+    </div>
+</div>
+</body>
+</html>

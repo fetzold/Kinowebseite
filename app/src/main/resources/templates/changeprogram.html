@@ -1,0 +1,41 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+        <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+        <title>UFO Kino</title>
+    </head>
+    
+    <body>
+        <header th:include="header :: header"></header>
+
+        <div class="row">
+            <nav th:include="navigation :: navigation"></nav>
+        
+            <div class="large-9 columns">
+                <nav th:include="subnav :: subnav"></nav>
+                <nav th:include="subnavProgramManagement :: subnavProgramManagement"></nav>
+                Bitte einen Film wählen und bearbeiten!
+                <form th:action="@{/changeafilm}" method="get"  modelAttribute="cmovie">
+                    <select name="movie" id="movie" >
+                        <option th:each="events : ${movies}" th:value="${events.id}" th:text="${events.name}">Film</option>
+                    </select>
+                    <input type="submit" class="small button success radius" th:value="Bestätigen" value="Senden" />
+                </form>
+                <p /><br />
+                Bild eines Films ändern:
+                <form th:action="@{/changepicture}" method="post" enctype="multipart/form-data">
+                    <select name="movie" id="movie" >
+                        <option th:each="events : ${movies}" th:value="${events.id}" th:text="${events.name}">Film</option>
+                    </select>
+                    <label class="error" th:if="${fileerror} == 'fileerror'">Wählen sie eine jpg-Datei aus.</label>
+            		<label class="error" th:if="${fileerror} == 'sizeerror'">Die gewählte Datei ist zu groß.</label>
+            		<label class="error" th:if="${fileerror} == 'uploaderror'">Fehler beim Upload.</label>
+            		Bild auswählen: (max 100kb)<input type="file" name="file" />
+                    <input type="submit" class="small button success radius" th:value="Bestätigen" value="Senden" />
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

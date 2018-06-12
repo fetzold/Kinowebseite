@@ -1,0 +1,43 @@
+==README
+
+Stand:15.01.2016
+
+
+Zur Ausführung der Anwendung wird ein Fake-SMPT Server benötigt. Dieser ist unter app/fakeSMPT-2.0.jar zu finden.
+Bitte starten Sie diesen bevor Sie die Anwendung ausführen.
+
+
+Die Anwendung ist für die Tests auf nicht Persistent gestellt.
+Man kann die Anwendung mit "mvn clean package" baun.
+Beim start wird zu jedem Teil der Anwendung ein Beispiel generiert.
+
+
+
+
+Wenn Persistenz gewünscht ist, müssen die Zeilen:
+
+
+spring.datasource.url=jdbc:hsqldb:db/kickstart
+spring.jpa.hibernate.ddl-auto=update
+
+
+in application.properties einkommentiert werden.
+Danach ist das baun mit mvn clean package NICHT möglich, da die Tests fehlschlagen werden. Daher muss mit
+
+
+mvn install -DskipTests
+
+
+gebaut werden, damit die Tests nicht mit ausgeführt werden.
+(Test schlagen fehl, da mvn beim baun Spring mehrfach bootet, aber Intellj z.B. nur einmal. Dies führt zu abweichenden
+Datenbank Inhalten.)
+
+
+Vorkonfigurierte Benutzer sind:
+|===
+|User|Password
+|boss|123
+|authorized|123
+|employee|123
+|customer|123
+|===

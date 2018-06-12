@@ -1,0 +1,69 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+        <script th:src="@{/resources/js/jquery-1.11.0.min.js}"></script>
+        <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+        <script th:src="@{/resources/js/rating.js}"></script>
+        <title>UFO Kino</title>
+        
+      
+    </head>
+    <body>
+        <header th:include="header :: header"></header>
+
+        <div class="row">
+            <nav th:include="navigation :: navigation"></nav>
+
+            <div class="large-9 columns">
+            <nav th:include="subnavAccountManagement :: subnavAccountManagement"></nav>
+
+			<div th:if="${orders.empty}" class="alert-box secondary">
+       		Sie k&ouml;nnen nur Filme bewerten, f&uuml;r die Sie online bei uns Karten gekauft haben.
+       		</div>
+
+			<div th:unless="${orders.empty}">
+			<form th:action="@{/rate.html}" role="form" id="form" method="post" th:object="${form}">
+                    <select name="movie" id="movie" >
+                        <option th:each="film : ${orders}" th:value="${film.id}" th:text="${film.name}">Film</option>
+                    </select>
+                    <legend>Bewertung</legend>
+                    <label class="error" th:if="${#fields.hasErrors('rating')}" th:errors="*{rating}">Invalid entry</label>
+                    <input id="rating_rating" th:field="*{rating}" type="hidden" name="rating" value="0" />
+                    <div style="float: none; height: 70px; margin-top: 20px;">
+                    	<div id="rating_star_0" style="float:left; background-image: url('resources/img/no_star.png'); width: 50px; height: 50px;">
+                                <div onmouseenter="showStars(1);" onmouseleave="leaveStar();" onclick="setRating(1);" style="float:left; height: 50px; width: 25px;"></div>
+                    		<div onmouseenter="showStars(2);" onmouseleave="leaveStar();" onclick="setRating(2);" style="float:left; height: 50px; width: 25px;"></div>
+                    	</div>
+                    	<div onmouseenter="showStars(4);" id="rating_star_1" style="float:left; background-image: url('resources/img/no_star.png'); width: 50px; height: 50px;">
+                    		<div onmouseenter="showStars(3);" onmouseleave="leaveStar();" onclick="setRating(3);" style="float:left; height: 50px; width: 25px;"></div>
+                    		<div onmouseenter="showStars(4);" onmouseleave="leaveStar();" onclick="setRating(4);" style="float:left; height: 50px; width: 25px;"></div>
+                    	</div>
+                    	<div onmouseenter="showStars(6);" id="rating_star_2" style="float:left; background-image: url('resources/img/no_star.png'); width: 50px; height: 50px;">
+                    		<div onmouseenter="showStars(5);" onmouseleave="leaveStar();" onclick="setRating(5);" style="float:left; height: 50px; width: 25px;"></div>
+                    		<div onmouseenter="showStars(6);" onmouseleave="leaveStar();" onclick="setRating(6);" style="float:left; height: 50px; width: 25px;"></div>
+                    	</div>
+                    	<div onmouseenter="showStars(8);" id="rating_star_3" style="float:left; background-image: url('resources/img/no_star.png'); width: 50px; height: 50px;">
+                    		<div onmouseenter="showStars(7);" onmouseleave="leaveStar();" onclick="setRating(7);" style="float:left; height: 50px; width: 25px;"></div>
+                    		<div onmouseenter="showStars(8);" onmouseleave="leaveStar();" onclick="setRating(8);" style="float:left; height: 50px; width: 25px;"></div>
+                    	</div>
+                    	<div onmouseenter="showStars(10);" id="rating_star_4" style="float:left; background-image: url('resources/img/no_star.png'); width: 50px; height: 50px;">
+                    		<div onmouseenter="showStars(9);" onmouseleave="leaveStar();" onclick="setRating(9);" style="float:left; height: 50px; width: 25px;"></div>
+                    		<div onmouseenter="showStars(10);" onmouseleave="leaveStar();" onclick="setRating(10);" style="float:left; height: 50px; width: 25px;"></div>
+                    	</div>
+                    </div>
+                    
+                    <legend>
+                        <div style="display: none;">Kommentar hinzufügen</div>
+                    </legend>
+                    <label class="error" th:if="${#fields.hasErrors('comment')}" th:errors="*{comment}">Invalid entry</label>
+                    <textarea name="comment" id="comment" th:field="*{comment}" th:errorclass="fieldError" class="form-control"></textarea><br />
+
+                    <input type="submit" class="small button success radius" th:value="Bestätigen" value="Senden" />
+                </form>
+			</div>
+		</div>
+        </div>
+    </body>
+</html>

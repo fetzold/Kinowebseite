@@ -1,0 +1,74 @@
+= Protokoll Gruppe 19
+__Treffen am 20.10.2015__
+Von 18.10Uhr bis 19.40Uhr
+
+__Schriftführer:__
+Josia Mädler
+
+__Nächstes Treffen:__
+27.10.2015
+
+__Teilnehmer:__
+Josia Mädler, Felix Etzold, Beatrice Gräßler, Alexej Sentschenko
+
+== Bemerkungen
+Verwarnungen, besondere Vorfälle, Organisatorisches
+
+Marco Schwabe fehlt entschuldigt.
+
+Master Branch ist immer aktuell(funktionierend) zu halten. Bitte auf NebenBranch arbeiten.
+Nicht alles sofort hochpushen! Zu einer Issue sammeln und geschlossen Git aktualisieren.
+Zeiterfassung nur pro Woche.
+CRC Schriftlich festhalten.
+MagicDraw !! 18.0 !! Lizenz.
+MagicDraw Server ist möglich.
+MagicDraw Diagramme in asciidoc Ordner.
+Pflichtenheft beginnen!
+SDKs von Dritten erlaubt.
+Salespoint Protyp kommt in Prototypes.
+Offizielle Prototyp kommt in main Ordner.
+
+== Retrospektive des letzten Sprints
+*Issue referenziert die Issue ID von GitHub*
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Aufgabe |Status |Bemerkung
+|1     |Mit Springframework Beschäftigen|Abgeschlossen|-
+|2     |Bei Git Anmelden|Abgeschlossen|-
+|===
+
+
+== Aktueller Stand
+Anmerkungen und Kritik zum aktuellen Stand der Software, den Diagrammen und den
+Dokumenten.
+
+Kommunikation soll über Skype laufen. Bitte Skypenamen an Mailingliste schicken.
+Treffen für Donnerstag 17.00 Uhr veranschlagt. (Treffen INF Gebäude)
+
+== Planung des nächsten Sprints
+*Issue referenziert die Issue ID von GitHub*
+
+Bis Nächste Woche erledigen:
+Kontextmodell, Toplevelmodell, Use-Case, Szenarien
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|3|Kontextmodell|bis 27.10.15|-|-
+|4|Toplevel|bis 27.10.15|-|-
+|5|Use-Case|bis 27.10.15|-|-
+|6|Szenarien|bis 27.10.15|-|-
+|7|CRC-Karten|bis 03.11.15|-|-
+|8|Pflichtenheft|bis 03.11.15|ALLE|-
+|9|Prototype GUI|bis 03.11.15|ALLE|-
+|10|Suchfunktion Videoshop      |bis 27.10.15      |Marco|-
+|11|Nachbestellen|bis 27.10.15|Alexej|-
+|12|Artikel aus Warenkorb löschen|bis 27.10.15|Felix|-
+|13|Durchschnittsbewertung bei Filmen anzeigen|bis 27.10.15|Josia|-
+|14|Namen der Filme ändern|bis 27.10.15|Beatrice|-
+|15|Sequenzdiagramme|bis 03.11.15|ALLE|-
+|16|Analyse-Klassendiagramm|bis 03.11.15|ALLE|-
+|===

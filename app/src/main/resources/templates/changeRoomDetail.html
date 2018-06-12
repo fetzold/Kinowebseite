@@ -1,0 +1,102 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/seatselection.css}" />
+    <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+    <script type="text/javascript" th:src="@{/resources/js/jquery-1.11.0.min.js}"></script>
+    <script type="text/javascript" th:src="@{/resources/js/jquery.seat-charts.min.js}"></script>
+    <title>UFO Kino</title>
+
+</head>
+<body>
+
+<header th:include="header :: header"></header>
+
+<div class="row">
+    <nav th:include="navigation :: navigation"> </nav>
+    <div class="large-9 columns">
+        <nav th:include="subnav :: subnav"></nav>
+        <nav th:include="subnavRoomManagement :: subnavRoomManagement"></nav>
+	<b>Raum bearbeiten</b><br /><br />
+
+    <div class="large-8 columns">
+        <div style="height: 40px" th:each="row : ${room.getMyRows()}">
+            <div th:text ="${row.getRowNumber()}" class = "seatCharts-cell">1</div>
+            <div th:each="seat: ${row.getSeats()}">
+
+                <a th:if="${seat.seatAvailable()}" th:href="@{'/changeRoomDetail'+ '/'+ ${row.getRowNumber()} + '/' + ${seat.getI_number()}}" href="detail.html">
+                    <!--/*@thymesVar id="seat" type="kickstart.SavedClasses.CSeat"*/-->
+                    <!--<a th:if="${seat.seatLoge()}" th:href="@{'/cart/'+ ${event.getId()} + '/'+ ${row.getRowNumber()} + '/' + ${seat.getI_number()}}" href="detail.html">l</a>
+                    <a th:if="${!seat.seatLoge()}" th:href="@{'/cart/'+ ${event.getId()} + '/'+ ${row.getRowNumber()} + '/' + ${seat.getI_number()}}" href="detail.html">p</a>-->
+                    <div th:text="${seat.getI_number()}" th:if="${seat.seatLoge()} and ${seat.seatAvailable()} and ${seat.e_Type.name() != 'DEFECTIVE'}" class="seatCharts-seat seatCharts-cell focused">5</div>
+                    <div th:text="${seat.getI_number()}" th:if="${!seat.seatLoge()} and ${seat.seatAvailable()} and ${seat.e_Type.name() != 'DEFECTIVE'}" class="seatCharts-seat seatCharts-cell available">5</div>
+                    <div th:text="${seat.getI_number()}" th:if="${seat.e_Type.name() == 'DEFECTIVE'}" class="seatCharts-seat seatCharts-cell unavailable">5</div>
+                </a>
+                <div th:text="${seat.getI_number()}" th:if="${!seat.seatAvailable()}" class="seatCharts-seat seatCharts-cell defective">5</div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+    <div class="large-3 columns">
+        <p /> <div class="seatCharts-seat seatCharts-cell focused">X</div> Loge<p />
+        <div class="seatCharts-seat seatCharts-cell available">X</div> Parkett<p />
+        <div class="seatCharts-seat seatCharts-cell defective">X</div> Gewählt<p />
+        <div class="seatCharts-seat seatCharts-cell unavailable">X</div> Nicht verfügbar<p />
+        <a th:each="item : ${seats}">
+            Reihe: <!--/*@thymesVar id="item" type="kickstart.SavedClasses.CSeat"*/-->
+            <span th:text="${item.getI_row()}">Reihe</span> Platz: <span th:text="${item.getI_number()}">keine</span><br />
+        </a>
+
+        <form method="post" role="form" class="gb-form" id="form" th:action="@{/changeSeats}" th:object="${form}">
+
+            <label for="action" th:text="#{changeRoomDetail.Markierte_Sitze}">Name</label>
+            <select id="action" class="form-control" th:field="*{action}">
+                <option th:value="4" th:text="#{changeRoomDetail.Keine}"></option>
+                <option th:value="0" th:text="#{changeRoomDetail.Löschen}">Option</option>
+                <option th:value="1" th:text="#{changeRoomDetail.Als_Loge_Markieren}">Option</option>
+                <option th:value="2" th:text="#{changeRoomDetail.Als_Parkett_Markieren}"></option>
+                <option th:value="3" th:text="#{changeRoomDetail.Als_Defekt_Markieren}"></option>
+            </select>
+            <input type="submit" class="btn btn-default" th:value="Übernehmen" value="Senden" />
+        </form>
+
+        <form method="post" role="form" class="gb-form" id="form" th:action="@{/addSeats}" th:object="${form}">
+            <label for="addRow" th:text="#{changeRoomDetail.Reihe_Hinzufügen_mit_Sitzen}">Text</label>
+            <label class="error" th:if="${error} == 'max 20'">max 20</label>
+            <input id="addRow" th:field="*{seats}" th:errorclass="fieldError" class="form-control" />
+            <input type="submit" class="btn btn-default" th:value="Übernehmen" value="Senden" /><br />
+        </form>
+
+        <form method="post" role="form" class="gb-form" id="form" th:action="@{/changeRoom}" th:object="${form}">
+<!--             <div class="form-group">
+                <label for="name" th:text="#{changeRoomDetail.Name}">Name</label>
+                <label class="error"  th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></label>
+                <input id="name" class="form-control" type="text" th:field="*{name}" th:errorclass="fieldError" />
+            </div> -->
+
+            <div class="form-group">
+                <label for="basicCharge" th:text="#{changeRoomDetail.Parkett-Preis}">Name</label>
+                <label class="error"  th:if="${money} != null" th:text="${money}"></label>
+                <input th:name="basicCharge" id="basicCharge" class="form-control" type="text" th:field="*{basicCharge}" th:errorclass="fieldError" />
+            </div>
+
+            <div class="form-group">
+                <label for="extraCharge" th:text="#{changeRoomDetail.Loge-Preis}">Name</label>
+                <input th:name="extraCharge" id="extraCharge" class="form-control" type="text" th:field="*{extraCharge}" th:errorclass="fieldError" /><br />
+            </div>
+            <input id="name" class="form-control" type="hidden" th:field="*{name}" th:errorclass="fieldError" />
+            <input type="submit" class="small button success radius" th:value="Speichern" value="Senden" />
+        </form><a th:href="@{changeRoom}" class="small button alert radius" th:text="Abbrechen" />
+<br />
+    </div>
+
+        </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+﻿= Protokoll Gruppe 19
+__Treffen am 10.11.2015__
+Von 18.00Uhr bis 19.00Uhr
+
+__Schriftführer:__
+Marco Schwabe
+
+__Nächstes Treffen:__
+17.11.2015
+
+__Teilnehmer:__
+Josia Mädler, Felix Etzold, Beatrice Gräßler, Alexej Sentschenko, Marco Schwabe
+
+== Bemerkungen
+
+
+Prototyp ist zur Feststellung schwieriger und leichter Implementierungsaufgaben
+
+Testplan machen und damit Testfälle aufstellen
+
+Jeder schreibt (später) Tests!
+
+Archiv Ordner im MagicDraw Ordner nach der Entwurfsphase löschen und alle fertigen Diagramme zu einer MagicDraw Datei mergen
+
+
+== Aktueller Stand
+
+*_Bemerkungen zum Pflichtenheft_*
+
+* Sequenzdiagramme
+** bei create muss zum vorherigen Akteur (zurück-)geantwortet werden
+
+* Testfälle
+** anhand von Testplan erstellen 
+
+*_Bemerkungen zum Entwurfsklassendiagram_*
+
+* Funktionen bei CProgramm hinzufügen
+* fehlende Pfeile hinzufügen
+* 1-1 Beziehungen unnötig (1 schreibt man generell nicht /default)
+* Import besser kennzeichnen
+* Getter und Setter hinzufügen (kann MagicDraw ganz leicht) 
+
+*_Bemerkungen zum Entwicklerdokumentation_*
+
+* Systemvorraussetztungen
+** nur Beispiele
+
+* Externe Schnittstellen
+** zur Zeit werden keine genutzt
+
+* Bausteinsicht
+** Spring und Salespoint als Package einfügen
+
+
+Bis Nächste Woche erledigen:
+Pflichtenheft bearbeiten und abschließen, auf großen Prototpen konzentrieren
+Movies und Registrierung hinzufügen
+
+Plan der nächsten Woche bis Sonntag (Entwurfsphase):
+
+* Entwurfsentscheidungen, was benutzen wir? (Salespoint, Datenbank, Frameworks etc)
+* Modellverfeinerung mit Anpassung an Salespoint
+* Entwurfsklassendiagramm in neuer MagicDraw-Datei
+* großer Prototyp (Funktionalität zeigen, mit Buttons und Bildchen und Glitzer)
+** optische Präsentation, ob es dem Kunden gefällt
+** Schwierigkeiten finden, Diagramme ändern, ob andere Frameworks oder Herangehensweisen besser funktionieren
+* Entwicklerdokumentation
+* Testplan
+
+Zwischenpräsentation nach Entwurfsphase:
+
+* an zusätzlichem Termin
+* 10min Entwurfsvorstellung
+* 10min Prototyp vorstellen
+* 10min Diskussionsrunde
+
+
+
+[option="headers"]
+
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|23|Logo und graphische Präsentationsguideline|bis 15.11.15|-|-
+|24|GUI HTML Entwurf/Schnittstelle Java|bis 15.11.15|-|-
+|26|Endgültiges Klassendiagramm|bis 15.11.15|-|-
+|27|Java Teil Programmierung|bis 15.11.15|-|-
+|30|Testplan|bis 15.11.15|-|-
+|31|Großer Prototyp|bis 15.11.15|-|-
+|===

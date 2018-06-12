@@ -1,0 +1,33 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+        <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+        <title>UFO Kino</title>
+    </head>
+    
+    <body>
+        <header th:include="header :: header"></header>
+
+        <div class="row">
+            <nav th:include="navigation :: navigation"> </nav>
+            
+            <div class="large-9 columns">
+                <nav th:include="subnav :: subnav"> </nav>
+                <nav th:include="subnavRoomManagement :: subnavRoomManagement"> </nav>
+                <b>Raum bearbeiten</b><br />
+                <div th:if="${succsesaMsg} ? true : false" class="panel"><span th:text="${succsesaMsg}">Text</span></div><br/>
+                <form method="post" role="form" class="gb-form" id="form" th:action="@{/changeRoomDetail}" th:object="${form}">
+                    <label for="roomID" th:text="#{changeRoom.Raum}">Name</label>
+                    <select id="roomID" class="form-control" th:field="*{roomID}">
+                        <!--/*@thymesVar id="room" type="kickstart.SavedClasses.SaveRoom"*/-->
+                        <option th:each="room : ${rooms}" th:value="${room.getId()}" th:text="${room.getName()}">Option</option>
+                    </select>
+                    Löschen: <input id="delete" type="checkbox" th:field="*{delete}"/>
+                    <input type="submit" class="small button success radius" th:value="Bestätigen" value="Senden" />
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

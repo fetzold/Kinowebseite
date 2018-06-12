@@ -1,0 +1,28 @@
+= Persönliches Feedback eines Teammitgliedes des Softwarepraktikums 2015/16
+
+**Von: Marco Schwabe**
+
+**Gruppe: 19**
+
+== Was habe ich gelernt?
+* Softwareentwicklungsprozess mit Maven
+* Nutzung von externen Frameworks
+* Nutzung von Git
+
+= Welche Erfahrungen habe ich mit der Zusammenarbeit im Team gemacht?
+* ungleiche Wissensstände sind bei horizontaler Softwareentwicklung gefährlich, da es schnell zu einer ungleichen Aufgabenverteilung kommt 
+* Absprache ist das A und O
+* ein Teamleiter ist ganz wichtig
+
+== Welche Erfahrungen habe ich bei der Wiederverwendung von Bibliotheken/Frameworks (insbesondere SalesPoint) gemacht?
+* Wiederverwendung hat ihren Sinn
+* api lesen und verstehen ist existenziell
+
+== Welche Vorschläge zur weiteren Verbesserung des Softwarepraktikums gibt es?
+* ein Tutorial/ eine Erklärung zum besseren Verständnis von Git (interne Funktionsweise) wäre gut
+* Praktomatsaufgaben mit Spring
+* mehr Wissen über Spring vorher sammeln
+
+== Sonstiges und Anmerkungen
+* ich persönlich hatte SWT schon vor 1,5 Jahren geschrieben und die Oliver Gierke Einführung in Spring und Maven verpasst,
+das war sehr ärgerlich da mir am Anfang der Überblick gefehlt hat

@@ -1,0 +1,45 @@
+[options="header"]
+|===
+2+|*Cinema*
+|*_Unterklasse:_* 
+|*_Oberklasse:_*      
+
+|*_Verantwortlichkeiten:_* 
+
+- knowLocation
+
+- knowBusinessHours
+
+- knowContacts
+
+- knowRoom
+
+- knowProgram
+
+|*_Mithelfer:_*
+
+- Room
+
+- Employee
+
+- AuthorziedEmployee
+
+- Customer
+
+- Admin
+
+2+|*_Beschreibung:_*
+Die Klasse Cinema verwaltet die Kinosäle.
+
+2+|*_Attribute:_*
+
+- address
+
+- businessHours
+
+- contact
+
+- room
+
+- program
+|===

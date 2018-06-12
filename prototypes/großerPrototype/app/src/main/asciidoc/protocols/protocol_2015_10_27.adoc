@@ -1,0 +1,120 @@
+﻿= Protokoll Gruppe 19
+__Treffen am 27.10.2015__
+Von 16.40Uhr bis 18.50Uhr
+
+__Schriftführer:__
+Beatrice Gräßler
+
+__Nächstes Treffen:__
+03.11.2015
+
+__Teilnehmer:__
+Josia Mädler, Felix Etzold, Beatrice Gräßler, Alexej Sentschenko, Marco Schwabe
+
+== Bemerkungen
+Verwarnungen, besondere Vorfälle, Organisatorisches
+
+1. Verwarnung erhalten:
+erste Aufgaben nicht genau erfüllt, nicht genug Zusammenarbeit, wenig Arbeit ersichtlich
+Aufgaben wurden zu spät angefangen
+
+Beatrice und Alexej müssen Videoshop-Projekt noch vervollständigen
+Salespoint ist in tu-dresden-github zu watchen, Aufgaben präsentabel vorbereiten
+Ordner für Bilder in asciidoc anlegen
+Zeitaufzeichnungen in der Hauptdatei sammeln!
+Nummerierung für das Pflichtenheft, keine Seitenzahlen
+
+
+== Retrospektive des letzten Sprints
+*Issue referenziert die Issue ID von GitHub*
+
+[option="headers"]
+|===
+|Issue |Aufgabe |Status |Bemerkung
+|3     |Kontextmodell			|Überarbeiten|Kunde fehlt
+|4     |Top Level Architektur		|Überarbeiten|Kunde fehlt
+|5     |Use-Case-Diagramm		|Teils abgeschlossen|Kunde fehlt
+|6     |Szenarien			|Teils abgeschlossen|Kunde fehlt
+|10    |Suchfunktion für den Videoshop	|Abgeschlossen|-
+|11    |Nachbestellung im Videoshop	|Teils abgeschlossen|unvollständig
+|12    |Artikel aus Warenshop löschen	|Abgeschlossen|-
+|13    |Durchschnittsbewertung von Filmen|Abgeschlossen|-
+|14    |Namen der Filme ändern		|Teils abgeschlossen|unvollständig
+|===
+
+
+
+== Aktueller Stand
+Anmerkungen und Kritik zum aktuellen Stand der Software, den Diagrammen und den
+Dokumenten.
+
+Alle Aufgaben erfüllt.
+
+Weitere Details zur Aufgabe heraufgearbeitet, zu überarbeiten:
+
+*_Diagramme_*
+
+* Generell
+** Mergen in 1 Datei
+** Entwurf nach Woche nicht mehr verändern
+** müssen uns nicht daran halten
+** gleiche MagicDraw-Akteure müssen auch gleiche Objekte sein
+** Diagramme sind Sichtweisen auf dasselbe System -> sollten einheitlich sein
+** egal in welcher Sprache
+** Kunden-Zugriff: kaufen, reservieren
+
+* Kontextmodell
+** Kunde hinzufügen
+** keine getrennten Server, nur 1 Kasten
+
+* Top-Level-Architektur
+** Login entfernen
+** Tabellen wegnehmen
+** Zusammenfassen Ticket-/Projekt-/Personalmanagement
+
+
+
+_*Pflichten*_
+
+
+Platzgruppen: Parkett + Loge
+Platzauswahl im Saal graphisch zum Klicken, mit Belegungs- und Preisdarstellung (JavScript)
+Der Kunde kann online nur reservieren.
+Kunde bekommt Nummer für Reservierung
+* Menge, Typ, Platz wählen
+* Nummer von Software bekommen
+* dem Kassierer vorlegen
+
+Geliehene Filme werden zu Projektzwecken nur intern gehandhabt. Der Chef möchte Daten zum Film verändern können (Bild, Name, FSK, alles)
+Bedingung für Rückkauf: Kunde muss Karte vor Ort abgeben
+Gekaufte Karte im Browser als "Druck" ausgeben
+Chef möchte Zugriff auf Informationen über Datum und Laufzeit vorheriger Filme haben
+
+*_Wünsche_*
+
+Saalgraphik mit Mouseover-Funktion, ohne neuem Laden der Seite
+Login für Kunden mit Kartenkauf-Funktion
+
+
+== Planung des nächsten Sprints
+*Issue referenziert die Issue ID von GitHub*
+
+
+Bis Nächste Woche erledigen:
+CRC-Karten, Analyse-Klassendiagramm, Pflichtenheft, Sequenzdiagramme, GUI-Prototyp
+letzte Videoshop-Prototypen fertig stellen
+
+Aufgaben vorläufig verteilt, Treffen Donnerstag festgelegt
+
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|7|CRC-Karten|bis 03.11.15|ALLE|-
+|8|Pflichtenheft|bis 03.11.15|ALLE|-
+|9|Prototype GUI|bis 03.11.15|Josia|-
+|15|Sequenzdiagramme|bis 03.11.15|Marco|-
+|16|Analyse-Klassendiagramm|bis 03.11.15|Beatrice|-
+|===

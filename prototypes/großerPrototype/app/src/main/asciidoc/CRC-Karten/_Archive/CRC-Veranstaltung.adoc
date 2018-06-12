@@ -1,0 +1,20 @@
+|===
+2+|*Veranstaltung*
+|*_Unterklasse_*       |*_Oberklasse_*
+|Verantwortlichkeiten
+
+Speichern von Veranstaltungsdaten:
+
+Film, Saal, Belegung
+
+Einfach Auflisten
+
+|Mithelfer
+
+Film, Saal
+
+2+|Beschreibung
+Datensammlung
+
+|===
+

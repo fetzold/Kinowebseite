@@ -1,0 +1,27 @@
+
+[options="header"]
+|===
+2+|*Admin*
+|*_Unterklasse_*       |*_Auth Employee_*
+|Verantwortlichkeiten
+
+Hire Staff
+
+Fire Staff
+
+promote Staff
+
+creat Cienema
+
+deleate Cienema
+
+see statistics
+
+|Mithelfer
+
+Statistic
+
+2+|Beschreibung
+Klasse für Chefchen :D
+2+|Attribute
+|===

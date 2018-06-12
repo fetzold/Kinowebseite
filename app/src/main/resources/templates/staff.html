@@ -1,0 +1,51 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+        <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+        <title>UFO Kino</title>
+    </head>
+    
+    <body>
+        <header th:include="header :: header"></header>
+
+        <div class="row">
+            <nav th:include="navigation :: navigation"> </nav>
+
+            <div class="large-9 columns">
+                <nav th:include="subnav :: subnav"></nav>
+                <div th:if="${succsesaMsg} ? true : false" class="panel"><span th:text="${succsesaMsg}">Text</span> </div>
+                <h3 th:text="#{staff.stafflist}">Personal:</h3>
+                 <br/>
+				<table border="1">
+                	<tr>
+                        <td>Name</td>
+                        <td>Vorname</td>
+                  <!--       <td>E-Mail Adresse</td> -->
+                        <td>Stundenlohn</td>
+                        <td>Benutzerlevel</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr th:each="customer : ${customerdetail}">
+                        <td th:text="${customer.useraccount.lastname}">Name</td>
+                        <td th:text="${customer.useraccount.firstname}">Vorname</td>
+                    <!--     <td th:text="${customer.useraccount.email}">Musteremail</td> -->
+                        <td th:text="${customer.moneyToString() + '€'}">8,50</td>
+                        <!-- th:text="${customer.getUseraccount().getRoles()}" -->
+                        <td th:text="${customer.getUseraccount().getRoles()}"  >Level</td>
+                    	<td><ul class="stack button-group"><li><form method="post" th:action="@{/detailEmployee}"><input name="emp" id="emp" type="hidden" th:value="${customer.id}" /><input type="submit" value="Details" style="width:80px;" /></form></li>
+                    		<li><form method="post" th:action="@{/editEmployee}"><input type="hidden" name="id" id="id" th:value="${customer.id}" /><input type="submit" value="Bearbeiten" style="width:80px;" /></form></li></ul></td>
+                    	<td><form method="post" th:action="@{/deleteEmployee}"><input type="hidden" name="id" id="id" th:value="${customer.id}" /><input style="font-size: 12px" class="tiny button alert" type="submit" value="Löschen"  /></form></td>
+                    </tr>
+                </table>
+                <br/>
+	
+                <div sec:authorize="hasAnyRole('ROLE_BOSS')"><a class="small button success radius" style="width: 200px" th:href="@{/addEmployee.html}" href="addEmployee.html" th:text="#{staff.addEmployee}">Angestellten anlegen</a></div>
+
+
+            </div>
+        </div>
+    </body>
+</html>

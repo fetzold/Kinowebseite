@@ -1,0 +1,127 @@
+= Cross-Testing Feedback
+
+== Durchführung von Gruppe 11
+
+=== Getestetes System
+Getestet wurde eine Software für den Kartenverkauf und für Verwaltungsaufgaben von Kinos.
+Zu den wesentlichen Funktionen der Anwendung gehören:
+
+* Kaufen, Reservieren, Umtauschen und Zurückgeben von Kinokarten
+* Verwaltung des Kinoprogramms
+* Ausleihen von Filmen durch die Kinobetreiber
+* Abrufen umfangreicher Statistiken zu Einnahmen, Ausgaben und Auslastung der Kinosäle
+* Verwaltung von Personal und Kinosälen und Vermietung der Säle
+
+=== Fehler-Report
+// [options="header"]
+// |===
+// | Pfad | Parameter | Beschreibung | Rückgabe
+// | Verwaltung > Kinosaalverwaltung > Raum ändern [/addSeats] | Reihe hinzufügen mit Sitzen: >20 | Es erfolgt keine Überprüfung, dass der Wert 20 nicht übersteigt. | Whitelabel Error Page: "Error resolving template "/changeRoom/changeRoomDetail", template might not exist or might not be accessible by any of the configured Template Resolvers"
+// |===
+
+* Beim Ändern eines Raumes wird nicht überprüft, dass der Wert im Feld "Reihe hinzufügen mit Sitzen" 20 nicht übersteigt. Bei Eingabe einer größeren Zahl erscheint die Whitelabel Error Page.
+
+=== Sonstiges
+==== Optik der Anwendung
+* Die Schlichtheit der Oberfläche gefällt uns. Lediglich der derzeit aktive Menüpunkt könnte hervorgehoben sein, um sichtbar zu machen, wo in der Anwendung man sich gerade befindet.
+* Nach der Auswahl eines Programms wird der Bereich "Plätze in diesem Raum freigeben" je nach Browser, Anzahl der Plätze und Anzahl der ausgewählten Plätze mit in der rechten Leiste angezeigt. Bei Auswahl mehrerer Plätze kann dadurch die "Bestätigen"-Schaltfläche nicht mehr genutzt werden. Dieses Problem exisitert nur unter Firefox, wo der Bereich immer rechts angezeigt wird. Unter Chrome wird der Bereich nur manchmal rechts angezeigt, stört aber die Funktion der Schaltfläche nicht.
+* Im Warenkorb wird der Gesamtpreis u. U. unschön in Exponentialdarstellung angezeigt (z.B. "3E+1" statt "30"). Zum Nachvollziehen einen neuen Film (Grundpreis 20€) anlegen, einen neuen Raum (Parkettpreis 10€) anlegen, ein neues Event für den Film in dem Raum anlegen und zwei Karten in den Warenkorb legen.
+* Nach dem Benutzen von "Plätze in diesem Raum freigeben" werden die restlichen gewählten Plätze nicht mehr rechts aufgelistet.
+
+==== Fehlende Features
+* Kinokarten tauschen
+
+==== Interaktion mit der Anwendung (Usability)
+* Beim Kauf/ Reservieren von Karten wäre es einfacher, Plätze genauso leicht per Mausklick abwählen zu können, wie man sie auch auswählen kann. Dadurch würde der umständliche Weg über das Freigabe-Formular wegfallen.
+* Geldbeträge sollten auch mit Komma anstelle des Punktes eingegeben werden können. Die Schreibweise mit Punkt ist etwas umständlich und in Deutschland unüblich.
+* Beim Erstellen von Events könnten bereits vergangene Zeiten ausgegraut oder anders dargestellt werden. Wählt man eine vergangene Zeit aus (was vielleicht gar nicht möglich sein könnte), könnte die Fehlermeldung informativer sein und direkt auf das Problem hinweisen.
+* Bei der Anzeige von Belegen wäre ein Zurück-Button o. Ä. schön. Darauf, dass das Logo anklickbar ist, kommt man nicht unbedingt.
+* Die (gleichnamigen) Einträge der Dropdown-Listen für Film und Raum beim Erstellen von Events können z. T. nur schwer zugeordnet werden. Hier wären zusätzliche Informationen wie Saalgröße oder Filmlänge hilfreich.
+
+=== Verbesserungsvorschläge
+* Bei den Statistiken sollten Dezimalwerte auf zwei Stellen nach dem Komma gerundet werden.
+* Da man als Kunde ja ein eigenes Konto hat, wäre es schön, wenn man eigene Reservierungen dort auch einsehen und ggf. bearbeiten könnte.
+* Die Rollenverteilung könnte klarer getrennt sein: "Autorisierte", sprich Angestellte, können von ihrem Konto aus selbst Karten bestellen und persönliche Informationen bearbeiten. Sollten sie nicht für Ersteres ein zusätliches eigenes Kunden-Konto benötigen und Letzteres nur durch den Chef änderbar sein?
+* Ändert man die Länge eines Filmes werden nur zukünftige Events davon beeinflusst. Ist dies so gewollt?
+
+
+
+== Durchführung von Gruppe 19
+
+=== Getestetes System
+Getestet wurde eine Software zur Verwaltung eines Theaters.
+Zu den wesentlichen Funktionen der Anwendung gehören:
+
+* Verwaltung der Angestellten
+* Verkauf, Reservierung und Stornierung von Karten, Gutscheine und Führungen
+* Erstellen von Veranstaltungen, Führungen, Probe und Stücke
+* Verwaltung von Requisiten
+
+=== Fehler-Report
+==== Chef
+
+[options="headers"]
+|===
+|ID |Beschreibung
+|01	|Preise im Theaterstück lässt sich genau 1x ändern
+|02	|Klickt man auf Personalverwaltung fehlen einige Punkte im Navigator
+|03	|Rolle des Nutzers nachträglich nicht änderbar
+|04	|Löscht man einen Nutzer und legt einen neuen Mitarbeiter mit demselben Username an erscheint WhitelabelError
+|05	|Erstellt man einen Nutzer, vergisst aber Daten einzugeben wird die vergessene Zeile nicht markiertund man erhält kein Hinweistext
+|06	|Man kann kompletten Namen eines Mitarbeiters löschen
+|07	|Löscht man das Gehalt eines Mitarbeiters erscheint Whitelabel Error
+|===
+
+==== TicketVerkaeufer
+
+[options="headers"]
+|===
+|ID |Beschreibung
+|01	|Icon für "frei" in Sitzplatzlegende gibt es im Kinosaal so nicht
+|02	|Wählt man Platz aus wird dieser blau markiert. Dieser Status fehlt in Legende
+|03	|Wenn man reservieren will aber Daten vergessen hat wird der Preis nicht mehr angezeigt
+|04	|Ticketnummer so gewollt?
+|05	|Ticket zurückgeben funktioniert nicht
+|===
+
+==== Dramaturg
+
+[options="headers"]
+|===
+|ID |Beschreibung
+|01	|Bühnengröße eines Stückes nicht mehr änderbar falls Veranstaltung erstellt wurde
+|02	|Fehlt beim bearbeiten des Stückes der Titel erscheint Whitelabel WhitelabelError
+|03	|Fehlt beim bearbeiten des stückes die Beschreibung erscheint Whitelabel Error
+|04	|Fehlt beim bearbeiten des Stückes die Dauer erscheint Whitelabel Error
+|05	|fehlen beim Hinzufügen eines Stückes informationen wird dies nicht kenntlich gemacht
+|06	|Will man in einem stück eine Rolle hinzufügen kann das Feld auch leer angelegt werden
+|07	|Die Dauer, der Saal und das Gastspiel kann nicht verändert werden falls eine Veranstaltung erstellt wurde
+|08	|Fügt man Datum und Urhzeit im falschen Format an erscheint keine Fehlermledung
+|09	|Designfehler bei Preisgestaltung (Safari)
+|===
+
+==== PersonalManager
+[options="headers"]
+|===
+|ID |Beschreibung
+|01	|PersonalManager kann die Namen der Angestellten nicht ändern, es erscheint ein Whitelabel Error wegen Salary
+|===
+
+==== Techniker
+
+[options="headers"]
+|===
+|ID |Beschreibung
+|01	|Wenn ich über bestehende items (Inventar) Objekte hinzufügen möchte hängt sich alles auf
+|===
+
+==== Allgemein
+
+[options="headers"]
+|===
+|ID |Beschreibung
+|01	|Geht man auf eine Seite auf die man keine Zugriffsrechte hat erscheint eine Whitelabel Error
+|02 |Chef-Account kann vom PersonalManager und vom Chef gelöscht werden
+|03 |Gastspiel erscheint ein whitlabel error wenn man rollen hinzufügen will
+|04 |bei Guide max. Teilnehmer und Preis kann man nicht einstellen. Wäre auch gleich gut wenn man den Namen des Guides sehen würde
+|===

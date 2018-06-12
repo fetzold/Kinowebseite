@@ -1,0 +1,35 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+    <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+    <title>UFO Kino</title>
+</head>
+
+<body>
+<header th:include="header :: header"></header>
+
+<div class="row">
+    <nav th:include="navigation :: navigation"> </nav>
+
+    <div class="large-9 columns">
+    <nav th:include="subnav :: subnav"> </nav>
+                <nav th:include="subnavProgramManagement :: subnavProgramManagement"></nav> <br/>
+<b>Vorstellung bearbeiten</b><br /><br />
+        <form method="post" role="form" class="gb-form" id="form" th:action="@{/chooseRoom}" th:object="${form}">
+            <!--erstzten durch radiobuttons-->
+            <label for="events" th:text="#{chooseEvent.Event}">Name</label>
+            <select id="events" class="form-control" th:field="*{eventId}">
+                <!--/*@thymesVar id="event" type="kickstart.SavedClasses.CEvent"*/-->
+                <option th:each="event : ${events}" th:value="${event.getId()}" th:text="${event.getO_startDate().toString()} + '|' + ${event.getO_room().getS_name()} + '|' + ${event.getMovie().getName()}">Option</option>
+            </select>
+            Löschen: <input id="delete" type="checkbox" th:field="*{delete}"/>
+            <br />
+            <input type="submit" class="small button success radius" th:value="Bestätigen" value="Senden"/>
+
+        </form>
+    </div>
+</div>
+</body>
+</html>

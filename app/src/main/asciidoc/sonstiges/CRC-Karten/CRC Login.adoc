@@ -1,0 +1,42 @@
+[options="header"]
+|===
+2+|*Login*
+|*_Unterklasse:_* 
+|*_Oberklasse:_*      
+
+|*_Verantwortlichkeiten:_* 
+
+- findUser
+
+- verifyPassword
+
+- lockUser
+
+- passwordRequest
+
+- usernameRequest
+
+|*_Mithelfer:_*
+
+- Customer
+
+- Employee
+
+- AuthorziedEmployee
+
+- Admin
+
+- System/DB
+
+- Time
+
+2+|*_Beschreibung:_*
+Überprüft die Logindaten, falls mehrfach Überprüfung fehschlägt wird der Account gesperrt.
+
+2+|*_Attribute:_*
+
+- fails
+
+- maxFails
+
+|===

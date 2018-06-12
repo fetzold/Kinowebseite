@@ -1,0 +1,37 @@
+[options="header"]
+|===
+2+|*Event*
+|*_Unterklasse:_* AuthorziedEmployee
+|*_Oberklasse:_* Customer     
+
+|*_Verantwortlichkeiten:_* 
+
+- sellTicket
+
+- changeTicket
+
+|*_Mithelfer:_*
+
+- Cinema
+
+- System/DB
+
+- CashDeks
+
+2+|*_Beschreibung:_*
+Der Employee ist der einfachste Angestellte und kann nur das TicketManagement verwalten.
+
+2+|*_Attribute:_*
+
+- address
+
+- placeOfWork
+
+- hireDate
+
+- fireDate
+
+- status
+
+- salary
+|===

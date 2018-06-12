@@ -1,0 +1,24 @@
+[options="header"]
+|===
+2+|*Time*
+|*_Unterklasse:_* 
+|*_Oberklasse:_*      
+
+|*_Verantwortlichkeiten:_* 
+
+- knowDate
+
+- knowTime
+
+|*_Mithelfer:_*
+
+2+|*_Beschreibung:_*
+Benutzt Obeserver pattern
+
+2+|*_Attribute:_*
+
+- currentTime
+
+- currentDate
+
+|===

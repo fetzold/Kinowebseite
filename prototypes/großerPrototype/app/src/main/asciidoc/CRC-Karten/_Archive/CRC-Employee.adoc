@@ -1,0 +1,21 @@
+
+[options="header"]
+|===
+2+|*Employee*
+|*_Auth Employee_*       |*_Customer_*
+|Verantwortlichkeiten
+
+sell ticket
+
+change ticket
+
+|Mithelfer
+
+
+2+|Beschreibung
+2. Benutzerlevel
+
+2+|Attribute
+Adresse, Joblocation, Hire Date, Fire Date, Status, salary
+
+|===

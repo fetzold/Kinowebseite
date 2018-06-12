@@ -1,0 +1,47 @@
+﻿= Protokoll Gruppe 19
+__Treffen am 05.01.2016__
+
+__Schriftführer:__
+Felix Etzold
+
+__Nächstes Treffen:__ 12.01.2016
+
+__Teilnehmer:__
+
+Josia Mädler, Felix Etzold, Beatrice Gräßler, Alexej Sentschenko, Marco Schwabe
+
+
+== Bemerkungen
+
+* Am 15.01 ist Endabgabe
+* Dienstag bekommen wir Termin für Abschlusspräsentation
+* Abschlusspräsentation zusammen mit Gruppe 11
+* Ergebnisse vom Crosstesting:
+** Bugs aufjedenfall fixxen
+** Verbesserungen falls genug Zeit vorhanden ist
+* Kundenwunsch:
+** Bewertungssystem
+** jeder der Karte zu Film gekauft hat kann Film bewerten 
+** Bewertung besteht aus einem Kommentar und Sterne (1-5)
+** Nutzername soll angezeigt werden und eine Durchschnittsbewertung
+* in JExam Klausur für SWT Praktikum einschreiben sonst darf man es nochmal machen :)
+* Können für Abschlusspräsentation ein neues Entwurfsklassendiagramm erstellen falls wir damit arbeiten in der Präsentation
+* Ansonsten kein neues Entwurfsklassendiagramm für Abgabe am 15.01
+
+* Zum Programm:
+** dependencies nicht ins Model sondern in Controller
+** datenstrukturen keine Dependencies auf repositorys
+
+== Aktueller Stand
+
+* Pflichtkriterien erfüllt
+* Crosstesting getan
+
+== Planung des nächsten Sprints
+
+* Kundenwunsch programmieren
+* Entwicklerdokumentation 
+* Benutzerhandbuch
+* Bugfixing
+* Testklassen
+* Sonarqube fixxen ("Fehler")

@@ -1,0 +1,46 @@
+== Customer
+
+[options="headers"]
+|===
+|custid |forname |name |email |phone |password
+|===
+
+
+== Employee
+
+[options="headers"]
+|===
+|empid |forname |name |phone |street |streetnumber |zipcode |city |hiredate |firedate |status |salary |email |password
+|===
+
+
+== Room
+
+[options="headers"]
+|===
+|roomid	|name |totalseats
+|===
+
+
+== Seat
+
+[options="headers"]
+|===
+|seatid |row |number |status |type |roomid
+|===
+
+
+== Event
+
+[options="headers"]
+|===
+|eventid |name |date |starttime |endtime |soldticket |sales |roomid |movieid
+|=== 
+
+
+== Movie
+
+[options="headers"]
+|===
+|movieid |title |runtime |rent |rentcosts |totalrundays |image |description
+|===

@@ -1,0 +1,44 @@
+[options="header"]
+|===
+2+|*Room*
+|*_Unterklasse:_* 
+|*_Oberklasse:_*      
+
+|*_Verantwortlichkeiten:_* 
+
+- knowFreeSeat
+
+- knowBusySeat
+
+- knowEvent
+
+- createEvent
+
+- deleteEvent
+
+- occupySeat
+
+- releasingSeat
+
+- changeSeat
+
+- changeEvent
+
+|*_Mithelfer:_*
+
+- Time
+
+2+|*_Beschreibung:_*
+Der Room wird vom Admin angelegt und kennt seine Eigenscahften. Das Objekt ist "passiv",
+mit ihm wird kommuniziert aber das Objekt selber startet keine kommunikation.
+
+2+|*_Attribute:_*
+
+- date
+
+- time
+
+- seat
+
+- event
+|===

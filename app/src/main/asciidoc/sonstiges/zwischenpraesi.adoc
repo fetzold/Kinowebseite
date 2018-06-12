@@ -1,0 +1,113 @@
+== 1 Einleitung
+*Vorstellung der Aufgabe*
+
+* universelle Kino Software
+* für alle User gleiche Website mit unterschiedlichen funktionalitäten
+* Organisation der Filme und organisation der Events läuft über dieses System
+
+*Muss Kriterien:*
+
+* benutzerfreundliche Software, für jedes Kino der Gesellschaft
+* 4 Nutzergruppen werden unterschieden: Kunde, Angestellter, Autorisierter Angestellter und Chef
+* Der Chef kann das Personal einstellen, befördern, entlassen und bearbeiten
+* Die Daten gemieteter Filme können bearbeitet werden
+* Autorisiertes Personal kann den Programmablauf aufstellen
+* Autorisiertes Personal kann Veranstaltungen erstellen, bearbeiten und löschen
+* Der Kunde kann online Veranstaltung sehen und Karten reservieren, wobei er Platz und Preis wählt und seine Reservierung druckt
+* Die Platzauswahl wird graphisch über einen Überblick der einzelnen Säle realisiert
+* Es gibt zwei Platzgruppen: Parkett und Loge
+* Karten können vor Ort an der Kinokasse gekauft, reserviert, storniert, umgetauscht und bezahlt werden
+* Angebotenen Statistiken zum Einsehen für den Chef sind:
+** monatlicher Umsatz aus Personalkosten, Leihgebühren und Einnahmen
+** Tageseinnahmen
+** Besucherzahlen
+* Daten von vergangenen Veranstaltungen sind ersichtlich
+* für den Kauf oder die Reservierung mehrerer Karten gleichzeitig existiert ein Warenkorb
+* Kunden können sich einloggen
+* Kunden ohne Login müssen für Online-transaktionen ihre Email-Adresse angebeben
+* eingegebene Daten werden validiert
+* Räume können erstellt, gelöscht und bearbeitet werden
+* Reservierungen sind validierbar
+
+*Kann Kriterien:*
+
+* Mouse-Over-Funktion für Saalübersicht
+* Login für Kunden mit Kartenkauf
+* Saalvermietung für andersartige Veranstaltungen
+* Diagramme und Untermenüs in den Statistiken
+* Bild-Upload für Filmerstellung
+* Optionsmenu (Accountmanagement)
+
+== 2 Design Entscheidungen
+
+*Architektur*
+
+* Verwendung von Spring und Salespoint
+* HTML für das optische Design
+* Programmcodes in Englisch
+
+
+* Kunde ist allgemeinste Benutzerrolle
+** kann lediglich ausloggen, Warenkorb nutzen
+** Personendaten werden gespeichert
+* Angestellte besitzen alle Rechte im Kartenverkauf
+* Autorisierte Angestellte können gemietete Filme hinzufügen, Kino-Programm barbeiten
+* Chef kann alle Angestellten verwalten, besitzt Einblick in alle Daten
+
+
+* Daten werden in Datenbank gespeichert
+* Neustart des Systems ohne Datenverlust
+
+
+*Benutzeroberfläche*
+
+* komplett im Browser realisiert
+* unkomplizierten
+* Sprache der Website: Deutsch.
+
+image::img/Website.PNG[Benutzeroberfläche]
+
+Je nach Benutzerlevel enthält die Navigation eine Auswahl der folgenden Punkte:
+
+* Home: Link zurück auf die Hauptseite
+* Programm: öffnet die Programmübersicht, erlaubt Zugriff auf Programmverwaltung
+* Film mieten: bietet Zugriff auf externe Verleih-Kataloge. Aufgrund von Beschränkungen im Projekt-Rahmen wird an Stelle der Kataloge ein Formular angeboten, welches manuelles Eintragen eines neuen Films erlaubt.
+* Reservierung überprüfen:
+* Warenkorb: öffnet Warenkorb-Seite
+* Vewaltung: bietet je nach Benutzerlevel verschiedenen Funktionen um Daten der eigenen oder anderer Personen anzusehen oder zu ändern
+* Statistik: Zugriffslink für die unterschiedlichen Statistik-Ansichten
+* Login/Logout: bietet je nach Status die Funktion sich an- oder abzumelden
+* Registrierung: öffnet ein Formular, um einen neuen Benutzer anzulegen
+
+Ein nicht-autorisierter Zugriffsversuch auf eine HTML-Seite wird mit Rückwurf auf die Login-Funktion beantwortet.
+
+
+== 3 Funktionsübersicht
+|===
+|Akteur |Aktion |Beschreibung
+|Alle |Login |Funktion zum Einloggen eines Benutzers.
+|Alle |Logout |Funktion zum Ausloggen eines Benutzers.
+|Alle |Karten kaufen  |Funktion zum Kauf einer oder mehrerer Karten.
+|Alle |Karten reservieren |Funktion zur Reservierung einer oder mehrerer Karten.
+|Angestellter, Autorisierter, Chef  |Karten zurückgeben |Funktion Für die Rückgabe von Karten. Dies ist für Kunden nur mit Hilfe eines Angestellten möglich.
+|Angestellter, Autorisierter, Chef |Karten tauschen |Funktion für den Austausch von Karten.
+|Angestellter, Autorisierter, Chef |Karten verkaufen  |Funktion für den Verkauf von Karten an der Kinokasse.
+|Autorisierter, Chef |Film ausleihen  |Funktion für die Ausleihe eines neuen Films über externe Kataloge.
+|Autorisierter, Chef |Film absetzen  |Funktion zum Herausnehmen eines Films aus der Liste der für das Kinoprogramm zur Verfügung stehenden Filme.
+|Autorisierter, Chef |Vorstellung erstellen  |Funktion zur Erstellung einer neuen Vorstellung für einen zur Verfügung stehenden Film.
+|Autorisierter, Chef |Vorstellung bearbeiten  |Funktion zur Bearbeitung einer bestehenden Vorstellung.
+|Autorisierter, Chef |Vorstellung löschen  |Funktion zum Löschen einer bestehenden Vorstellung.
+|Chef |Personal einstellen  |Funktion zum Einstellen eines neuen Personalmitglieds.
+|Chef |Personal bearbeiten  |Funktion zum Bearbeiten eines bestehenden Personalmitglieds.
+|Chef |Personal befördern  |Funktion zum Befördern eines bestehenden Personalmitglieds.
+|Chef |Personal entlassen  |Funktion zum Löschen eines bestehenden Personalmitglieds.
+|Chef |Statistik einsehen  |Funktion für das Anzeigen der verschiedenen Statistiken.
+|System |Tageseinnahmen berechnen |Funktion zur Berechnung der Tageseinnahmen täglich zu einem festgelegten Zeitpunkt.
+|System |Monatsumsatz berechnen |Funktion zur Berechnung des Monatsumsatzes.
+|System |Raumauslastung berechnen |Funktion zur Berechnung der Raumauslastung einer bestimmten Vorstellung oder eines Films.
+|System |Programm erstellen |Funktion zur Erstellung eines kompletten Wochenprogramms aus den bestehenden Vorstellungen. Dies passiert im Hintergrund der Vorstellungsbearbeitung.
+|System |Platz belegen |Funktion für die Belegung eines Platzes is einem Kinosaal bei Verkauf oder Reservierung seiner zugehörigen Karte.
+|System |Platz freigeben |Funktion für die Freigbe eines belegten Platzes für den Verkauf. Dies geschieht bei Rückgabe oder Tausch seiner zugehörigen Karte, oder bei Ablauf des Reservierungsfensters.
+|System |Reservierung löschen |Funktion zum effektiven Löschen einer Reservierung. Dabei wird ein Platz 30 Minuten vor Beginn der zugehörigen Vorstellung wieder für den verkauf freigegeben.
+|===
+

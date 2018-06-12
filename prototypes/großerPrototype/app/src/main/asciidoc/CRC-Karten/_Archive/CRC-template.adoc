@@ -1,0 +1,28 @@
+
+[options="header"]
+|===
+2+|*Statistik*
+|*_Unterklasse_*       |*_Oberklasse_*
+|Verantwortlichkeiten
+
+Übersicht erstellen
+
+|Mithelfer
+
+Datenbank
+
+Zeit
+
+2+|Beschreibung
+Erstellt Übersicht für Chefchen über Kosten und Auslastung
+
+2+|Attribute
+
+Kosten
+
+Einnahmen
+
+Saalauslastung
+
+...
+|===

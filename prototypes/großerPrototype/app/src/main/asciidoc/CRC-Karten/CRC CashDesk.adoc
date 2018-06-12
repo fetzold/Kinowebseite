@@ -1,0 +1,53 @@
+[options="header"]
+|===
+2+|*CashDesk*
+|*_Unterklasse:_* 
+|*_Oberklasse:_*      
+
+|*_Verantwortlichkeiten:_* 
+
+- initialization
+
+- knowDate
+
+- knowCash
+
+- knowCashier
+
+- knowTickets
+
+- knowFoodDrinks
+
+- knowTime
+
+- knowMoneyBack
+
+- knowAmount
+
+|*_Mithelfer:_*
+
+- Time
+
+- Employee
+
+- System/DB
+
+2+|*_Beschreibung:_*
+Nur für den Verkauf gedacht, bezieht Informationen aus der Datenbank
+
+2+|*_Attribute:_*
+
+- date
+
+- time
+
+- cashier
+
+- money
+
+- change
+
+- moneyBack
+
+- products
+|===

@@ -1,0 +1,15 @@
+﻿== Szenarien
+
+=== Chef-Aufgaben
+Der Chef stellt ein neues Personalmitglied ein. Er trägt die Personal- und Kontaktdaten der neuen Person und teilt ihr eine Autorisationsstufe und Gehaltsmenge zu. Sie bekommt ein Login und wird einem Kino zugeteilt.
+
+=== Kartenverkauf
+Ein Kunde will eine Kinokarte an der Kasse kaufen. Das Personalmitglied prüft im System, ob für die gewünschte Vorstellung noch Plätze verfügbar sind. Trifft dies zu, dann teilt das Personalmitglied dem System die Preisklasse des Kunden mit, woraus dieses dann den Preis der Kinokarte berechnet. Zahlt der Kunde den Preis, belegt das System einen verfügbaren Platz und druckt eine Kinokarte mit den Informationen über Name und Zeit der Vorstellung, sowie dem zugehörigen Kinosaal, der Platznummer und dem gezahlten Preis aus.
+
+Ein Kunde möchte vom eigenen PC aus eine Kinokarte reservieren. Er öffnet das Online-Portal und blättert im Programm nach seiner gewünschten Vorstellung. Auf der Info-Ansicht der Vorstellung kann er die momentane Sitzplatzbelegung einsehen und einen Platz auswählen. Er bekommt einen Schein mit einer Nummer zum ausdrucken. Diese bringt er zur Kinokasse, bezahlt und bekommt eine Karte im Tausch.
+
+=== Programmverwaltung
+Ein autorisiertes Personalmitglied erstellt eine zusätzliche Filmvorstellung für einen bereits laufenden Film in seinem Kino. Er wählt aus einer vom System bereitgestellten Auswahl an freien Sälen und Zeitslots. Die neu erstellte Vorstellung wird dem Programm für das Kino hinzugefügt und steht nun für den Kartenverkauf bereit.
+
+=== Umsatzverwaltung
+Der Chef will sich nun die Tageseinnahmen ansehen, welche vom System über die Anzahl der verkauften Karten berechnet werden. Auch die Auslastung der Kinosäle bezogen auf den Film werden angezeigt. Monatlich wird anhand der Einnahmen der Umsatz berechnet und dieser wird den Kosten entgegengestellt. 

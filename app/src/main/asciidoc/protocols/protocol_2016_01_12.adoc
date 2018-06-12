@@ -1,0 +1,39 @@
+= Protokoll Gruppe 19
+
+__Treffen am 12.01.2015__
+
+__Schriftführer:__
+Marco Schwabe
+
+__Endpräsentation:__ 19.01.2015 6.DS APB 2101
+
+__Teilnehmer:__
+Josia Mädler, Felix Etzold, Beatrice Gräßler, Alexej Sentschenko, Marco Schwabe
+
+== Aktueller Stand
+
+* Kundenwunsch erfüllt
+* Cycles entfernt
+
+
+== To do bis Freitag
+* Controller Integrationstests
+* persönliche Evaluationsbögen
+* Entwicklerdokumentation und Benutzerhandbuch
+* Ordnerstruktur (ASCII) fertig stellen
+
+== Allgemein
+* In Prüfung einschreiben
+
+== Informationen zur Endpräsentation 
+* In den ersten 10 min
+- Vorstellung
+- Wie ist das Projekt verlaufen?
+- wichtige Entscheidungen
+- Probleme
+- Aufgabenverteilung
+- Erfahrungen
+- Use-Case Diagramm -> Aufgabenstellung
+
+.danach
+- Szenarien abarbeiten (am besten alles schon eingetragen und geladen, damit keine Zeit zum Eintippen verbraucht wird)

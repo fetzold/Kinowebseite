@@ -1,0 +1,74 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+    <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+    <title>UFO Kino</title>
+</head>
+
+<body>
+<header th:include="header :: header"></header>
+
+<div class="row">
+    <nav th:include="navigation :: navigation"> </nav>
+
+    <div class="large-9 columns">
+        <nav th:include="subnav :: subnav"></nav>
+        <nav th:include="subnavProgramManagement :: subnavProgramManagement"></nav>
+
+        <form method="post" role="form" class="gb-form" id="form" th:action="@{/addEventSpecial}" th:object="${form}">
+        <fieldset>
+            <legend>Sonderveranstaltung anlegen</legend>
+
+            <label for="title" th:text="#{addEvent3rd.Filmtitel}">Name</label>
+            <label class="error" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></label>
+            <input id="title" class="form-control" type="text" th:field="*{title}" th:errorclass="fieldError" />
+            
+            <label for="description" th:text="#{addEvent3rd.Filmbeschreibung}">Text</label>
+            <label class="error" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></label>
+            <textarea id="description" th:field="*{description}" class="form-control" th:errorclass="fieldError" ></textarea>
+            
+        <div class="form-group" style="display:inline-block;">
+            <label for="duration" th:text="#{addEvent3rd.Eventdauer}">Name</label>
+            <label class="error" th:if="${#fields.hasErrors('allday')}" th:errors="*{allday}"></label>
+            <input type="radio" name="duration" id="durationDay" value="1" th:field="*{allday}" /><label for="durationDay">Ganztägig</label><br />
+            <input type="radio" name="duration" id="durationHour" value="0" th:field="*{allday}" /><label for="durationHour">Stunden</label>
+            <label th:if="${error} != null" class="error" th:text="#{addEvent.Error}">UPS</label>
+            <label class="error" th:if="${#fields.hasErrors('runTime')}" th:text="#{addEvent.Error}"></label>
+            <input id="runTime" type="text" th:field="*{runTime}" />
+        </div>
+        
+            <br />
+            
+        <div class="form-group" th:if="*{b_private} == false">
+        	<div class="form-group" style="display:inline-block;">
+            <label for="rent" th:text="#{addEvent3rd.Filmkosten}">Filmkosten</label>
+            <label class="error" th:if="${#fields.hasErrors('rent')}" th:errors="*{rent}"></label>
+            <input id="rent" type="text" th:field="*{rent}" class="form-control" th:errorclass="fieldError" /></div>
+            
+        	<div class="form-group" style="display:inline-block;">
+            <label for="baseCost" th:text="#{addEvent3rd.BaseCost}">Karten-Grundpreis</label>
+            <label class="error" th:if="${#fields.hasErrors('baseCost')}" th:errors="*{baseCost}"></label>
+            <input id="baseCost" type="text" th:field="*{baseCost}" class="form-control" th:errorclass="fieldError" />
+        	</div>
+        </div>
+            
+        <div class="form-group" th:if="*{b_private} == true">
+            <label for="baseCost" th:text="#{addEvent3rd.HourCost}">Name</label>
+            <label class="error" th:if="${#fields.hasErrors('baseCost')}" th:errors="*{baseCost}"></label>
+            <input id="baseCost" type="text" th:field="*{baseCost}" class="form-control" th:errorclass="fieldError" />
+            
+            <input type="hidden" id="rent" name="rent" th:value="'0,00'" />
+        </div>
+            
+            <input type="hidden" th:field="*{roomID}" />
+            <input type="hidden" th:field="*{movieID}" />
+            <input type="hidden" th:field="*{b_private}" />
+            <input type="submit" class="small button success radius" th:value="Bestätigen" value="Senden" />
+        </fieldset>
+        </form>
+    </div>
+</div>
+</body>
+</html>

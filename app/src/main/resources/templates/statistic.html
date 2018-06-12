@@ -1,0 +1,52 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+        <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+        <title>UFO Kino</title>
+    </head>
+    
+    <body>
+        <header th:include="header :: header"></header>
+
+        <div class="row">
+            <nav th:include="navigation :: navigation"> </nav>
+            
+            <div class="large-9 columns">
+                 
+               <nav th:include="subnavStatistic :: subnavStatistic"> </nav>
+                <table border="1">
+                    <tr>
+                        <td>Einnahmen</td>
+                        <td>Ausgaben</td>
+                        <td>Total</td>
+
+                    </tr>
+                    <tr>
+                        <td>30.000€</td>
+                        <td>15.000€</td>
+                        <td>15.000€</td>
+                    </tr>
+                </table><br/><br/>
+                <h2>
+                    Überblick: vom 21.10.2015
+                </h2><br/>
+                <table border="1">
+                    <tr align="center">
+                        <td>Film</td>
+                        <td>Kino</td>
+                        <td>Belegte Plätze von Gesamt</td>
+                        <td>Gewinn</td>
+                    </tr>
+                    <tr align="center">
+                        <td>My little Pony</td>
+                        <td>Kino 3</td>
+                        <td>30/212</td>
+                        <td>300€</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

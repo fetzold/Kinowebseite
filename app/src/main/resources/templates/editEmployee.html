@@ -1,0 +1,89 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+    <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+    <title>UFO Kino</title>
+</head>
+
+<body>
+<header th:include="header :: header"></header>
+
+<div class="row">
+    <nav th:include="navigation :: navigation"> </nav>
+
+
+    <div class="large-9 columns">
+        <nav th:include="subnav :: subnav"> </nav>
+
+        <form method="post" modelAttribute="Emp" role="form" class="gb-form" id="form" th:action="@{modifyEmployee}" th:object="${form}">
+        <fieldset>
+            <legend th:text="#{staff.stafflist}">Benutzerkonto</legend>
+            <div class="form-group">
+                <label for="lastname" th:text="#{editEmployee.Nachname}">Name</label>
+                <label class="error" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></label>
+                <input id="lastname" class="form-control" type="text" th:errorclass="fieldError" th:field="*{lastname}" />
+            </div>
+
+            <div class="form-group">
+                <label for="forename" th:text="#{editEmployee.Vorname}">Text</label>
+				<label class="error" th:if="${#fields.hasErrors('forename')}" th:errors="*{forename}"></label>
+                <input id="forename" type="text" th:field="*{forename}" th:errorclass="fieldError" class="form-control"/>
+            </div>
+
+            <div class="form-group">
+                <label for="town" th:text="#{editEmployee.Stadt}">Text</label>
+                <label class="error" th:if="${#fields.hasErrors('town')}" th:errors="*{town}"></label>
+                <input id="town" th:field="*{town}" th:errorclass="fieldError" class="form-control" />
+            </div>
+            
+            <div class="form-group" style="display:inline-block;">
+                <label for="zip" th:text="#{editEmployee.Postleitzahl}">Text</label>
+                <label class="error" th:if="${#fields.hasErrors('zip')}" th:errors="*{zip}"></label>
+                <input id="zip" th:field="*{zip}" th:errorclass="fieldError" class="form-control" />
+            </div>
+
+            <div class="form-group" style="display:inline-block;">
+                <label for="street" th:text="#{editEmployee.Straße}">Text</label>
+                <label class="error" th:if="${#fields.hasErrors('street')}" th:errors="*{street}"></label>
+                <input id="street" th:field="*{street}" th:errorclass="fieldError" class="form-control" style="width: 485px" />
+            </div>
+            <div class="form-group">
+                <label for="eMail" th:text="#{editEmployee.E-Mail}">Text</label>
+                <label class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></label>
+                <input id="eMail" th:field="*{email}" th:errorclass="fieldError" class="form-control" />
+            </div>
+            
+            <div class="form-group">
+                <label for="phone" th:text="#{editEmployee.Telefonnummer}">Text</label>
+                <label class="error" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></label>
+                <input id="phone" th:field="*{phone}" th:errorclass="fieldError" class="form-control" />
+            </div>
+            
+            <div class="form-group" style="display:inline-block;">
+                <label for="salary" th:text="#{editEmployee.Stundenlohn}">Text</label>
+                <label class="error" th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}"></label>
+                <input id="salary" th:field="*{salary}" th:errorclass="fieldError" class="form-control" style="width: 150px;" />
+            </div>
+			  
+			<div class="form-group" style="display:inline-block;margin-left:100px;">
+            <label for="userRightsId" th:text="#{editEmployee.Benutzerart}">Name</label>
+            <select id="userRightsId" class="form-control" th:field="*{userRightsId}" style="width: 250px;">
+                <option th:value="0" th:text="#{editEmployee.Verkäufer}">Option</option>
+                <option th:value="1" th:text="#{editEmployee.Authorisierter}">Option</option>
+                <option th:value="2" th:text="#{editEmployee.Administrator}">Option</option>
+            </select>
+            </div>
+            <input type="hidden" name="empid" id="empid" th:value="${id}" />
+            <input type="hidden" th:field="*{userName}" th:value="${userName}"/>
+            <input type="hidden" th:field="*{password}" th:value="${password}"/>
+            <div>
+            <input type="submit" class="small button success radius" th:value="Bestätigen" value="Senden"/>
+            </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+</body>
+</html>

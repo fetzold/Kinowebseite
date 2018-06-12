@@ -1,0 +1,22 @@
+CRC-Karten
+[options="header"]
+|===
+2+|*LOGIN*
+|*_Unterklasse_*       |*_Oberklasse_*
+|Verantwortlichkeiten
+
+Login
+
+Benutzerlevel zuordnen
+
+Passwort vergleichen
+
+|Mithelfer
+
+Datenbank
+2+|Beschreibung:
+
+Ermöglicht Personal sich einzulogen und an die entsprechenden Funktionen zu kommen.
+
+2+|Attribute
+|===

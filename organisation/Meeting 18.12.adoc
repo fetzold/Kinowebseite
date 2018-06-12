@@ -1,0 +1,15 @@
+* Verkäufer bekommt e-Mail wenn er Karten kauft
+
+* Bug: Wenn was reserviert wird und dann storniert wird es mit anderem Account storniert
+
+* Kinsoaal: Reihen auf ein Maximum beschränken
+
+* Raum bearbeiten: Fügt man eine Reihe hinzu wird diese automatisch als Loge markiert. SOll: selbst auswählen 
+
+* Fehlermeldung bei Fehlanmeldung angeben: über Thymleaf überprüfen ob error übergeben wird
+
+* Registrationform für Accountverwaltung übernehemn, damit alles gleiche Größe besitzt
+
+* Warenkorb: Timer auf 10min stellen, zur Zeit bei 2min
+
+* Beim adden eines Filmes werden Bilder nicht angezeigt (extra Requestmapping, Handler)

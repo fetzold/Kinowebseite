@@ -1,0 +1,26 @@
+CRC-Karten
+[options="header"]
+|===
+2+|*Kinokarte*
+|*_Unterklasse_*       |*_Oberklasse_*
+|Verantwortlichkeiten
+
+Zeit
+
+Veranstaltung
+
+Saal
+
+Film
+
+Platz
+
+|Mithelfer
+
+Kasse
+
+System, Zeit, Veranstaltung
+2+|Beschreibung:
+
+Hält Daten für Druck bereit. Registriert Karte im System
+|===

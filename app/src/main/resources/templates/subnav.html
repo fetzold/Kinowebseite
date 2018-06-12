@@ -1,0 +1,37 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+        <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+        <title>UFO Kino</title>
+    </head>
+    
+    <body>
+        <nav th:fragment="subnav">
+        <ul class="button-group even-4">
+            <li sec:authorize="hasAnyRole('ROLE_AUTHORIZED')">
+                <a th:if="${#httpServletRequest.requestURI.contains('/account.html')}" style="background-color: #007095;" class="small button" th:href="@{/account.html}" href="account.html" th:text="#{management.account}">account</a>
+                <a th:unless="${#httpServletRequest.requestURI.contains('/account.html')}" class="small button" th:href="@{/account.html}" href="account.html" th:text="#{management.account}">account</a>
+            </li>
+            <li>
+                <a th:if="${#httpServletRequest.requestURI.contains('film')}
+                or ${#httpServletRequest.requestURI.contains('Event')}
+                or ${#httpServletRequest.requestURI.contains('/changeprogram.html')}" sec:authorize="hasAnyRole('ROLE_BOSS','ROLE_AUTHORIZED')" class="small button" style="background-color: #007095;" th:href="@{/rentafilm.html}" href="rentafilm.html" th:text="#{management.program}">account</a>
+                <a th:unless="${#httpServletRequest.requestURI.contains('film')}
+                or ${#httpServletRequest.requestURI.contains('Event')}
+                or ${#httpServletRequest.requestURI.contains('/changeprogram.html')}" sec:authorize="hasAnyRole('ROLE_BOSS','ROLE_AUTHORIZED')" class="small button" th:href="@{/rentafilm.html}" href="rentafilm.html" th:text="#{management.program}">account</a>
+            </li>
+            <li>
+                <a th:if="${#httpServletRequest.requestURI.contains('Room')}" sec:authorize="hasAnyRole('ROLE_BOSS')" class="small button" style="background-color: #007095;" th:href="@{/addRoom}" href="addRoom.html" th:text="#{management.room}">Room</a>
+                <a th:unless="${#httpServletRequest.requestURI.contains('Room')}" sec:authorize="hasAnyRole('ROLE_BOSS')" class="small button" th:href="@{/addRoom}" href="addRoom.html" th:text="#{management.room}">Room</a>
+            </li>
+            <li>
+                <a th:if="${#httpServletRequest.requestURI.contains('/staff')}
+                           or ${#httpServletRequest.requestURI.contains('/detailEmployee')}" sec:authorize="hasAnyRole('ROLE_BOSS')" class="small button" style="background-color: #007095;" th:href="@{/staff.html}" href="staff.html" th:text="#{management.staff}">Personal</a>
+                <a th:unless="${#httpServletRequest.requestURI.contains('/staff')}
+                           or ${#httpServletRequest.requestURI.contains('/detailEmployee')}" sec:authorize="hasAnyRole('ROLE_BOSS')" class="small button" th:href="@{/staff.html}" href="staff.html" th:text="#{management.staff}">Personal</a>
+            </li>
+        </ul></nav>
+    </body>
+</html>

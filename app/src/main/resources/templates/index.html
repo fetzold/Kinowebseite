@@ -1,0 +1,39 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+	<script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+	<title>UFO Kino</title>
+        <meta th:if="${succsesaMsg} ? true : false" http-equiv="refresh" content="3;url=/logout" />
+
+
+    </head>
+    
+    <body>
+        <header th:include="header :: header"></header>
+        
+        <div class="row">
+            <nav th:include="navigation :: navigation"> </nav>
+            <div class="large-9 columns">
+            <h4>Wilkommen auf der UFO Kino Site.</h4>
+                <div th:if="${succsesaMsg} ? true : false" class="panel"><span th:text="${succsesaMsg}">Text</span> </div>
+                
+                <p/>
+                <div class="large-4 columns">
+                
+				<img th:src="@{'/resources/img/camera.jpg'}" />
+                </div>
+                <div class="large-7 columns end">
+                <b>Dies ist ein Beispiel, wie Ihre Hauptseite aussehen könnte.</b><p />
+                Hier finden Sie Informationen zum Programm Ihres lokalen UFO Kinos. Im linken Bereich finden Sie das Menü.<br /><br /><br />
+                <div style="float: center;"><h5>Unsere Anschrift:</h5>
+                UFO Kino Musterstadt<br />
+                Hinter der Gasse 45<br />
+                01234 Musterstadt</div>
+                
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

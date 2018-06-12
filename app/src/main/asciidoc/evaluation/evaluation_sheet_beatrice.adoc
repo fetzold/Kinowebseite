@@ -1,0 +1,56 @@
+﻿= Persönliches Feedback eines Teammitgliedes des Softwarepraktikums 2015/16
+
+**Von: Beatrice Gräßler**
+
+**Gruppe: 19**
+
+== Was habe ich gelernt?
+* Aufgabenanalyse und Umwandlung in Code-Konzept
+
+Meine mitgebrachte Basis an Programmierkentnissen am Anfang des Praktikums setzte sich eigentlich fast vollständig aus dem bisherigen Rahmen meiner vorherigen Semester Informatik-Studium zusammen. Auf dieser Grundlage hatte ich nicht die geringste Vorstellung, was genau die Aufgabenstellung von uns verlangen würde oder wie eine tatsächliche Web-Anwendung überhaupt aussieht. Zustätzlich haben mich die Annotationen stark verwirrt, zumal sie vorher nur beiläufig erwähnt wurden und ich keine Ahnung hatte, was genau ein "Framework" im Programmiersinn ist. +
+Ich besuchte Softwaretechnologie I direkt im SS2015 und ging damit gut vorbereitet durch die Analyse- und Entwurfsphase, aber trotz Praktomatenübungen war für mich eigentlich der gesamte Programmierteil eine komplette Lernerfahrung. Es fing schon an bei der Analyse der Aufgabe und deren Umwandlung in ein Code-Konzept. Woche für Woche fiel es mir zunehmend leichter, gezielt objektorientiert zu Denken und zu Programmieren.
+
+* wesentlich sichererer Umgang mit Java
+
+Die Grundkonzepte von Java waren mir bereits aus dem Vorsemester relativ vertraut, aber jetzt kann ich auch sicher mit vielen Aspekten umgehen. Ein bedeutender Punkt für mich war die Frage, was mit Java überhaupt möglich ist, bevor ich in die richtige Richtung überlegen konnte. Bis über die Hälfte des Programmierteils der Aufgabe habe ich allerdings in Folge von neuen und besseren Erkenntnissen meine Teilaufgaben sogar fast komplett neu geschrieben. Zwar habe ich dadurch viel Zeit verloren, aber sie waren hinterher effektiver. Vom jetzigen Standpunkt aus wüsste ich viel besser, wie ich die Probleme von Anfang an angehen sollte.
+
+* Fehlersuche und Fehlerbehebung, Lesen von Code anderer, Teamarbeit
+
+Anfangs wusste ich gar nicht mit Fehlern umzugehen und musste mehr oder weniger blind einen anderen Weg versuchen, oder eben die richtige Lösung direkt erfragen. Allerdings setzte sich ein sehr großer Teil des Praktikums aus Fehlersuche in meinem eigenen Code und im Code anderer zusammen. Der Umgang mit der Konsolenausgabe und Begriffen aus Fehlermeldungen fällt mir wesentlich leichter. Gleichzeitig bekam ich viel Übung darin, zu erkennen, was die Funktion von Code-Stücken ist, die andere geschrieben haben, über die ich vorher nichts wusste. Dies beinhaltet auch die Aufgabe, Code zu schreiben, der mit bereits geschriebenen Teilen zusammen funktioniert; ihn also darauf anzupassen.
+Dazu ist mir jetzt offensichtlich, wie leicht sich unterschiedliche Methoden und Klassen untereinander beeinflussen können, auch wenn es von außen nicht offensichtlich scheint. Ein einmaliger Testerfolg heißt nicht gleich eine funktionierende Methode.
+
+* Umgang mit JavaDoc, Dokumentationen allgemein
+
+Die vielen benötigten Funktionen und neuen Klassen machte es extrem notwendig, sich durch diverse Dokumentationen zu lesen und diese auch zu verstehen. Bei den Praktomatsaufgaben benutzt man schon ab und zu Javadoc, aber ohne leichtes Verstehen der Dokumentationen hätte ich nicht viel zu stande gebracht. Mit steigender Komplexität unserer Anwendung wurde auch schnell klar, wie viel die eigene Dokumentation wert ist.
+
+= Welche Erfahrungen habe ich mit der Zusammenarbeit im Team gemacht?
+* Arbeit im Team motiviert, selbst maximale Leistung zu bringen
+Ich denke nicht, dass sehr falsch damit liege, dass ich sicher in diesem Team die geringste Programmiererfahrung mitbrachte, aber gerade diese Tatsache hat mich sehr dazu motiviert, wirklich die beste Arbeit zu leisten, die mir möglich ist. Der regelmäßge Druck von Meetings half dabei sehr. Letztendlich habe ich vielleicht zu viel Zeit in diese Arbeit gesteckt im Vergelich zu den anderen, aber selbst leichte Aufgaben fielen mir anfangs schwer und ich brauche einfach länger.
+
+* Aufgabenverteilung ist schwer, wenn noch alles von einander abhängt
+Am Anfang der Programmierphase präsentierte es sich als tatsächliches Problem, wirklich Aufgaben zu wählen und zu verteilen. Wir waren alle noch viel zu lange dabei, zu lernen was Spring und Salespoint überhaupt machen, dadurch stellte sich oft die Frage "wie geht denn A, wenn B noch nicht da ist?". Die Arbeitslast verteilte sich letztendlich dadurch etwas ungleichmäßig, aber dieses Problem half uns bei der tatsächlichen "Gruppenbildung" durch erzwungene Kommunikation.
+
+* Teammitglieder haben unterschiedliche Lösungswege für gleiches Problem
+Für ein Problem gab es oft mehrere Lösungen, was sowohl Vorteile als auch Nachteile haben kann. Zum einen hat diese Tatsache mir viel über Java beigebracht und mir auch selbst neune Lösungsideen gegeben, aber auf der anderen Seite verursachte dies auch Verständnisschwierigkeiten. Wenn Teammitglieder mit unterschiedlichen "Programmierstilen" arbeiten, in diesem Fall basiert auf unterschiedlichem Fokus in der Vergangenheit, kam es zu erheblichen Inkompatibilitäten, weil jeder seinen Weg auf die Anwendung aufdrücken wollte. Kommunikation, Absprache und Einigung sind sehr wichtig bei Teamarbeit.
+
+* Kommunikation ist extrem wichtig
+Wenn sich jemand nicht genug mit der Arbeit der anderen auseinander setzt, und nicht die eigene Arbeit im Zusammenspiel mit dem Rest testet, geht alles schnell schief. Und es geht sehr viel Zeit verloren, wenn man bei Problemen und Unsicherheiten nicht einfach fragt. Also Folge kann auch Arbeit einer Person falsch verstanden und durch andere Person entsprechend falsch verändert werden, und dann haben alle Unbeteiligten das neue Problem wieder zu Lösen.
+
+* Zeitplanung und Absprache und Einhaltung sind essentiell, aber auf alles gefasst sein
+In Teamarbeit kann sich keiner bis kurz vor Teiltermin mit seinem Arbeitsteil Zeit lassen, da möglicherwise andere auf diesen Ergebnissen aufbauen müssen. Genauso muss man sich auch darauf einstellen, an andere vergebene Aufgaben letztendlich doch selbst lösen zu müssen. Also Aufgabenverteilung, Druck und Vertrauen ist gut, selbst immer Vorarbeit leisten damit die Aufgabe auch auf jeden Fall erfüllt wird ist besser.
+
+== Welche Erfahrungen habe ich bei der Wiederverwendung von Bibliotheken/Frameworks (insbesondere SalesPoint) gemacht?
+
+Die Wiederverwendung von bestehenden Bibliotheken empfand ich als sowohl hilfreich als auch herausfordernd. Auf der einen Seite nahm es mir vor allem anfangs einiges an eigenen Überlegungen ab, da die Funktionen besonders im Fall von SalesPoint für den Warenkorb schon eine konkrete Struktur vorgeben, womit ich mich zum Anfang beschäftigt habe. Dann traten aber schnell Schwierigkeiten auf, da in unserem Fall die Kinokarten auf das vom SalesPoint-Cart benötigte Product zugeschnitten werden mussten. Zumindest habe ich das Gefühl bekommen, dass SalesPoint besser mit einem festen "Produkt-Angebot" arbeitet als mit immer wieder neu erstellten und zusammengesetzten Karten, also musste ich eigene Attribute und Sortierungen dazu überlegen, andere wieder zweckentfremden. Ob das die beste Lösung war, will ich natürlich nicht behaupten. +
+Von SalesPoint haben wir hauptsächlich Cart und UserAccountManager verwendet, weitere Komponenten wie Catalog und OrderManager konnten wir schnell für unsere Zwecke ausschließen. Probleme gab es allerdings anfangs, Spring und SalesPoint auseinander zu halten, da wir im Grunde mit beiden gleichzeitig konfrontiert wurden. Die Vorlesungen aus dem Vorsemester halfen zwar sehr beim Verständnis von Maven und Git, aber was genau Spring ist, war für mich persönlich im Rückblick einfach zu abstrakt, um es ohne eigene Erfahrung zu verstehen. Auch für Thymeleaf benötigten wir eine gewisse Zeit um dessen gesamten Basisumfang zu verstehen. Um die Aufgaben zeitgemäß zu erledigen, muss die Einarbeitung in die benötigten Bibliotheken schnell gehen, womit ich persönlich leider Probleme hatte.
+
+Allgemein fand ich die Arbeit mit Frameworks sehr lehrreich. Eine der größten Hürden in deren Verwendung war vielleicht sogar nur die richtige Dokumentation und Starthilfe zu finden, um mit ihnen zurecht zu kommen, danach baute dann eine Komponente auf die andere auf, wie es auch gedacht war. Sie haben definitiv Zeit und Mühe gespart, die man bräuchte um Methoden selbst zu entwerfen, aber die richtige Anwendung der Komponenten für die entsprechende Aufgabe muss auf jeden Fall vorher korrekt erkannt werden. Das nicht zu schaffen, hat uns leider viel Zeit gekostet.
+
+== Welche Vorschläge zur weiteren Verbesserung des Softwarepraktikums gibt es?
+* Mehr Vorbereitung auf JUnit. Für mich persönlich kam dieses Kapitel in der Vorlesung zu schnell und zu kurz. Zwar sind JUnit-Tests in jeder Praktomats-Aufgabe enthalten, aber sie sind nur ein Mittel zur Lösungsprüfung und bieten wenig Hilfe zum Verständnis. Wir wussten in der Gruppe zwar generell wie Asserts funktionieren, aber die Unklarheit der Aufsetzung dieser Tests für ein Projekt dieser Art ließ sie und lange bei Seite schieben. Alternativ wäre eine leichte Erweiterung der Videoshop-Tests hilfreich.
+* Vielleicht Spring-Beispiel im Praktomat, für einen MVC-Einblick, aber ich verstehe auch den Sinn der steileren Lernkurve zum Beginn des Praktikums. Die uns zusätzlich angebotenen Vorlesungen haben schon zumindest eine Begriffsbasis geschaffen.
+* Definitionen und Spezifikationen der verschiedenen Entwurfs- und Analysediagramme waren anders je nachdem, wen man gefragt hat. Die zu verwendenden Standarts sollten entweder deutlicher geklärt oder Variationen deutlich akzeptiert werden. Wenn mehr Aufwand in das Umbearbeiten existierender Diagramme geht als in deren Erstellung, verliert sich die Motivation.
+
+== Sonstiges und Anmerkungen
+* Aufgabe war von Grund her gut an in Vorlesung und Übung gebrachten Programmieraufgaben angelehnt
+* Praktomatsaufgaben als Vorraussetzung für das Praktikum zu nehmen halte ich für keine gute Idee, da dafür die Aufgaben dort erst optimiert werden müssten. Die Aufgabenstellungen zu vielen Aufgaben beinhalten nur einen Teil der prüfendenen JUnit-Abfragen, und als lernender Student verbringt man dann schnell zu viel Zeit herauszufinden, was der Test dann eigentlich für zusätzliche Klassen und Funktionen von einem will.

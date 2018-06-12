@@ -1,0 +1,103 @@
+﻿= Test-Plan
+
+Dieser Testplan stellt eine vereinfachte Version der IEEE 829-1998 Vorlage dar.
+
+== Einführung
+
+Bei dem vorliegenden Dokument handelt es sich um den Testplan für das Softwaresystem des UFO Kino-Unternehmens, erstellt für das Softwarepraktikum 2015/16 der Gruppe 19.
+
+Zweck des Testplans ist es, ein organisiertes und systematisches Testen des UFO-Systems  zu ermöglichen. Für die zu testenden Komponenten des Systems werden entsprechende Testfälle entworfen und Kriterien bestimmt, für die die Tests als erfolgreich durchgeführt oder versagt gelten. Weitere Anforderungen an Hardware und Software werden für die Tests ebenfalls definiert. Auf diese Weise soll die Erfüllung der Anforderungsspezifikation und Einhaltung der Architektur sichergestellt werden.
+
+Schwerpunkt der Testfälle sollen hier Integrations- und Leistungstests sein. In
+diesem Dokument sind die Spezifikationen der Komponententests nicht enthalten;
+diese werden als JUnit-Testfälle erstellt, und deren Spezifikation ist daraus
+direkt ersichtlich.
+
+Der Testplan richtet sich an die Entwickler in Zusammenarbeit mit dem Kunden sowie dritte Tester.
+
+== Aufbau der Testbezeichner
+Nach welchem Schema sind die Tests benannt?
+
+*Bsp.*
+
+*U - Unit Test*
+*I - Integrationstest*
+*A - Akzeptanztests*
+
+*U-1, U-2, I-1*
+
+== Test Gegenstände
+
+== Zu testende Funktionalitäten
+
+== Nicht zu testende Funktionalitäten
+z.B. Bibliotheken von Drittanbietern (eigene Tests beschränken sich auf Schnittstelle, bzw. Zusammenspiel).
+
+Folgende Frameworks, Java-Bibiotheken, Methoden und Datentypen werden nicht getestet:
+
+* Salespoint 6.2.0
+* Spring
+* Foundation
+* JPA und hsqldb
+* Java JDK 8
+* Tomcat-Server
+* maven 4.0.0
+* Thymeleaf
+
+== Herangehensweise
+*Bsp.:*
+
+*Klassen werden mit JUnit getestet.*
+
+*Integrationstest nach Bottom-Up Prinzip*
+
+== Umgebungsvoraussetzungen
+
+* Für die Tests wird
+* Welche Daten müssen bereitgestellt werden? Wie werden die Daten bereitgestellt?
+* Während des Testens kommuniziert die Software aussschließlich mit dem lokal laufenden Server. Eine Verbindung mit dem Internet ist nicht notwendig und Daten werden nicht nach außen weitergegeben.
+* Folgende Hilfssoftware wird für die Tests verwendet:
+** JUnit xx
+** What else
+
+== Testfälle und Verantwortlichkeit
+Jede testbezogene Aufgabe muss einem Ansprechpartner zugeordnet werden.
+
+// See http://asciidoctor.org/docs/user-manual/#tables
+[options="headers"]
+|===
+|ID     |Anwendungsfall                 |Vorbedingungen                 |Eingabe            |Ausgabe
+|U-1    |keine doppelten Belegungen     |Plätze können besetzt werden   |Sitz belegen   |keine doppelte Belegung
+|U-2    |reservierter Platz darf nicht doppelt belegt werden|Platz reserviert |Sitz reservieren |Ablehnung, nur eine reservierung
+|U-3    |Defekter Sitz darf nicht reserviert werden|Sitz als Defekt markiert |Sitz reservieren|Ablehnung
+|U-4  |User kann keinen leeren Warenkorb kaufen|Warenkorb leer|kaufen       		|Fehler, keine Produkte verfügbar
+|U-5  |Reservierung und Ticketinformationen stimmen überein|Ticket wird erstellt|Ticket drucken 		|Ticket
+|U-6  |Neue Filme müssen korrekt abgespeichert werden|Filme anlegbar|Film anlegen |korrekte Informationen
+|U-7 | Änderungen an Filmen werden korrekt gespeichert| Filme bearbeitbar|Neue Informationen|korrekte Informationen
+|U-8|Bei Rückgabe einer Karte muss der richtige Platz frei werden|Karten reklamierbar|Ticket ID| Platz freigegeben
+|U-9|30min vor Beginn ist kein Umtausch mehr möglich|Zeit wird erfasst|Ticket ändern| Ablehnung auf Grund der Zeit
+|U-10|30min vor Beginn werden nicht abgeholte Reservierungen storniert|Ticket reserviert| Ticket verfügbar
+|U-11|2 Filme können nicht zur selben Zeit im selben Raum sein |Raum belegt| Raum nochmals belegen| Ablehnung
+|U-12|Statistik wird am Ende des Tages erstellt|Daten verfügbar|keine|Statistik
+|U-13|Statistik wird korrekt berechnet|keine|Testdaten|Statistik
+|U-14|Filme werden richtig erstellt|keine|Testdaten|Film
+|U-15|Events werden richtig erstellt|Film erstellt|Datum, Uhrzeit|Event in Programm
+|U-16|Events werden richtig gelöscht|Event erstellt|Event Auswahl|Event nicht mehr in Programm
+|U-17|Events bearbeitbar|Event erstellt|Neue Daten|Event neu in Programm
+|U-18|Admin kann Angestellte einstellen|keine|Angestellten Daten| Angestellter hat Benutzerkonto
+|U-19|Admin kann Angestellte löschen|Angestellter erstellt|Angestellten Auswahl| Benutzerkonto gelöscht
+|U-20|Admin kann Angestellte befördern|Angestellter erstellt|Angestellten Auswahl|Benutzerlevel geändert
+|U-21|Benutzerdaten können geändert werden|Benuterkonto vorhanden|neue Benutzerdaten| Benutzerinformationen
+
+|I-1  |User-Login     |User existiert |Name + Passwort	|…
+|I-2  |Benutzer erhalten richtige Navigation angezeigt    |Benutzer erkannt |HTTP-Request |Menüleiste
+|I-3  |Userlogout|User ist eingelogt|HTTP Request|Standart Ansicht für neue Benutzer
+|I-4  |User soll sich mir allen Daten registieren|HTTP Validierung|Leeres Feld|Fehler, bitte alles Ausfüllen
+|I-5  |Karten für Vergangene Filme werden nicht verkauft|Vergangenes Event|HTTP-Request	|Anzeige von nur aktuellen Events
+
+|A-1| Keine falsche Navigation wird Angezeigt|Benutzer eingeloggt|HTTP-Request|Menüleiste
+|A-2| Textfelder werden validiert|Textfelder vorhanden|Daten|Fehler bei falschen Daten
+|A-3| Website antwortet mit den geforderten Inhalten|Inhalte vorhanden|Abruf von allen Seiten|Richtige Inhalte
+|A-3| IDs müssen immer das richtige Objekt referenzieren|Tickets vorhanden|Abruf von Tickets nach ID| Richtiges Ticket wird Angezeigt
+
+|===

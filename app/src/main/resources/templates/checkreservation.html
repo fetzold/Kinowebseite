@@ -1,0 +1,41 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+<script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+<title>UFO Kino</title>
+</head>
+
+<body>
+	<header th:include="header :: header"></header>
+
+	<div class="row">
+		<nav th:include="navigation :: navigation"></nav>
+
+		<div class="large-9 columns">
+		<div th:if="${error == 'name'}" class="alert-box secondary">
+        <b>Keine Transaktion unter diesem Namen gefunden.</b></div>
+        <div th:if="${error == 'rescode'}" class="alert-box secondary">
+        <b>Keine Reservierung mit dieser Nummer gefunden.</b></div>
+		<br />Suche nach Reservierungen über deren Nummer.
+			<form method="post" action="checkreservation">
+			<div class="small-10 columns">
+				<input type="text" id="resCode" name="resCode" th:placeholder="#{tickets.label}" /></div>
+				<div class="small-2 columns">
+				<input class="button postfix success radius" type="submit" value="Prüfen" /></div>
+			</form><br />
+		</div>
+		
+		<div class="large-9 columns">
+		<br />Suche nach Transaktionen für einen Namen.
+			<form method="post" action="checkpurchase">
+			<div class="small-10 columns">
+				<input type="text" id="name" name="name" th:placeholder="#{tickets.buyer}" /></div>
+				<div class="small-2 columns">
+				<input class="button postfix success radius" type="submit" value="Suchen" /></div>
+			</form><br />
+		</div>
+	</div>
+</body>
+</html>

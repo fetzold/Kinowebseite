@@ -1,0 +1,181 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+        <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+		<script th:src="@{/resources/js/jquery-1.11.0.min.js}"></script>
+		<script th:src="@{/resources/js/rating.js}"></script>
+        <title>UFO Kino</title>
+    </head>
+    
+    <body>
+        <header th:include="header :: header"></header>
+
+        <div class="row">
+            <nav th:include="navigation :: navigation"> </nav>
+
+            <div class="large-9 columns">
+
+                <div class="large-12 columns" style="height: 20%;" th:each="programpoint : ${program}" th:if="${programpoint.includesNonPrivateEvents()}"><br />
+                    <h4 th:text="${programpoint.getName()}">Last Action Hero</h4><br/>
+						
+                    <div class="large-2 columns" style="float:left; width: 200px; overflow: hidden;">
+						<img th:if="${programpoint.getMovie().getImgPath()} == 'spec.jpg'" th:src="@{'/resources/img/movies/spec.jpg'}" />
+						<img th:if="${programpoint.getMovie().getImgPath()} == 'god.jpg'" th:src="@{'/resources/img/movies/god.jpg'}" />
+						<img th:unless="(${programpoint.getMovie().getImgPath()} == 'god.jpg') or (${programpoint.getMovie().getImgPath()} == 'spec.jpg')" th:src="'/image/' + ${programpoint.getMovie().getImgPath()}"/><br />
+						<!--/*@thymesVar id="programpoint" type="kickstart.model.eventManagement.CProgrampoint"*/-->
+						<div th:if="${programpoint.getMovie().getRating()} == 0" style="float: none; height: 50px; width: 200px;  margin-left: 10px; margin-top: 10px; margin-bottom: 10px;">
+							<div style="float:left; background-image: url('resources/img/no_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+							<div style="float:left; background-image: url('resources/img/no_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+							<div style="float:left; background-image: url('resources/img/no_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+							<div style="float:left; background-image: url('resources/img/no_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+							<div style="float:left; background-image: url('resources/img/no_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+						</div>
+
+                        <div th:if="${programpoint.getMovie().getRating()} == 1" style="float: none; height: 50px; width: 200px;  margin-left: 10px; margin-top: 10px; margin-bottom: 10px;">
+                            <div style="float:left; background-image: url('resources/img/half_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/no_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/no_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/no_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/no_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                        </div>
+
+                        <div th:if="${programpoint.getMovie().getRating()} == 2" style="float: none; height: 50px; width: 200px;  margin-left: 10px; margin-top: 10px; margin-bottom: 10px;">
+                            <div style="float:left; background-image: url('resources/img/full_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/no_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/no_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/no_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/no_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                        </div>
+
+                        <div th:if="${programpoint.getMovie().getRating()} == 3" style="float: none; height: 50px; width: 200px;  margin-left: 10px; margin-top: 10px; margin-bottom: 10px;">
+                            <div style="float:left; background-image: url('resources/img/full_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/half_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/no_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/no_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/no_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                        </div>
+
+                        <div th:if="${programpoint.getMovie().getRating()} == 4" style="float: none; height: 50px; width: 200px;  margin-left: 10px; margin-top: 10px; margin-bottom: 10px;">
+                            <div style="float:left; background-image: url('resources/img/full_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/full_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/no_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/no_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/no_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                        </div>
+
+                        <div th:if="${programpoint.getMovie().getRating()} == 5" style="float: none; height: 50px; width: 200px;  margin-left: 10px; margin-top: 10px; margin-bottom: 10px;">
+                            <div style="float:left; background-image: url('resources/img/full_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/full_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/half_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/no_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/no_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                        </div>
+
+                        <div th:if="${programpoint.getMovie().getRating()} == 6" style="float: none; height: 50px; width: 200px;  margin-left: 10px; margin-top: 10px; margin-bottom: 10px;">
+                            <div style="float:left; background-image: url('resources/img/full_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/full_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/full_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/no_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/no_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                        </div>
+
+                        <div th:if="${programpoint.getMovie().getRating()} == 7" style="float: none; height: 50px; width: 200px;  margin-left: 10px; margin-top: 10px; margin-bottom: 10px;">
+                            <div style="float:left; background-image: url('resources/img/full_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/full_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/full_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/half_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/no_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                        </div>
+
+                        <div th:if="${programpoint.getMovie().getRating()} == 8" style="float: none; height: 50px; width: 200px;  margin-left: 10px; margin-top: 10px; margin-bottom: 10px;">
+                            <div style="float:left; background-image: url('resources/img/full_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/full_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/full_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/full_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/no_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                        </div>
+
+                        <div th:if="${programpoint.getMovie().getRating()} == 9" style="float: none; height: 50px; width: 200px;  margin-left: 10px; margin-top: 10px; margin-bottom: 10px;">
+                            <div style="float:left; background-image: url('resources/img/full_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/full_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/full_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/full_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/half_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                        </div>
+
+                        <div th:if="${programpoint.getMovie().getRating()} == 10" style="float: none; height: 50px; width: 200px;  margin-left: 10px; margin-top: 10px; margin-bottom: 10px;">
+                            <div style="float:left; background-image: url('resources/img/full_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/full_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/full_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/full_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                            <div style="float:left; background-image: url('resources/img/full_star.png'); background-size: cover; width: 30px; height: 30px;"></div>
+                        </div>
+					</div>
+						
+                    <div class="small-4 columns" style="width: 27%; height: 20%;">
+						<table style="float: left;">
+							<tr th:each="event : ${programpoint.getEvents()}">
+								<!--/*@thymesVar id="event" type="kickstart.SavedClasses.CEvent"*/-->
+								<td style="background-color: white;" th:if="${!event.getIsPrivate()}"> <a th:href="@{'/event/' + ${event.getId()}}" th:text="${event.getStartTime()}">Last Action Hero</a></td>
+							</tr>
+						</table>
+                    </div>
+					<div class="small-2 columns" style="float: left; height: 50px; width: 40%; margin-left: 10px;">
+						<!-- Link zum Anzeigen/Verstecken -->
+						<a th:onclick="'javascript:showHideLayer(\'' + ${programpoint.getMovie().getId()} + '\');'">Kommentare ein-/ausblenden</a>
+						<div th:id="${programpoint.getMovie().getId()}" style="display:none;">
+							<div>
+								<div class="detailComments" th:remove="all-but-first" >
+									<div style=" overflow: scroll; margin: auto; width: auto; max-height: 300px; border-radius: 5px; background-color: #e0e0e0; border-width: 2px; padding: 10px 20px; margin: 10px 0px; word-break: break-all;">                                    
+										<div th:each="comment : ${comment}">
+											<div th:if="${comment.getMovieid()} == ${programpoint.getMovie().getId()}">
+												<article th:text="${{#strings.substring(comment.getForname(),0,1)} + '. ' + comment.getLastname() + ':'}" style="font-weight: bold;"></article>
+												<article th:text="${comment.getText()}"></article><br />
+											</div>
+                                        </div>
+                                    </div>
+                                    <!--<article class="comment" th:each="name : ${name}" th:text="${name}">Kommentar</article>
+                                    <article class="comment" th:each="movie : ${movie}" th:text="${movie}">Kommentar</article>-->
+                                </div>
+                            </div><br />
+                        </div>
+                    </div>
+                </div>
+				
+				<script type="text/javascript">
+                    function showHideLayer(id){
+                             console.log(id);
+                        e = document.getElementById(id);
+                   
+                        console.log(e);
+                        if(e.style.display=="block"){
+                            e.style.display = "none";
+                        } else {
+                            e.style.display = "block";
+                        }
+                    }
+				</script>
+				
+                <div sec:authorize="hasAnyRole('ROLE_BOSS','ROLE_AUTHORIZED','ROLE_EMPOLYEE')"><hr />
+                    <h3>Private Events:</h3>
+                    <a th:each="programpoint : ${program}" th:if="${programpoint.includesPrivateEvents()}">
+                        <table>
+							<tr th:each="event : ${programpoint.getEvents()}">
+								<!--/*@thymesVar id="event" type="kickstart.SavedClasses.CEvent"*/-->
+								<td th:if="${event.getIsPrivate()}"><h4 th:text="${programpoint.getName()}">Last Action Hero</h4><br/><a th:href="@{'/event/' + ${event.getId()}}" th:text="${event.getStartTime()}">Last Action Hero</a></td>
+							</tr>
+                        </table>
+                    </a>
+                </div>
+
+                <div sec:authorize="hasAnyRole('ROLE_BOSS','ROLE_AUTHORIZED')">
+                    <a class="small button" th:href="@{/changeprogram.html}" href="changeprogram.html" th:text="#{program.change}">
+						Programm bearbeiten
+                    </a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

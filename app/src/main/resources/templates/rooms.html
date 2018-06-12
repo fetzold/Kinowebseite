@@ -1,0 +1,41 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+        <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+        <title>UFO Kino</title>
+    </head>
+    
+    <body>
+        <header th:include="header :: header"></header>
+
+        <div class="row">
+            <nav th:include="navigation :: navigation"></nav>
+
+            <div class="large-9 columns">
+                <nav th:include="subnav :: subnav"></nav>
+                <nav th:include="subnavRoomManagement :: subnavRoomManagement"></nav>
+                
+                Hier ist die später das Anlegen von Räumen möglich. Außerdem können hier Sitze als Defekt markiert werden.
+                <form method="post" role="form" class="gb-form" id="form" th:action="@{/rooms}" th:object="${form}">
+                    <div class="form-group">
+                        <label for="rows" th:text="#{rooms.Reihen}">Name</label><br />
+                        <input id="rows" class="form-control" type="text" th:field="*{rows}" th:errorclass="fieldError" required="required" /><br />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="seats" th:text="#{rooms.Plätze}">Name</label><br />
+                        <input id="seats" class="form-control" type="text" th:field="*{seats}" th:errorclass="fieldError" required="required" /><br />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name" th:text="#{rooms.Name}">Name</label><br />
+                        <input id="name" class="form-control" type="text" th:field="*{name}" th:errorclass="fieldError" required="required" /><br />
+                    </div>
+                    <input type="submit" class="btn btn-default" th:value="Bestätigen" value="Senden" />
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

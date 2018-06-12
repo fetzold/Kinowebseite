@@ -1,0 +1,52 @@
+[options="header"]
+|===
+2+|*CinemaTicket*
+|*_Unterklasse:_* 
+|*_Oberklasse:_*      
+
+|*_Verantwortlichkeiten:_* 
+
+- setPriceClass
+
+- setDate
+
+- setTime
+
+- setEvent
+
+- setRoom
+
+- setCover
+
+- setPrice
+
+|*_Mithelfer:_*
+
+- CashDesk
+
+- Time
+
+- Movie
+
+- System/DB
+
+2+|*_Beschreibung:_*
+Objekt CinemaTicket ist ein "Container" für die Daten der pysischen Karte.
+Nachdem der Kunde die Filmwahl getroffen hat wird die Karte aus dem Container geholt, gedruckt und gelöscht.
+
+2+|*_Attribute:_*
+
+- priceClass
+
+- date
+
+- time
+
+- event
+
+- room
+
+- cover
+
+- price
+|===

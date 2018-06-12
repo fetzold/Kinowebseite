@@ -1,0 +1,26 @@
+
+[options="header"]
+|===
+2+|*Auth Employee*
+|*_Admin_*       |*_Employee_*
+|Verantwortlichkeiten
+
+rent Movie
+
+creat program
+
+change program
+
+delete show
+
+creat show
+
+change show
+
+|Mithelfer
+
+
+2+|Beschreibung
+3. Benutzerlevel
+2+|Attribute
+|===

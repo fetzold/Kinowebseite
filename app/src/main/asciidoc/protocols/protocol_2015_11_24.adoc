@@ -1,0 +1,51 @@
+﻿= Protokoll Gruppe 19
+__Treffen am 17.11.2015__
+Von 16.40Uhr bis 18.10Uhr
+
+__Schriftführer:__
+Felix Etzold
+
+__Nächstes Treffen:__
+01.12.2015
+
+__Teilnehmer:__
+Josia Mädler, Felix Etzold, Beatrice Gräßler, Alexej Sentschenko, Marco Schwabe
+
+== Bemerkungen
+
+* Klasse Kasse ist überflüssig, da man manche Methoden nicht braucht oder andere Klassen übernehmen
+* Aktuelle Entwursklassendiagramm so lassen, neues Diagramm gegen Ende erstellen mit Veränderungen
+* Information für Endpräsentation: Wenn wir Diagramm verändern erklären wieso weshalb warum
+* Controllerinhalt: view = get Mehoden, grapische Aufbereitung, doStuff Methoden
+* Entwurfsklassendiagramm: Fehler bei Atrribute von CDateStorage (Salespoint...) entfernen
+* Dinge die am Freitag besprochen wurden, ins Protokoll eintragen.
+
+== Aktueller Stand
+
+* Aufgaben von letzter Woche gemacht
+* Josia und Marco haben programmiert
+* Beatrice hat sich um Warenkorb und Ticketverwaltung gekümmert
+* Alexej hat sich um Personal + Kasse gekümmert 
+* Felix hat sich um JPA´s und Google Charts gekümmert
+
+== Planung des nächsten Sprints
+
+* Event erstellen
+* Karten kaufen
+* Filme mieten / speichern
+* Kinosaal erstellen n x m
+* Programm anzeigen + auswählen
+* Vorstellungen anzeigen
+
+[option="headers"]
+
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|30|Testplan|bis 15.11.15|-|-
+|32|Useraccout abfrage um das Abrufen von unberechtigten Seiten zu verhindern|-|-|-
+|34|Seat Map|bis 29.11.15|codemunin|-
+|36|CCustomer, CPriceClass, CEmployee, CAdmin, CAuthEmp, CCashDesk|-|Locha08|-
+|37|Warenkorb|-|spacestuff|-|-
+|38|Butons|-|Locha08|-|-
+|39|Event and Program|-|codemunin|-|-
+|===

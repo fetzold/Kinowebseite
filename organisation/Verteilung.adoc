@@ -1,0 +1,44 @@
+﻿*Aufgabenverteilung*
+
+Josia:
+
+* Reihenbearbeitung ändern
+* Kinosaal wird nicht korrekt erstellt
+* Unterstriche in Formularlabels
+* Event ändern
+
+Marco:
+
+* Bild hochladen (?)
+* Customer/Employee bearbeiten und löschen
+* Validierung von Username + Passwort
+
+Beatrice:
+
+* Beschreibung für graphische Oberflächen
+* Kinosaal-Namen auf Duplikate prüfen
+* Warenkorb benutzerfreundlicher machen
+* Warenkorb-Objekte werden nicht freigegeben
+* einzelne karten im Warenkorb löschen
+* Preisreduktion nicht mehr wiederholbar machen
+* Reservierungen löschen, wenn alle weg sind
+
+Alexej:
+
+* Javadoc
+* Email erschicken
+* Email bei Reservierung verlangen
+
+Felix:
+
+* Gültigkeit des Datums bei Eventerstellung prüfen
+* Statistik, beschreiben
+* Navigation überarbeiten (?)
+* Formular-Event-Erstellung entfernen
+
+Allgemein:
+
+* Akzeptanzfälle
+* Javadoc
+* Filmnamen im Programm aktualisieren
+* Sonderveranstaltungen buchen

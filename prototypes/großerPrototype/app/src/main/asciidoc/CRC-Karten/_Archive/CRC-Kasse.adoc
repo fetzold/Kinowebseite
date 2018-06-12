@@ -1,0 +1,44 @@
+
+[options="header"]
+|===
+2+|*CashDesk*
+|*_Unterklasse_*       |*_Oberklasse_*
+|Verantwortlichkeiten
+
+Initailisierung
+
+Umsatz wissen
+
+Kassierer kennen
+
+Karten kennen
+
+Getränke und Essen wissen
+
+Rückgeld berechnen
+
+|Mithelfer
+
+Zeit
+
+Datenbank
+
+Costumer
+
+Zeit
+
+2+|Beschreibung
+Kenn Datum Uhrzeit und Benutzer, kann Abfragen starten bez. Karten. Kann Daten aus Datenbank abfragen.
+
+2+|Attribute
+
+Kassierer
+
+Kasseninhalt
+
+Produkte
+
+Gesamtsummer
+
+...
+|===

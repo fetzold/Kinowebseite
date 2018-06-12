@@ -1,0 +1,35 @@
+[options="header"]
+|===
+2+|*AuthorziedEmployee*
+|*_Unterklasse:_* Boss
+|*_Oberklasse:_* Employee      
+
+|*_Verantwortlichkeiten:_* 
+
+- rentMovie
+
+- createProgram
+
+- deleteShow
+
+- changeShow
+
+- createShow
+
+- changeProgram
+
+- knowRentedMovie
+
+|*_Mithelfer:_*
+
+- Time
+
+- System/DB
+
+- Movie
+
+2+|*_Beschreibung:_*
+Der AuthorziedEmployee repräsentiert das Userlevel über dem Employee und besitzt mehr Rechte.
+
+2+|*_Attribute:_*
+|===

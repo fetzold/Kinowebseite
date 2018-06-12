@@ -1,0 +1,51 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+    <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+
+</head>
+<body>
+
+<nav th:fragment="navigation">
+
+    <div class="large-3 columns">
+        <!--<div th:remove="all-but-first">
+            <a class="small button" style="width: 200px" th:each="menuPoint : ${menu}" th:href="${menuPoint.getLink()}" th:v xt="${menuPoint.getName()}">
+
+                MENU
+
+
+            </a>
+            <h1>INDEX</h1>
+        </div>-->
+
+
+
+        <div><a class="small button" style="width: 200px" th:href="@{/index.html}" href="index.html" th:text="#{nav.home}">Home</a></div>
+        <div><a class="small button" style="width: 200px" th:href="@{/program.html}" href="program.html" th:text="#{nav.program}">Programm</a></div>
+        <div sec:authorize="hasAnyRole('ROLE_BOSS','ROLE_AUTHORIZED')"><a class="small button" style="width: 200px" th:href="@{/rentafilm.html}" href="rentafilm.html" th:text="#{nav.rentafilm}">Film mieten</a></div>
+        <div sec:authorize="hasAnyRole('ROLE_BOSS','ROLE_AUTHORIZED','ROLE_EMPLOYEE')"><a class="small button" style="width: 200px" th:href="@{/checkreservation.html}" href="checkreservation.html" th:text="#{nav.checkreservation}">Reservierung Prüfen</a></div>
+        <div><a class="small button" style="width: 200px" th:href="@{/cart.html}" href="cart.html" th:text="#{nav.cart}">Warenkorb</a></div>
+        <div sec:authorize="isAuthenticated()"><a class="small button" style="width: 200px" th:href="@{/management.html}" href="management.html" th:text="#{nav.management}">Verwaltung</a></div>
+        <div sec:authorize="hasAnyRole('ROLE_BOSS')"><a class="small button" style="width: 200px" th:href="@{/statistic.html}" href="statistic.html" th:text="#{nav.statistic}">Statistik</a></div>
+        <div sec:authorize="!isAuthenticated()">
+            <a class="small button" style="width: 200px" th:href="@{/login.html}" th:text="#{nav.login}">Login</a></div>
+        <div sec:authorize="!isAuthenticated()">
+            <a class="small button" style="width: 200px" th:href="@{/register.html}" th:text="#{nav.register}">Registrierung</a></div>
+
+        <div sec:authorize="isAuthenticated()">
+            <form th:action="@{/logout}" method="post">
+                <input class="small button" style="width: 200px" type="submit" value="Logout" th:value="#{nav.logout}" />
+            </form>
+        </div>
+
+    </div>
+
+</nav>
+
+
+</body>
+</html>

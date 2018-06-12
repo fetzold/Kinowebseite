@@ -1,0 +1,242 @@
+Benutzerhandbuch
+UFO-Kinosoftware Gruppe 19
+==============================
+
+
+.*Inhaltsverzeichnis*
+
+.1 *Anmeldung und Account*
+  1.1	Erster Start
+  1.2	Angestellte anlegen
+  1.3	Angestellten Details ändern
+  1.4	Kunden Registrierung 
+  1.5	Login
+  1.6	Account Details ändern
+  
+.2 *Verwaltung*
+  2.1 Kinosaal anlegen
+  2.2 Kinosaal ändern
+  2.3 Film mieten
+  2.4 Film ändern
+  2.5 Event erstellen
+  2.6 Event ändern
+  
+.3 *Reservierungen und Kartenkauf*
+  3.1 Sitzplätze auswählen
+  3.2 Karten reservieren
+  3.3 Reservierungen überprüfen
+  3.4 Karten kaufen
+  3.5 Kinokarten ausstellen
+  3.5 Karten zurückgeben
+  
+.4 *Statistik*
+  4.1 Umsatz
+  4.2 Ticketverkäufe
+  
+''''  
+  
+1 *Anmeldung und Account*
+
+  1.1	Erster Start
+  
+image::sonstiges/img_Benutzerhandbuch/Erster_Start.png["Erster_Start",width=600] 
+ 
+ Die Software wird mit einem Master-Account ausgeliefert.
+Die Erstanmeldung erfolgt mit diesem Account durch
+den Chef, welcher dann für sich persönlich einen neuen Administrator Account
+anlegt. Danach sind die Master-Accountdaten sicher zu verwahren und nur bei
+Notfällen, z.B. falls Administrator Passwort vergessen wurde, zu benutzen.
+
+ 1.2 Angestellten anlegen
+ 
+image::sonstiges/img_Benutzerhandbuch/Angestellten_Anlegen.png["Angestellten_Anlegen",width=600]
+
+ Analog zum Anlegen des eigenen Administrator-Benutzerkontos,
+kann der Administrator auch Personal Benutzerkonten anlegen.
+Hierbei wird unterschieden zwischen dem einfachen
+Angestellten und dem autorisierten Mitarbeiter.
+Der einfache Angestellte kann nur Kinokarten verkaufen, reservieren
+und stornieren, wohingegen der Autorisierte zusätzlich noch das Programm
+bearbeiten kann.
+
+ 1.3 Angestellten Details ändern
+ 
+ In der Personalverwaltung kann der Administrator die Daten der Angestellten ändern,
+ zum Beispiel ihr Gehalt anpassen und sie befördern.
+
+ 1.4 Kunden Registrierung
+ 
+  Kunden können sich für einen eigenen Account unter "Registrierung" anlegen.
+  Danach können sie Filme bewerten, Kinokarten online kaufen
+  und müssen beim reservieren ihre EMail Adresse nicht mehr angeben.
+ 
+ 1.5 Login
+ 
+ Die Angestellten und registrierte Benutzer können sich fortan
+ über die Login-Seite anmelden.
+
+ Sie sehen nur Seiten abhängig von ihrem Benutzerlevel und
+ Berechtigung.
+ 
+ 1.6 Accountdetails ändern
+  
+image::sonstiges/img_Benutzerhandbuch/Accountdetails_Aendern.png["Accountdetails_Aendern",width=600] 
+ 
+ Unter dem Punkt „Verwaltung“ können die Nutzer ihre
+ Accountdaten ändern.
+
+
+2 *Verwaltung*
+
+ 2.1 Raum anlegen
+  
+image::sonstiges/img_Benutzerhandbuch/Raum_Anlegen.png["Raum_Anlegen",width=600]   
+  
+  Der Chef kann einen neuen Raum anlegen. Zuerst muss er nur
+den Namen, die Anzahl von Reihen und jeweiligen Plätzen angeben. Jede Reihe hat
+dabei erst die gleiche Anzahl an Sitzplätzen. Gleichzeitig gibt er einen Logen-
+und Parkett-Preis ein. Dieser wird dann auf den normalen Ticketpreis addiert.
+Soll zum Beispiel die Loge 1,50€ teurer sein als Parkett, muss man bei Parkett
+0,00 und bei Loge 1,50 eingeben.
+Zuerst werden nur Parkettplätze angelegt. Um dies zu ändern
+und auch die Reihen anzupassen muss der Raum geändert werden. Siehe nächstes
+Kapitel.
+
+
+ 2.2 Raum ändern
+  
+image::sonstiges/img_Benutzerhandbuch/Raum_Aendern.png["Raum_Aendern",width=600]     
+  
+  Hier können Sitze ausgewählt und bearbeitet werden. Zum
+Beispiel können sie als Loge oder nicht verfügbar markiert werden. Der Preis
+kann auch angepasst werden.
+Es empfiehlt sich nicht real existierende Sitze als nicht
+verfügbar zu markieren statt sie zu löschen.
+ 
+ 2.3 Film mieten
+ 
+image::sonstiges/img_Benutzerhandbuch/Film_Mieten.png["Film_Mieten",width=600]  
+ 
+ In der Programmverwaltung können autorisierte Mitarbeiter
+oder der Chef Filme mieten. Erst wenn der Film gemietet ist können
+Veranstaltungen erstellte werden. Auf den Grundpreis des Filmes wird bei der Kinokarte der Platzaufschlag aus dem Kinoaal addiert.
+
+ 2.4 Film ändern
+  
+image::sonstiges/img_Benutzerhandbuch/Film_Aendern.png["Film_Aendern",width=600]   
+  
+  Filmdetails können im Unterpunkt „Film ändern“ verändert
+werden. Soll ein Film aus dem Programm genommen werden, muss das Kästchen „Film
+löschen“ angeklickt werden.
+
+ 2.5 Event erstellen
+ 
+image::sonstiges/img_Benutzerhandbuch/Event_Erstellen.png["Event_Erstellen",width=600]   
+  
+  Um Veranstaltungen zu erstellen muss einfach der Film und der Kinosaal ausgewählt
+werden. Danach wird man auf eine Seite weitergeleitet, wo man den
+Anfangszeitpunkt für die Veranstaltung auswählen kann. Hierzu sieht man eine Übersicht des jetzigen Tages und der nächsten 6 Tage und kann den Startzeitpunkt
+auf alle vollen 5 Minuten setzten. Nicht verfügbare Zeiten werden ausgegraut
+oder rot markiert.
+Die Laufzeit eines Filmes wird dabei berücksichtigt. Es werden pro Film 30 Minuten extra hinzugefügt um z.B. den Raum reinigen zu können.
+
+ 2.6 Event ändern
+  
+image::sonstiges/img_Benutzerhandbuch/Event_Aendern.png["Event_Aendern",width=600]     
+  
+  Falls noch keine Karten für das Event
+verkauft worden oder Plätze reserviert wurden kann das Event noch geändert
+werden.
+Nur änderbare Events werden in der Liste angezeigt.
+
+3 *Reservierungen und Kartenkauf*
+
+ 3.1 Sitzplätze auswählen
+
+image::sonstiges/img_Benutzerhandbuch/Sitzplatz_Auswaehlen.png["Sitzplatz_Auswaehlen",width=600]       
+  
+  Im Programm
+wird die Liste mit den Events angezeigt. Nach der Auswahl einer Anfangszeit
+eines bestimmten Film wird man zur Platzauswahl weitergeleitet. Dort kann man
+einen oder mehrere Plätze auswählen.
+Die Auswahl
+wird 10 Minuten im Warenkorb gespeichert. In der Zwischenzeit kann man auch
+Plätze in anderen Veranstaltungen auswählen.
+
+ 3.2 Karten reservieren
+  
+image::sonstiges/img_Benutzerhandbuch/Sitze_Reservieren.png["Sitze_Reservieren",width=600]      
+
+ Angemeldete Nutzer oder nichtregistrierte Kunden  unter Angabe ihrer E-Mail Adresse können
+Karten reservieren. Im Warenkorb muss einfach auf „Reservieren“ geklickt werden
+und sie bekommen dann eine Reservierungs-ID welche dem Kinopersonal vorgelegt
+wird. (siehe 3.3 ,Reservierungen Überprüfen)  
+ 
+ 3.3 Reservierungen überprüfen
+ 
+image::sonstiges/img_Benutzerhandbuch/Reservierung_Ueberpruefen.png["Reservierung_Ueberpruefen",width=600] 
+ 
+ Wollen Kunden ihre Reservierung
+bezahlen oder stornieren geben sie einem Mitarbeiter ihre Reservierungs-ID an.
+Dieser gibt diese in das Suchfeld ein und kann nun die Tickets ausdrucken oder
+die Reservierung storniern
+
+ 3.4 Karten kaufen
+ 
+image::sonstiges/img_Benutzerhandbuch/Karten_Kaufen.png["Karten_Kaufen",width=600] 
+  
+  Registrierte Kunden können online Karten kaufen. Dazu müssen
+sie einfach im Warenkorb auf die Schaltfläche „Kaufen“ drücken. Danach wird
+ihnen ein Beleg erstellt welchen er an der Kasse in eine Kinokarte einlöst (siehe
+3.5 Kinokarte ausstellen).
+Angestellt können Kinokarten direkt verkaufen, dazu drücken
+sie im Warenkorb einfach auf die Schaltfläche „Kaufen“.
+
+ 3.5 Kinokarten ausstellen
+  
+image::sonstiges/img_Benutzerhandbuch/Karten_Ausstellen.png["Karten_Ausstellen",width=600]
+
+ Wenn ein Kunde eine Kinokarte online gekauft hat, bringt er
+den Beleg mit zum Kino oder nennt einfach seinen Vor- und Zunamen.
+Der Angestellte tippt diesen dann in das „Suche nach
+Transaktionen für einen Namen.“ Feld und kann dann die passende Kinokarte
+ausdrucken.
+ 
+ 3.6 Karten zurückgeben
+  
+ Gekaufte Karten können bis zu 30 Minuten vor der
+Veranstaltung zurückgegeben werden. Es ist nur Mitarbeitern möglich Karten zu
+Stornieren. Analog zum Kinokarten ausstellen (3.5) geben sie den Namen des
+Käufers ein, wählen die Bestellung aus und drücken dann auf Stornieren.
+
+4 *Statistik*
+
+
+image::sonstiges/img_Benutzerhandbuch/Umsatz.png["Umsatz",width=600] 
+
+
+Für den Administrator wird eine Statistik über die Umsätze
+und den Ticketverkauf generiert. 
+
+ 4.1 Umsatz
+
+ Im Umsatz-Untermenü kann man zwischen den Tages-, Monats-,
+und Jahresumsatz auswählen.
+Es werden jeweils die Verhältnisse zwischen Kassen- und Onlinekäufen,
+sowie vor Ort- und Online-Reservierungen angezeigt. 
+Die Gehaltsausgaben werden anhand des angestellten Personal (siehe x.x Personalverwaltung), deren Stundenlohn und einer theoretischen
+Tagesarbeitszeit von jeweils 7,5 Stunden berechnet.
+Die Filmkosten werden aus der Summe der Leihgebühren, sowie
+30% der Einnahmen aus den Ticketverkäufen berechnet.
+Die Gehaltsausgaben und Filmkosten addiert ergeben die
+Gesamtausgaben.
+Den Gesamtausgaben werden die Einnahmen durch die
+Ticketerlöse entgegengestellt, daraus berechnet sich der Gesamtumsatz.
+
+ 4.2 Ticketverkauf
+  
+ Im Untermenü Ticketverkauf wird die Anzahl der am heutigen
+Tag verkauften Tickets grafisch in einem Kreisdiagramm angezeigt (JavaScript
+muss dafür aktiviert sein).
+In Tabellenform werden darunter die Ticketverkäufe nach Tag,
+Monat und Jahr für jeden Film aufgelistet.

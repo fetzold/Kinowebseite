@@ -1,0 +1,46 @@
+[options="header"]
+|===
+2+|*Admin*
+|*_Unterklasse:_* 
+|*_Oberklasse:_* AuthorizedEmployee      
+
+|*_Verantwortlichkeiten:_* 
+
+- hireStaff
+
+- fireStaff
+
+- promoteStaff
+
+- createRoom
+
+- deleteRoom
+
+- createCinema
+
+- deleteCienema
+
+- seeStatistics
+
+- rentRoomAcknowledge
+
+|*_Mithelfer:_*
+
+- System/DB
+
+- Statistic
+
+- Event
+
+- Cinema
+
+- Room
+
+- Time
+
+2+|*_Beschreibung:_*
+Der Admin repräsentiert den höchsten Userlevel, das heißt er besitzt alle Rechte.
+Die Klasse ist für das EmployeeManagement und für das CinemaManagement verantwortlich.
+
+2+|*_Attribute:_*
+|===

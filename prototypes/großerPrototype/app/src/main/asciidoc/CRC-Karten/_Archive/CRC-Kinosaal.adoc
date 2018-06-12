@@ -1,0 +1,30 @@
+
+[options="header"]
+|===
+2+|*Kinosaal*
+|*_Unterklasse_*       |*_Oberklasse_*
+|Verantwortlichkeiten
+
+freie Plätze kennen
+
+belegte Plätze wissen
+
+Veranstaltungen zuordnen
+
+Plätze ändern
+
+|Mithelfer
+
+Zeit
+
+2+|Beschreibung
+Ein Kinosaal, der vom Boss oder anderen Admins angelegt. Es kennt nur seine eigenen Eigenschaften.
+
+2+|Attribute
+
+Plätze
+
+Veranstaltungen
+
+...
+|===

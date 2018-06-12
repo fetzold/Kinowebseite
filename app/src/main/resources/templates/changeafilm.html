@@ -1,0 +1,164 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+        <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+        <title>UFO Kino</title>
+    </head>
+    
+    <body>
+        <header th:include="header :: header"></header>
+        
+        <div class="row">
+            <nav th:include="navigation :: navigation"> </nav>
+
+            <div class="large-9 columns">
+                <nav th:include="subnav :: subnav"> </nav>
+                <nav th:include="subnavProgramManagement :: subnavProgramManagement"> </nav>
+                <div th:if="${succsesaMsg} ? true : false" class="panel"><span th:text="${succsesaMsg}">Text</span></div>
+                <form method="post" role="form" class="gb-form" id="form" th:action="@{/changeafilm}" th:object="${form}"  modelAttribute="cmovie">
+                <fieldset>
+           			<legend th:text="#{changeprogram.changeprogram}">Benutzerkonto</legend>
+                    <div class="form-group">
+                        <label for="title" th:text="#{changeafilm.Filmtitel}">Name</label>
+                        <label class="error" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></label>
+                        <input id="title" class="form-control" type="text" th:field="*{title}" th:errorclass="fieldError" path="title" />
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="description" th:text="#{changeafilm.Filmbeschreibung}">Text</label>
+                        <label class="error" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></label>
+                        <textarea id="description" th:field="*{description}" th:errorclass="fieldError" class="form-control" path="description" ></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="runTime" th:text="#{changeafilm.Laufzeit_in_Minuten}">Text</label>
+                        <label class="error" th:if="${#fields.hasErrors('runTime')}" th:errors="*{runTime}"></label>
+                        <input id="runTime" th:field="*{runTime}" th:errorclass="fieldError" class="form-control" ></input>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="fsk" th:text="#{changeafilm.FSK}">Text</label>
+                        <label class="error" th:if="${#fields.hasErrors('fsk')}" th:errors="*{fsk}"></label>
+                        <input id="fsk" th:field="*{fsk}" th:errorclass="fieldError" class="form-control" ></input>
+                    </div>
+                    
+                    <div class="form-group">
+                		<label for="baseCost" th:text="#{changeafilm.Grund-Preis}">Name</label>
+                		<label class="error" th:if="${#fields.hasErrors('baseCost')}" th:errors="*{baseCost}"></label>
+                		<input id="baseCost" class="form-control" type="text" th:field="*{baseCost}" th:errorclass="fieldError" />
+                	</div>
+                	
+                	<div>	
+                		<label for="rent" th:text="#{changeafilm.Leihgebühr}">Name</label>
+                		<label class="error" th:if="${#fields.hasErrors('rent')}" th:errors="*{rent}"></label>
+                		<input id="rent" class="form-control" type="text" th:field="*{rent}" th:errorclass="fieldError" />
+            		</div>
+            		Aus Programm nehmen: <input id="isRent" type="checkbox" th:field="*{isRent}"/><br />
+            		<input type="hidden" name="movie" id="movie" th:value="${movie}" />
+<!--             		<label class="error" th:if="${fileerror} == 'fileerror'">Wählen sie eine jpg-Datei aus.</label>
+            		<label class="error" th:if="${fileerror} == 'sizeerror'">Die gewählte Datei ist zu groß.</label>
+            		<label class="error" th:if="${fileerror} == 'uploaderror'">Fehler beim Upload.</label>
+            		Bild auswählen: <input type="file" name="file" /><br /> -->
+                    <div>
+            		<input type="submit" class="small button success radius" th:value="Bestätigen" value="Senden"/>
+           			</div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+<!--
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+    <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+    <title>UFO Kino</title>
+</head>
+
+<body>
+
+<header th:include="header :: header"></header>
+
+<div class="row">
+
+
+    <nav th:include="navigation :: navigation"> </nav>
+
+
+
+    <div class="large-9 columns">
+
+        <table border="1">
+
+            <tr>
+                <td>Titel</td>
+                <td>Beschreibung</td>
+                <td>Mietdauer</td>
+
+            </tr>
+            <tr>
+                <td>My little Pony</td>
+                <td>Kinderfilm</td>
+                <td>bis 21.10.2016</td>
+            </tr>
+        </table>
+        <br />
+        <br />
+        <form th:action="@{/rentafilm}" th:object="${form}" method="post">
+            <label for="Titel">Titel</label>
+            <input th:field="title" type="text" id="Titel" name="Titel" autofocus="autofocus" />
+            <label for="description">Beschreibung</label>
+            <input type="text" th:field="description" id="description" name="description"/>
+          	<label>FSK-Altersfreigabe:</label>
+          	<label for="fsk0">0</label>
+           	<input type="radio" name="fsk" id="fsk0" value="0" />
+           	<label for="fsk6">6</label>
+           	<input type="radio" name="fsk" id="fsk6" value="6" />
+            <label for="fsk12">12</label>
+           	<input type="radio" name="fsk" id="fsk12" value="12" />
+			<label for="fsk16">16</label>
+			<input type="radio" name="fsk" id="fsk16" value="16" />
+			<label for="fsk18">18</label>
+           	<input type="radio" name="fsk" id="fsk18" value="18" />
+			<br/>
+            <label th:field="runtime" for="runtime">Laufzeit in Minuten</label>
+            <input type="number" id="runtime" name="runtime"/>
+
+            <label for="runtime">Coverbild</label>
+            <input type="file" id="cover" name="cover"/>
+
+            <label for="rentUntil">Gemietet bis:</label>
+            <input type="text" id="rentUntil" name="rentUntil"/> <br />
+
+            <input style="float: right;" class="small button" type="submit" value="Film zur Sammlung hinzufügen." />
+        </form>
+
+        <form method="post" role="form" class="gb-form" id="form" th:action="@{/guestbook}" th:object="${form}">
+            <div class="form-group">
+                <label for="name" th:text="#{guestbook.form.name}">Name</label><br />
+                <input class="form-control" type="text" th:field="*{name}" th:errorclass="fieldError" required="required" /><br />
+            </div>
+            <div class="form-group">
+                <label for="text" th:text="#{guestbook.form.text}">Text</label><br />
+                <textarea th:field="*{text}" th:errorclass="fieldError" class="form-control" required="required"></textarea><br />
+            </div>
+            <input type="submit" class="btn btn-default" th:value="#{guestbook.form.submit}" value="Senden" />
+        </form>
+
+    </div>
+
+
+
+
+</div>
+
+</body>
+</html>
+-->

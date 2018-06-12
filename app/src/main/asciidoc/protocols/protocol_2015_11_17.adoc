@@ -1,0 +1,88 @@
+﻿= Protokoll Gruppe 19
+__Treffen am 17.11.2015__
+Von 16.40Uhr bis 18.10Uhr
+
+__Schriftführer:__
+Felix Etzold
+
+__Nächstes Treffen:__
+24.11.2015
+
+__Teilnehmer:__
+Josia Mädler, Felix Etzold, Beatrice Gräßler, Alexej Sentschenko, Marco Schwabe
+
+== Bemerkungen
+
+*_Zwischenpräsentation_*
+
+Zwischenpräsentation findet am Freitag 20.11.2015 in der 5. DS (14.50uhr) statt. Ort bekommen wir per Email und falls keine Email kommt treffen wir uns im Foyer der Inf-Fak.
+
+In den ersten 10 Minuten: 
+
+* Einschätzung des Projektes
+* Feedback für den Kunden was Sache ist 
+* Welche Probleme haben wir erkannt, konnten wir diese lösen oder haben wir Alternativen gefunden
+* Mit Klassendiagrammen kann der kunde nicht viel anfangen, also nicht einfach an die Wand klatschen
+* Diagramme verwenden um zu agrumentieren oder als roten Faden
+
+In den zweiten 10 Minuten:
+
+* Prototyp vorstellen
+
+In den letzten 10 Minuten:
+
+* Diskussion mit Fragen vom Kunden zu uns oder Fragen an den Kunden falls irgendwas noch unklar ist
+
+*_Weitere Hinweise_*
+
+* Issues hinzufügen wer welche Aufgaben übernimmt
+* Software muss ohne Javascript funktionieren (Muss-Kriterium)
+
+*_Nächste Deadline_*
+
+* Nächste Deadline ist am 29.11.2015, da endet OOP_I
+* An diesem Tag müssen die Grundfunktionalitäten unserer Software funktionieren
+* Die Software muss nicht fehlerfrei sein und es müssen nicht alle Muss-Kriterien erfüllt werden --> laufender Betrieb muss möglich sein
+* Test müssen gemäß Testplan geschrieben werden
+* Javadoc muss dabei erstellt werden
+
+== Aktueller Stand
+
+* Zwischenpräsentation gehalten, es kamen diverse Fragen zur Software auf:
+
+** Globale Navigation ? Nein keine globale Navigation
+** Wie werden die Preise gestalten? Möglichkeit über %-Angaben Preis festzulegen aber auch feste Preise zu setzten
+** Kann ein Event bearbeitet werden obwohl Ticktes schon bezahlt wurden? - Nicht mehr bearbeiten
+** Hinweis: Beim registrieren ist die Telefonnummer nicht plficht
+** Statisik: auf ein Blick sehen was los ist, mit Grafiken
+** ohne Javascript nur für Kundenansicht, Boss braucht für Statistik javascript
+** Button Gesamtpreis im Warenkorb nicht blau, da nur Infobox (siehe präsi Folie 11)
+** Bulletpoints in der Veranstaltung entfernen (siehe präsi Folie 9)
+
+* weitere Hinweise:
+
+** Bei Reservierung überprüfen ob Sitz defekt ist
+** Legende für event-hinzufügen-plan + Beschreibung wie es funktioniert
+** optischer unterschied für buttons mit unterschiedlichen Funktionen
+** Event erstellung: Blöcke ok aber Zeiten genauer bearbeitbar
+** Kinoöffnungszeiten variabel
+** Admin-löschen verbieten, Bestätigung beim Löschen
+** Detailansicht für Personal
+** Authorzied kann alles verwalten: Kunden(falls gebraucht), Säle, Programm, Statistik nicht einsehbar
+
+== Planung des nächsten Sprints
+* Zugriffsrechte für verschiedene Userlevel
+* Einloggen
+* Angestellte anlegen (Hardcoded)
+* Freie Platzwahl
+[option="headers"]
+
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|24|GUI HTML Entwurf/Schnittstelle Java|bis 29.11.15|-|-
+|30|Testplan|bis 15.11.15|-|-
+|32|Useraccout abfrage um das Abrufen von unberechtigten Seiten zu verhindern|-|-|-
+|34|Seat Map|bis 29.11.15|codemunin|-
+|36|CCustomer, CPriceClass, CEmployee, CAdmin, CAuthEmp, CCashDesk|-|Locha08|-
+|37|Warenkorb|-|spacestuff|-|-
+|===

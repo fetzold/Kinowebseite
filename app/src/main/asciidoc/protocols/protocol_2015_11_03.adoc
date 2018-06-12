@@ -1,0 +1,133 @@
+﻿= Protokoll Gruppe 19
+__Treffen am 03.11.2015__
+Von 16.40Uhr bis 18.00Uhr
+
+__Schriftführer:__
+Beatrice Gräßler
+
+__Nächstes Treffen:__
+10.11.2015
+
+__Teilnehmer:__
+Josia Mädler, Felix Etzold, Beatrice Gräßler, Alexej Sentschenko, Marco Schwabe
+
+== Bemerkungen
+
+Frameworks aller Art dürfen verwendet werden, Sinn des Projekts ist es, Sachen wiederzuverwenden
+Videoshop und Guestbook dürfen wiederverwendet werden
+auf Auditorium für Fragen hingewiesen
+Empfehlung, die tatsächlichen Objektklassen anstelle von den kleinen Datentypen zu verwenden
+
+Vor Anfang des Prototyps zur Sicherheit nochmal Salespoint überprüfen und kickstart pullen
+bei Online-Zahlung gilt "Kaufen" als bezahlt
+
+
+== Retrospektive des letzten Sprints
+*Issue referenziert die Issue ID von GitHub*
+
+[option="headers"]
+|===
+|Issue |Aufgabe |Status |Bemerkung
+|7|CRC-Karten|Abgeschlossen|-
+|8|Pflichtenheft|Abgeschlossen bis auf Details|-
+|9|Prototype GUI|Abgeschlossen|-
+|11    |Nachbestellung im Videoshop	|Abgeschlossen|-
+|14    |Namen der Filme ändern		|Abgeschlossen|-
+|15|Sequenzdiagramme|Abgeschlossen bis auf Details|-
+|16|Analyse-Klassendiagramm|Abgeschlossen bis auf Details|-
+|===
+
+
+
+== Aktueller Stand
+
+*_Bemerkungen zum Pflichtenheft_*
+
+* Kontextmodell + TLA
+** Nummerierungen an den Ports entfernen
+
+* Statistik-Sequenzdiagramm
+** bisschen klein für ein Diagramm, nicht notwenig vom Inhalt her
+** Datenbank wird eigentlich schon von Salespoint über Spring-interface bereitgestellt, braucht keine eigene Klasse
+** Datenbank gehört in den Entwurf, ist nur eine Art der Arbeitsspeicherung
+
+* Online-Sequenzdiagramm
+** Ausdrucken raus aus Text, nicht spezifiziert
+** Reservierung + zur kasse gehen sind 2 Aktionen -> in 2 Diagramme teilen
+** keine Kommunikation zwischen 2 Akteuren
+** Nummerierungen nach Meldungen entfernen
+
+* Einstellung-Sequenzdiagramm
+** Kinozuteilung entfernen
+
+* Rückgabe-Sequenzdiagramm
+** 2 Aktionen, wieder teilen
+
+* Kasse-Sequenzdiagramm
+** Customer entfernen
+
+* Zusatzvorstellungs-Sequenzdiagramm
+** Feld für AuthorizedEmployee ist zu breit
+
+* Reservierungsablauf-Sequenzdiagramm
+** 2 zusammenhanglose Folgen, zeitabhängiges ist schwer im Diagramm zu zeigen
+** ab 30min einfach reservierte Plätze als frei anzeigen
+
+* Muss-Kriterien
+** Personal muss bearbeitbar sein
+** Warenkorb zum Reservieren oder Kaufen mehrerer Plätze
+** Login für Kunden, ohne Login mit Email-Adresse angeben
+** nur Mitarbeiter können alte Veranstaltungsdaten sehen, mit Suche oder Filter
+** Daten müssen validiert werden (keine Müll-Eingaben zulassen)
+** Reservierungen müssen validierbar sein
+
+* Kann-Kriterien
+** alles, was uns noch einfällt
+
+* Analyse-klassendiagramm
+** Pfeile sind falsch, viele verkehrt herum
+** Funktionen wie reserveTicket() sind vielleicht zu viel in Customer
+
+* zu viele Akzeptanzfälle
+
+* Offene Punkte verwerfen
+
+
+== Planung des nächsten Sprints
+*Issue referenziert die Issue ID von GitHub*
+
+
+Bis Nächste Woche erledigen:
+Pflichtenheft bearbeiten und abschließen, auf großen Prototpen konzentrieren
+
+Plan der nächsten 2 Wochen (Entwurfsphase):
+
+* Entwurfsentscheidungen, was benutzen wir? (Salespoint, Datenbank, Frameworks etc)
+* Modellverfeinerung mit Anpassung an Salespoint
+* Entwurfsklassendiagramm in neuer MagicDraw-Datei
+* großer Prototyp (Funktionalität zeigen, mit Buttons und Bildchen und Glitzer)
+** optische Präsentation, ob es dem Kunden gefällt
+** Schwierigkeiten finden, Diagramme ändern, ob andere Frameworks oder Herangehensweisen besser funktionieren
+* Entwicklerdokumentation
+* Testplan
+
+Zwischenpräsentation nach Entwurfsphase:
+
+* an zusätzlichem Termin
+* 10min Entwurfsvorstellung
+* 10min Prototyp vorstellen
+* 10min Diskussionsrunde
+
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|23|Logo und graphische Präsentationsguideline|bis 15.11.15|-|-
+|24|GUI HTML Entwurf/Schnittstelle Java|bis 15.11.15|-|-
+|26|Endgültiges Klassendiagramm|bis 15.11.15|-|-
+|27|Java Teil Programmierung|bis 15.11.15|-|-
+|30|Testplan
+|31|Großer Prototyp
+|===

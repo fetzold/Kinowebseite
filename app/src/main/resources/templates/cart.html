@@ -1,0 +1,101 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+        <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+        <title>UFO Kino</title>
+    </head>
+
+    <body>
+        <header th:include="header :: header"></header>
+
+        <div class="row">
+            <nav th:include="navigation :: navigation"> </nav>
+
+            <div class="large-9 columns">
+                <div th:if="${error != null}" class="alert-box secondary">
+                <b>Einer oder mehrere Ihrer gewählten Plätze im Warenkorb ist abgelaufen, oder eine der Vorstellungen nimmt keine Reservierungen mehr entgegen. Bitte erneuern sie Ihre Auswahl.</b>
+                </div><br />
+                <div th:if="${mailserver != null}" class="alert-box alert">
+                <b>Der Mailserver antwortet momentan nicht. Bitte versuchen sie es sp&auml;ter noch einmal.</b>
+                </div>
+                Hier ist der Inhalt Ihres Warenkorbs. Ausgewählte Karten bleiben 10 Minuten für Sie vorgemerkt.<br /><p/>
+                <div th:unless="${cart.empty}">
+                    <table width="700">
+                        <caption th:text="#{cart.title}">Warenkorb</caption>
+                        <thead>
+                            <tr>
+                                <th th:text="#{cart.movie}">Titel</th>
+                                <th th:text="#{cart.time}">Zeit</th>
+                                <th width="110px"><span th:text="#{cart.row} + ' / ' + #{cart.seat}">Reihe und Platz</span><br /><span th:text="#{cart.room}">Saal</span></th>
+                                <th width="80px" th:text="#{cart.type}">Klasse</th>
+                                <th width="100px" th:text="#{cart.price}">Preis</th>
+                                <th width="110px" th:text="#{cart.priceclass}">K.A*</th>
+                                <th>Löschen</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="item,iterationStatus : ${cart} ">
+                                <td th:text="${item.product.moviename}">Last Action Hero</td>
+                                <td th:text="${item.product.time}">100</td>
+                                <td><span th:text="'R ' + ${item.product.i_row} + ' / P ' + ${item.product.i_seat}">Reihe und Platz</span><br /><span th:text="${item.product.s_room}">Saal</span></td>
+                                <td th:text="${item.product.seattype}"></td>
+                                <td th:text="${item.product.moneyToString()} + '€'">Preis</td>
+                                <td><form method="post" action="changeclass">
+                                <input type="hidden" th:value="${item.identifier}" name="cartitem" />
+                                <select name="priceclass">
+									<option value="full" th:selected="${item.product.priceClass.name() == 'FULL'}">Vollpreis</option>
+									<option value="reduced" th:selected="${item.product.priceClass.name() == 'REDUCED'}">Erm&auml;&szlig;igt</option>
+								</select>
+                                <input type="submit" value="&Auml;ndern"/></form></td>
+                                <td><form method="post" action="removeone">
+                                	<input type="hidden" th:value="${item.identifier}" name="ticket" />
+                                	<input type="submit" value="L&ouml;schen" class="tiny alert button radius" />
+                                </form></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p th:text="#{cart.total} + ': ' + ${total} + '€'">Summe: 100 Euro</p>
+                    <div sec:authorize="!isAuthenticated()">
+                    <label class="error" th:if="${mailerror} != null" th:text="${mailerror}"></label>
+                    <form method="post" action="reserve">
+                    <div  class="small-10 columns">
+                    <input id="mail" type="text" name="mail" th:placeholder="#{register.email}"/></div>
+                    <div  class="small-2 columns">
+                            <input type="submit" class="small button success radius postfix" th:value="#{cart.reserve}" value="Reservieren" />
+                        </div></form>
+                                <div class="large-9 columns">
+                                <ul class="button-group">
+                       <li> <form method="post" action="buy">
+                            <input type="submit" class="small button success radius" th:value="#{cart.buy}" value="Kaufen" />
+                        </form></li>
+                                
+                       <li> <form action="empty">
+                            <input type="submit" class="small button alert radius" th:value="#{cart.emptyout}" value="Leeren" />
+                        </form></li></ul>
+                    </div></div>
+                    
+                    
+                    <div sec:authorize="isAuthenticated()"><ul class="button-group">
+                    <li><form method="post" action="reserve">
+                    	<input id="mail" type="hidden" name="mail" value="dummy"/>
+                            <input type="submit" class="small button success radius" th:value="#{cart.reserve}" value="Reservieren" />
+                        </form></li>
+                       <li> <form method="post" action="buy">
+                            <input type="submit" class="small button success radius" th:value="#{cart.buy}" value="Kaufen" />
+                        </form></li>
+                                
+                       <li> <form action="empty">
+                            <input type="submit" class="small button alert radius" th:value="#{cart.emptyout}" value="Leeren" />
+                        </form></li></ul>
+                    </div>
+                    
+                    
+                    
+                </div>
+                <p th:if="${cart.empty}" th:text="#{cart.empty}">Leer</p>
+            </div>
+        </div>
+    </body>
+</html>

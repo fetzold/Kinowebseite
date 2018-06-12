@@ -1,0 +1,96 @@
+== Chef
+
+[options="headers"]
+|===
+|ID |Beschreibung |Bild
+|01	|Preise im Theaterstück lässt sich genau 1x ändern |01 - Event Preisgestaltung
+|02	|Klickt man auf Personalverwaltung fehlen einige Punkte im Navigator |02 - Navigator 1&2
+|03	|Rolle des Nutzers nachträglich nicht änderbar |03 - Rolle Nutzer
+|04	|Löscht man einen utzer und legt einen neuen Mitarbeiter mit demselben Username an erscheint WhitelabelError |04 - Löschen
+|05	|Erstellt man einen Nutzer, vergisst aber Daten einzugeben wird die vergessene Zeile nicht markiertund man erhält kein Hinweistext	|05 - Daten vergessen
+|06	|Man kann kompletten Namen eines Mitarbeiters löschen |06 - Kein Name
+|07	|Löscht man das Gehalt eines Mitarbeiters erscheint Whitelabel Error |07 - Kein Gehalt 1 &2
+|===
+
+
+==TicketVerkaeufer
+
+[options="headers"]
+|===
+|ID |Beschreibung |Bild
+|01	|Icon für "frei" in Sitzplatzlegende gibt es im Kinosaal so nicht	| 01 - Sitzplatz frei
+|02	|Wählt man Platz aus wird dieser blau markiert. Dieser Status fehlt in Legende 	|02 - Auswahl
+|03	|Wenn man reservieren will aber Daten vergessen hat wird der Preis nicht mehr angezeigt	|03 - fehlender Preis
+|04	|Ticketnummer so gewollt?	|04 - Ticketnummer
+|05	|Ticket zurückgeben funktioniert nicht	|05 - Ticketrückgabe
+|===
+
+
+==Dramaturg
+
+[options="headers"]
+|===
+|ID |Beschreibung |Bild
+|01	|Bühnengröße eines Stückes nicht mehr änderbar falls Veranstaltung erstellt wurde	|01 - Bühnengröße 1&2	
+|02	|Fehlt beim bearbeiten des Stückes der Titel erscheint Whitelabel WhitelabelError	|02 - Fehlender Titel 1&2
+|03	|Fehlt beim bearbeiten des stückes die Beschreibung erscheint Whitelabel Error 	| 03 - fehlende Beschreibung 1&2
+|04	|Fehlt beim bearbeiten des Stückes die Dauer erscheint Whitelabel Error 	|04 - fehlende Dauer 1&2
+|05	|fehlen beim Hinzufügen eines Stückes informationen wird dies nicht kenntlich gemacht	|05 - fehlende Infos
+|06	|Will man in einem stück eine Rolle hinzufügen kann das Feld auch leer angelegt werden	|06 - namenlose Rolle
+|07	|Die Dauer, der Saal und das Gastspiel kann nicht verändert werden falls eine Veranstaltung erstellt wurde	|07 - nicht änderbar
+|08	|Fügt man Datum und Urhzeit im falschen Format an erscheint keine Fehlermledung	|08 - keine Fehlermeldung
+|09	|Designfehler bei Preisgestaltung (Safari)	|09 - Designfehler
+|===
+
+
+==Techniker
+
+[options="headers"]
+|===
+|ID |Beschreibung |Bild
+|	|	|
+|	|	|
+|	|	|
+|	|	|
+|	|	|
+|	|	|
+|	|	|
+|	|	|
+|	|	|
+|===
+
+
+==PersonalManager
+
+[options="headers"]
+|===
+|ID |Beschreibung |Bild
+|	|	|
+|	|	|
+|	|	|
+|	|	|
+|	|	|
+|	|	|
+|	|	|
+|	|	|
+|	|	|
+|===
+
+
+==Allgemein
+
+[options="headers"]
+|===
+|ID |Beschreibung |Bild
+|01	|Geht man auf eine Seite auf die man keine Zugriffsrechte hat erscheint eine Whitelabel Error |01 - fehlende Rechte 1&2
+|02	|Theaterstückliste enthält unterschiedliche Stücke |02- fehlende Events Chef&verkäufer
+|	|	|
+|	|	|
+|	|	|
+|	|	|
+|	|	|
+|	|	|
+|	|	|
+|	|	|
+|	|	|
+|===

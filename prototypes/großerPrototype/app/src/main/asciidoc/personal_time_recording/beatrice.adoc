@@ -1,0 +1,15 @@
+﻿=Beatrices Zeiten:
+
+|===
+|Datum |Von |Bis |Was?
+|15.10.2015	|17.30	|19.00	|Einarbeitung Git, Maven
+|17.10.2015	|18.00	|20.00	|Durcharbeitung OOSE-Folien vom Vorsemester
+|20.10.2015	|23.00	|01.00	|Einarbeitung Spring
+|22.10.2015	|17.00	|19.30	|Meeting Kickoff Diagramme
+|22.10.2015	|23.00	|0.00	|Einarbeitung MagicDraw
+|24.10.2015	|12.00	|14.30	|Diagrammskizzen, Bearbeitung Use-Case-Diagramm
+|24.10.2015	|18.30	|21.00	|Aufsetzen von maven/Git für Übung, Übung Videoshop, Szenarien geschrieben
+|26.10.2015	|21.00	|23.30	|Bearbeitung Use-Case-Diagramm, asciidoc geübt, Überarbeitung Zeitsammlungsdateien
+|27.10.2015	|0.00	|3.00	|Aufgabe Videoshop
+|27.10.2015	|8.00	|10.15	|Aufgabe Videoshop
+|===

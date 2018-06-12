@@ -1,0 +1,37 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+    <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+    <title>UFO Kino</title>
+</head>
+<body>
+
+<header th:include="header :: header"></header>
+
+<div class="row">
+
+
+    <nav th:include="navigation :: navigation"> </nav>
+
+
+
+    <div class="large-9 columns">
+
+        <a sec:authorize="hasAnyRole('ROLE_BOSS')" class="small button" style="width: 200px" th:href="@{/rooms.html}" href="rooms.html" th:text="#{management.room}">Room</a>
+        <a class="small button" style="width: 200px" th:href="@{/account.html}" href="account.html" th:text="#{management.account}">account</a>
+        <a sec:authorize="hasAnyRole('ROLE_BOSS')" class="small button" style="width: 200px" th:href="@{/staff.html}" href="staff.html" th:text="#{management.staff}">Personal</a>
+
+        <br />
+        Hier ist es möglich die eigenen Accountdaten zu verwaltern.
+
+    </div>
+
+
+
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+        <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+        <title>UFO Kino</title>
+    
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+            google.load("visualization", "1.1", {packages:["bar"]});
+            google.setOnLoadCallback(drawChart);
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                    ['Datum', 'Einkommen', 'Ausgaben', 'Gewinn/Verlust'],
+                    ['11.12', 1000, 1200, -200],
+                    ['12.12', 20000, 2000, 18000],
+                    ['13.12', 0, 10000, -10000],
+                    ['14.12', 1000, 500, 500],
+                    ['15.12', 1000, 500, 500],
+                    ['16.12', 1000, 500, 500],
+                    ['17.12', 1000, 500, 500] 
+                ]);
+
+                var options = {
+                    chart: {
+                        title: 'Wochenumsatz'
+                    },
+                    colors: ['#00B050', '#FF0000', '#7030A0']
+                };
+                var chart = new google.charts.Bar(document.getElementById('Wochenumsatz'));
+                chart.draw(data, options);
+            }     
+        </script>
+    </head>
+
+    <body>
+        <header th:include="header :: header"></header>
+        
+        <div class="row">
+            <nav th:include="navigation :: navigation"> </nav>
+            
+            <div class="large-9 columns">    
+               <nav th:include="subnavStatistic :: subnavStatistic"> </nav>
+               <nav th:include="subnavGetMoney :: subnavGetMoney"> </nav>
+               
+               <div>
+                   <h3>
+                       Statistik Tag
+                   </h3>
+                   
+                   <table> 
+                       <tr>
+                           <th th:text="#{statistic.sales}">Kassenverk&auml;ufe</th>
+                           <th th:text="#{statistic.onlinesales}">Online-Verkäufe</th>
+                           <th th:text="#{statistic.reservations}">Reservierungen</th>
+                           <th th:text="#{statistic.onlinereservations}">Online-Reservierungen</th>
+                       </tr>
+                       <tr> 
+                           <td th:each="percent : ${sales}" th:text="${percent} + '%'">75%</td>
+                       </tr> 
+                   </table>
+                   
+                    <table> 
+                       <tr>
+                           <td th:text="#{statistic.DaySalary}">Tagesgehälter:</td>
+                           <td th:text="${dailyEmployeeExpense}">Inhalt</td>
+                       </tr>
+                       <tr> 
+                           <td th:text="#{statistic.TotalExpense}">Gesamtausgaben:</td>
+                           <td th:text="${dailyExpense}">Inhalt</td>
+                       </tr> 
+                       <tr> 
+                           <td th:text="#{statistic.DayIncome}">Tageseinnahmen:</td>
+                           <td th:text="${dailySales}">Inhalt</td>
+                       </tr> 
+                       <tr> 
+                           <td th:text="#{statistic.Total}">Gesamtumsatz:</td>
+                           <td th:text="${dailySalesLoss}">Inhalt</td>
+                       </tr> 
+                   </table>
+               </div>
+            </div>
+        </div>
+  </body>
+</html>

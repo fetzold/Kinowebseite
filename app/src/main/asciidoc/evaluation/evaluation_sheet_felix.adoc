@@ -1,0 +1,29 @@
+= Persönliches Feedback eines Teammitgliedes des Softwarepraktikums 2015/16
+
+**Von: Felix Etzold**
+
+**Gruppe: 19**
+
+== Was habe ich gelernt?
+* Zusammenspiel zwischen Technologien 
+* Verbesserung der Java Kentnisse
+* Versionierung eines Projektes
+* Porgrammieren im Team
+* Verwendung von Frameworks
+
+= Welche Erfahrungen habe ich mit der Zusammenarbeit im Team gemacht?
+* Meetings sind wichtig!
+* klare Absprachen treffen
+* Teammitglieder fragen falls unklarheiten sind
+
+== Welche Erfahrungen habe ich bei der Wiederverwendung von Bibliotheken/Frameworks (insbesondere SalesPoint) gemacht?
+* API nachlesen und Beispiele anschauen sind sehr wichtig
+
+== Welche Vorschläge zur weiteren Verbesserung des Softwarepraktikums gibt es?
+* Mehr Zeit für Programmierteil 
+* Mind. Punktzahl des Praktomaten um an Praktikum teilzunehmen
+* Einführung in Github oder Dokument mit wichtigsten Befehlen (zurücksetzen etc.)
+* Praktomatsaufgaben mit Spring
+
+== Sonstiges und Anmerkungen
+Sehr gutes Praktikum um zu erfahren welche Herausforderungen man später im Berufsleben haben wird

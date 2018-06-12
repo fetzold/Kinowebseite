@@ -1,0 +1,22 @@
+
+[options="header"]
+|===
+2+|*Kino*
+|*_Unterklasse_*       |*_Oberklasse_*
+|Verantwortlichkeiten
+
+Standort kennen
+
+Öffnungszeiten
+
+Säle kenne
+
+|Mithelfer
+
+2+|Beschreibung
+grenzt verschiedene Standorte ab
+
+2+|Attribute
+
+Adresse
+|===

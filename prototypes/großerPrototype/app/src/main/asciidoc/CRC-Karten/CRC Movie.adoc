@@ -1,0 +1,45 @@
+[options="header"]
+|===
+2+|*Movie*
+|*_Unterklasse:_* 
+|*_Oberklasse:_*      
+
+|*_Verantwortlichkeiten:_* 
+
+- knowTitle
+
+- knowDescription
+
+- knowDuration
+
+- knowFSK
+
+- knowStartdate
+
+- knowCosts
+
+|*_Mithelfer:_*
+
+- System/DB
+
+- Statistic
+
+- AuthorizedEmployee
+
+2+|*_Beschreibung:_*
+Eine Klasse, deren objekte unterschiedliche Filme repräsentiert.
+
+2+|*_Attribute:_*
+
+- title
+
+- description
+
+- duration
+
+- FSK
+
+- startdate
+
+- costs
+|===

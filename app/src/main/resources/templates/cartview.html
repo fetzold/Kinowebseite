@@ -1,0 +1,47 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/resources/css/foundation.css}" />
+<script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+<title>UFO Kino</title>
+</head>
+
+<body>
+	<header th:include="header :: header"></header>
+
+	<div class="row">
+		<nav th:include="navigation :: navigation"></nav>
+
+		<div class="large-9 columns">
+
+			<table width="650">
+				<caption>Transaktionen gefunden</caption>
+				<thead>
+					<tr>
+						<th th:text="#{tickets.buyer}">Datum</th>
+						<th th:text="#{tickets.state}">Kunde</th>
+						<th th:text="#{cart.date}">Datum</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+				
+					<tr th:each="item : ${found}">
+						<td th:text="${item.user}">A</td>
+						<td th:if="${item.cartType.name() == 'CANCELED'}">Storniert</td>
+						<td th:if="${item.cartType.name() == 'RESERVATION'}">Reservierung</td>
+						<td th:if="${item.cartType.name() == 'PURCHASE'}">Bezahlt</td>
+						<td th:text="${item.time}">C</td>
+						<td><a th:href="@{'/ticketview/' + ${item.getId()}}" href="#">Auswählen</a></td>
+					</tr>
+				
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

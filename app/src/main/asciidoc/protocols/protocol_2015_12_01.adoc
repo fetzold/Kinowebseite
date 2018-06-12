@@ -1,0 +1,52 @@
+﻿= Protokoll Gruppe 19
+﻿
+
+__Treffen am 1.12.2015__
+von 16.40Uhr bis 18.10Uhr
+
+__Schriftführer:__
+Marco Schwabe
+
+__Nächstes Treffen:__
+08.12.2015
+
+__Teilnehmer:__
+Josia Mädler, Felix Etzold, Beatrice Gräßler, Alexej Sentschenko, Marco Schwabe
+
+
+== Aktueller Stand
+
+* Aufgaben von letzter Woche gemacht
+* Einloggen fkt.
+* Kinosaal erstellen fkt.
+* Film + Event hinzufügen fkt.
+* Sitzplätze auswählen und reservieren fkt.
+
+
+== Offene Muss-Kriterien - bis 13.12.2015
+* Personal einstellen, bearbeiten, löschen
+* Filme bearbeiten und löschen
+* Events bearbeiten und löschen
+* Platzgruppen unterschiedlich färben
+* Karten stornieren, umtauschen, bezahlen
+* Statisik komplett, Unterscheidung zwischen online und vor-ort Kauf
+* vergangene Veranstaltungen sind für das Personal sichtbar
+* Kunden ohne Login müssen für online Transaktionen ihre E-mail Adressse angeben
+* Räume bearbeiten
+* Reservierungen sind Validierbar
+* Validierung von Eingaben
+
+== Planung des nächsten Sprints
+
+* Filme bearbeiten und löschen
+* Events bearbeiten und löschen
+* Storieren, Umtausch von Karten
+* Vergangene Veranstaltungen für das Personal sichtbar
+* Validierung anfangen
+* Personal einstellen, bearbeiten, löschen
+* Kinosäle bearbeiten
+* Reservierung validierbar
+
+
+__Treff:__ 8.12.2015; 16:45 (ihr wisst schon wo)
+

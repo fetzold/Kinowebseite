@@ -1,0 +1,37 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+        <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+        <title>UFO Kino</title>
+    </head>
+    
+    <body>
+        <header th:include="header :: header"></header>
+
+        <div class="row">
+
+		<div class="large-9 columns">
+			<div style="border: 2px dashed; padding: 20px; margin-bottom: 10px;">
+			<p>Bitte drucken oder merken sie sich ihre Reservierungsnummer und holen Sie sich vor der Veranstaltung an der Kasse Ihre zugehörigen Karten. 
+			Reservierungen auf diesem Dokument sind nur bis 30 Minuten von Beginn der Vorstellung gültig und müssen rechtzeitig eingelöst werden.</p>
+			<h3 th:text="#{tickets.label} + ': ' + ${code}">ID</h3><br />
+				<table width="600" th:each="item : ${tickets}">
+					<tr style="background-color: white;">
+						<td width="80"><b th:text="#{cart.movie} + ':' ">Name</b></td>
+						<td th:text="${item.moviename}">Name</td>
+						<td width="80"><b th:text="#{cart.time} + ':' ">Zeit</b></td>
+						<td th:text="${item.time}">Zeit</td>
+						<td width="80"><b th:text="#{cart.seat} + ':' ">Platz</b></td>
+						<td th:text="${item.s_room} + ' ' + ${item.i_row} + ' / ' + ${item.i_seat}">Ort</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="large-9 columns" style="float: left;">
+		<a href="/index.html" class="button small radius success" th:text="#{button.home}">Home</a>
+		</div>
+        </div>
+    </body>
+</html>

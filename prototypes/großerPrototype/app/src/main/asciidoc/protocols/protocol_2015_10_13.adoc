@@ -1,0 +1,42 @@
+﻿= Protokoll Gruppe 19
+__Treffen am 13.10.2015__
+
+__Schriftführer:__
+Josia Mädler
+
+__Nächstes Treffen:__ 20.10.2015
+
+__Teilnehmer:__
+Josia Mädler
+Marco Schwabe
+Beatrice Gräßler
+-Bitte ergänzen-
+
+== Bemerkungen
+Start-Meeting
+
+== Retrospektive des letzten Sprints
+*Issue referenziert die Issue ID von GitHub*
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Aufgabe |Status |Bemerkung
+|===
+
+
+== Aktueller Stand
+Start-Meeting
+Scrum-Master Josia Mädler
+
+== Planung des nächsten Sprints
+*Issue referenziert die Issue ID von GitHub*
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|1     |Mit Springframework Beschäftigen|-|ALLE|In Arbeit
+|2     |Bei Git Anmelden|-|ALLE|In Arbeit
+
+|===

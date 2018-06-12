@@ -1,0 +1,42 @@
+[options="header"]
+|===
+2+|*Event*
+|*_Unterklasse:_* 
+|*_Oberklasse:_*      
+
+|*_Verantwortlichkeiten:_* 
+
+- knowMovie
+
+- knowRoom
+
+- knowKindOfEvent
+
+- knowTime
+
+- knowDuration
+
+|*_Mithelfer:_*
+
+- Cinema
+
+- System/DB
+
+- Movie
+
+- Admin
+
+2+|*_Beschreibung:_*
+Objekt Event repräsentiert eine Veranstaltung. Diese können Filme oder private Veranstaltungen eines Kunden sein.
+
+2+|*_Attribute:_*
+
+- movie
+
+- room
+
+- kindOfEvent
+
+- duration
+
+|===

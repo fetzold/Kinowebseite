@@ -1,0 +1,227 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/seatselection.css}" />
+    <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+    <script type="text/javascript" th:src="@{/resources/js/jquery-1.11.0.min.js}"></script> 
+	<script type="text/javascript" th:src="@{/resources/js/jquery.seat-charts.min.js}"></script> 
+    <title>UFO Kino</title>
+
+</head>
+<body>
+
+<header th:include="header :: header"></header>
+
+<div class="row">
+
+    <nav th:include="navigation :: navigation"> </nav>
+
+
+
+    <div class="large-9 columns">
+		<h2>Film:
+		<span th:text="${event.getMovie().getName()}">Waterfall</span></h2>
+		<div class="large-4 columns" style="margin-bottom: 20px;">
+		<img th:if="${event.movie.imgPath} == 'spec.jpg'" th:src="@{'/resources/img/movies/spec.jpg'}" />
+		<img th:if="${event.movie.imgPath} == 'god.jpg'" th:src="@{'/resources/img/movies/god.jpg'}" />
+  		<img th:unless="(${event.movie.imgPath} == 'god.jpg') or (${event.movie.imgPath} == 'spec.jpg')" th:src="'/image/' + ${event.getMovie().getImgPath()}" />
+  		
+		</div>
+		<div class="large-5 columns">
+		<span th:text="#{event.room} + ': ' + ${event.getO_room().getS_name()}">Kino1</span><br />
+		<div th:if="${event.getMovie().getRunTime().equals(1405)}"><span th:text="#{event.date} + ': ' + ${event.o_startDate.day} + '.' + ${event.o_startDate.month} + '.' + ${event.o_startDate.year}">November 3, 21:00</span><br /></div>
+		<div th:unless="${event.getMovie().getRunTime().equals(1405)}"><span th:text="#{event.date} + ': ' + ${event.o_startDate}">November 3, 21:00</span><br /></div>
+		<div th:if="${event.getMovie().getRunTime().equals(1405)}"><span th:text="#{event.allday}">allday</span><br /></div>
+		<div th:unless="${event.getMovie().getRunTime().equals(1405)}"><span th:unless="${event.getMovie().getRunTime().equals(1405)}" th:text="#{event.runtime} + ': ' + ${event.getMovie().getRunTime()} + ' min'">120</span><br /></div>
+		<span th:unless="${event.getMovie().getIsSpecial()}" th:text="#{event.fsk} + ': ' + ${event.getMovie().getFsk()}">18</span><br />
+		
+        <div th:text="${event.getMovie().getDescription()}">
+			Ted gets a girls number at the bar and wants to call her right away, but Barney says he can't call her because of the three days rule, you have to wait until three days from receiving the number to call the person. Ted agrees not to call her, but instead texts her saying he never promised he wouldn't do that. When he gets a response Holli says that shes in the bath, which makes Ted do his "Naked Lady Noise". A noise that Robin points out to him, flashing back to moments where he has seen naked women. Robin asks if it's Holli that is texting him and saying that he promised to wait three days. Ted points out it's different than calling. Robin sighs and leaves telling him to keep the "naked lady" noise to a minimum. Ted still thinks he doesn't make a noise, so Robin opens her robe and then walks away as Ted makes the noise.
+
+			Ted and Holli spend the next couple of days texting one another. Ted thinks she's perfect, and comments about a text to Robin saying that Holli told him what she's wearing right now, and it's pretty hot. Robin guarantees she's not wearing "her old cheerleading uniform while reading architecture magazines" and is only saying it to make Ted like her. Then he gets a text from Holli "Hey baby I picked up some take out from Genero's. Be home soon." stating it was clearly meant for someone else. Robin says maybe its to a brother or sick dad, but when she scrolls down it says "and then I want you to do me on the couch.
+        </div>
+        </div>
+           <div class="demo">
+                <div class="large-9 columns">
+                    <div id="seat-map" style="padding: 20px;" th:if="${!event.getIsPrivate()}">
+                        <div class="front">Leinwand</div>
+
+                         <div style="height: 40px" th:each="row : ${event.getO_room().getMyRows()}" class = "seatCharts-row">
+                      		   <div th:text ="${row.getRowNumber()}" class = "seatCharts-cell">1</div> 	
+                               <div th:each="seat: ${row.getSeats()}">
+								   
+                                   <a th:if="${seat.seatAvailable()} or ${selected.contains(seat)}" th:href="@{'/cart/'+ ${event.getId()} + '/'+ ${row.getRowNumber()} + '/' + ${seat.getI_number()}}" href="detail.html">
+                                       <!--/*@thymesVar id="seat" type="kickstart.SavedClasses.CSeat"*/-->
+                                       <!--<a th:if="${seat.seatLoge()}" th:href="@{'/cart/'+ ${event.getId()} + '/'+ ${row.getRowNumber()} + '/' + ${seat.getI_number()}}" href="detail.html">l</a>
+                                       <a th:if="${!seat.seatLoge()}" th:href="@{'/cart/'+ ${event.getId()} + '/'+ ${row.getRowNumber()} + '/' + ${seat.getI_number()}}" href="detail.html">p</a>-->
+                                       <div th:text="${seat.getI_number()}" th:if="${seat.seatLoge()} and ${seat.seatAvailable()} and ${seat.e_Type.name() != 'DEFECTIVE'}" class="seatCharts-seat seatCharts-cell focused">5</div>
+                                       <div th:text="${seat.getI_number()}" th:if="${!seat.seatLoge()} and ${seat.seatAvailable()} and ${seat.e_Type.name() != 'DEFECTIVE'}" class="seatCharts-seat seatCharts-cell available">5</div>
+                                       <div th:text="${seat.getI_number()}" th:if="${!seat.seatAvailable()}" class="seatCharts-seat seatCharts-cell selected">5</div>
+                                   </a>
+                                   <div th:text="${seat.getI_number()}" th:if="${!seat.seatAvailable()} and ${!selected.contains(seat)}" class="seatCharts-seat seatCharts-cell unavailable">5</div>
+                                   <div th:text="${seat.getI_number()}" th:if="${seat.e_Type.name() == 'DEFECTIVE'}" class="seatCharts-seat seatCharts-cell defective">5</div>
+                              </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="large-3 columns" th:if="${!event.getIsPrivate()}">
+                    <div>
+                        <p>Gewählte Plätze: </p>
+                        <a th:each="item : ${tickets}">
+                            Reihe: <span th:text="${item.i_row}">Reihe</span> Platz: <span th:text="${item.i_seat}">keine</span>
+                        </a>
+                    </div>
+                    <div style="float: left;">
+                    <p /> <div class="seatCharts-seat seatCharts-cell focused">X</div> Loge<p />
+                            <div class="seatCharts-seat seatCharts-cell available">X</div> Parkett<p />
+                            <div class="seatCharts-seat seatCharts-cell unavailable">X</div> Belegt<p />
+                            <div class="seatCharts-seat seatCharts-cell selected">X</div> Gewählt<p />
+                            <a href="/cart.html" class="button small radius success">Zum Warenkorb</a>
+                    </div>
+
+                    <p style="width: 100px; max-height: 80px" id="selected-seats"></p>
+<!--                <p>Anzahl Karten: <span id="counter">0</span></p>
+                    <p>Gesamtpreis: <b>€<span id="total">0</span>€</b></p> -->
+                    
+                    <!--
+                    <form th:action="@{/reserve.html}">
+                        <input style="float: right;" class="small button" type="submit" href="reserve.html" value="Reservieren" />
+                        <input style="float: right;" class="small button" type="submit" href="reserve.html" value="In den Warenkorb legen." />
+                    </form>
+                    -->
+                    <br />
+                    <br />
+                    <br />
+
+<!--               <div id="legend"></div>
+                </div>
+            <div style="clear:both"></div>
+   </div>
+    <div class="large-9 columns">
+
+        <div>
+        <form method="post" action="/cart">
+        <table>
+        <tr th:each=" item : ${tickets}">
+        	<td>Gewählte Tickets:</td>
+     		<td th:text="${item.name}">Name</td>
+    		<td th:text="${item.i_row}">Reihe</td>
+    		<td th:text="${item.i_seat}">Sitz</td>
+  		 </tr>
+  		 </table>
+	</form>
+   </div> -->
+
+		<!--
+	<script type="text/javascript">
+	var price = 7.41; //price
+	$(document).ready(function() {
+		var $cart = $('#selected-seats'), //Sitting Area
+		$counter = $('#counter'), //Votes
+		$total = $('#total'); //Total money
+
+		var sc = $('#seat-map').seatCharts({
+			map: [  //Seating chart
+				'aaaaaaaaaa',
+				'aaaaaaaaaa',
+				'__________',
+				'_aaaaaaaa_',
+				'aaaaaaaaaa',
+				'aaaaaaaaaa',
+				'aaaaabaaaa',
+				'aaaaaaaaaa',
+				'aaaaabaaaa',
+				'__________',
+				'aaaaaaaaaa',
+				'aaaaaaaaaa',
+				'aa__aa__aa'
+			],
+			naming : {
+				top : false,
+				getLabel : function (character, row, column) {
+					return column;
+				}
+			},
+			legend : { //Definition legend
+				node : $('#legend'),
+				items : [
+					[ 'a', 'available',   'Frei' ],
+					[ 'a', 'unavailable', 'Belegt'],
+					[ 'a', 'defective', 'defekt']
+				]
+			},
+			click: function () { //Click events
+				if (this.status() == 'available') { //optional seat
+					$('<div>R'+(this.settings.row+1)+' S'+this.settings.label+'</div>')
+						.attr('id', 'cart-item-'+this.settings.id)
+						.data('seatId', this.settings.id)
+						.appendTo($cart);
+
+					$counter.text(sc.find('selected').length+1);
+					$total.text(recalculateTotal(sc)+price);
+
+					return 'selected';
+				} else if (this.status() == 'selected') { //Checked
+						//Update Number
+						$counter.text(sc.find('selected').length-1);
+						//update totalnum
+						$total.text(recalculateTotal(sc)-price);
+
+						//Delete reservation
+						$('#cart-item-'+this.settings.id).remove();
+						//optional
+						return 'available';
+				} else if (this.status() == 'unavailable') { //sold
+					return 'unavailable';
+				} else {
+					return this.style();
+				}
+			}
+		});
+		//sold seat
+		sc.get(['1_2', '4_4','4_5','6_6','6_7','8_5','8_6','8_7','8_8', '10_1', '10_2']).status('unavailable');
+		sc.get(['1_5', '3_4']).status('defective');
+
+	});
+	//sum total money
+	function recalculateTotal(sc) {
+		var total = 0;
+		sc.find('selected').each(function () {
+			total += price;
+		});
+
+		return total;
+	}
+	</script>-->
+</div>
+</div>
+<div sec:authorize="hasAnyRole('ROLE_BOSS','ROLE_AUTHORIZED','ROLE_EMPLOYEE')"  th:if="${!event.getIsPrivate()} and ${time} == null"><br />
+<form method="post" th:action="@{'/releaseseats/'+ ${event.getId()}}">
+	<fieldset>
+       <legend>Plätze in diesem Raum freigeben</legend>
+       <div th:unless="${cart.empty}" class="alert-box secondary">
+       Sie haben einen aktiven Warenkorb. Bitte leeren Sie diesen oder schlie&szlig;en den Verkauf ab, um verkaufte Pl&auml;tze freizugeben.
+       </div>
+       <div th:if="${cart.empty}">
+		<div  style="display:inline-block;">
+			<label for="row">Reihe:</label>
+			<input type="text" id="row" name="row" width="10px" />
+			</div>
+		<div  style="display:inline-block;margin-left:50px;">
+			<label for="seat">Platz:</label>
+			<input type="text" name="seat" id="seat" width="10px" />
+		</div>
+		<div>
+        <input type="submit" class="small button success radius" th:value="Bestätigen" value="Senden"/>
+        </div>
+        </div>
+		</fieldset>
+		</form></div>
+	</div></div>
+</body>
+</html>

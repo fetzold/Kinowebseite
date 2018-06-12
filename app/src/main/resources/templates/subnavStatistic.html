@@ -1,0 +1,23 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+        <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+        <title>UFO Kino</title>
+    </head>
+    
+    <body>
+        <nav th:fragment="subnavStatistic">
+        <ul class="button-group even-2">
+            <li>
+                <a th:if="${#httpServletRequest.requestURI.contains('getMoney')}" sec:authorize="hasAnyRole('ROLE_BOSS')" class="small button" style="background-color: #007095;" th:href="@{/getMoneyDay.html}" href="getMoneyDay.html" th:text="#{statistic.getMoney}">Umsatz</a>
+                <a th:unless="${#httpServletRequest.requestURI.contains('getMoney')}" sec:authorize="hasAnyRole('ROLE_BOSS')" class="small button" th:href="@{/getMoneyDay.html}" href="getMoneyDay.html" th:text="#{statistic.getMoney}">Umsatz</a>
+            </li>
+            <li>
+                <a th:if="${#httpServletRequest.requestURI.contains('getTic')}" sec:authorize="hasAnyRole('ROLE_BOSS')" class="small button" style="background-color: #007095;" th:href="@{/getTicketsales.html}" href="getTicketsales.html" th:text="#{statistic.getTicketsales}">Ticketverkäufe</a>
+                <a th:unless="${#httpServletRequest.requestURI.contains('getTic')}" sec:authorize="hasAnyRole('ROLE_BOSS')" class="small button" th:href="@{/getTicketsales.html}" href="getTicketsales.html" th:text="#{statistic.getTicketsales}">Ticketverkäufe</a>
+            </li>
+        </ul></nav>
+    </body>
+</html>

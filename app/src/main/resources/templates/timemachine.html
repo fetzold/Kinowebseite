@@ -1,0 +1,32 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+        <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+        <title>UFO Kino</title>
+    </head>
+    
+<body>
+	<header th:include="header :: header"></header>
+
+	<div class="row">
+		<nav th:include="navigation :: navigation"></nav>
+
+		<div class="large-9 columns">
+		
+		<div th:if="${success} != null" class="alert-box secondary" th:text="'Zeit erfolgreich um ' + ${success} + ' Stunden verschoben.'">OK</div>
+		
+			<form method="post" th:action="@{/timemachine}">
+			<label class="error" th:if="${error} != null">Bitte eine g&uuml;ltige Zahl eingeben (z.B. 10 oder -5).</label>
+			<label for="hours">Anzahl der zu addierenden Stunden:</label>
+			<input type="text" id="hours" name="hours" width="20px" />
+			<input type="submit" class="small button success radius" th:value="Bestätigen" value="Senden"/>
+			</form>
+			
+		</div>
+		
+		
+		</div>
+    </body>
+</html>

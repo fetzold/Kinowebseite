@@ -1,0 +1,8 @@
+kickstart
+kickstart.Repositorys
+kickstart.SavedClasses
+kickstart.controller
+kickstart.model
+kickstart.model.eventManagement
+kickstart.model.programOverView
+kickstart.validation

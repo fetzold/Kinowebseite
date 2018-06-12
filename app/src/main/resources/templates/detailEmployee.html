@@ -1,0 +1,57 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+    <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+    <title>UFO Kino</title>
+</head>
+
+<body>
+<header th:include="header :: header"></header>
+
+<div class="row">
+    <nav th:include="navigation :: navigation"> </nav>
+
+
+    <div class="large-9 columns">
+        <nav th:include="subnav :: subnav"> </nav>
+
+			<table>
+			<tr>
+				<td>Name</td>
+				<td th:text="${employee.lastname} + ', ' + ${employee.forename}"></td>
+			</tr>
+			<tr>
+				<td>Straße</td>
+				<td th:text="${employee.street}"></td>
+			</tr>
+			<tr>
+				<td>Ort</td>
+				<td th:text="${employee.zip} + ' ' + ${employee.town}"></td>
+			</tr>
+ 			<tr>
+				<td>Benutzername:</td>
+				<td th:text="${employee.useraccount.username}"></td>
+			</tr>
+			<tr>
+				<td>Level:</td>
+				<td th:text="${employee.getUseraccount().getRoles()}"></td>
+			</tr>
+			<tr>
+				<td>Email:</td>
+				<td th:text="${employee.email}"></td>
+			</tr>
+			<tr>
+				<td>Telefon:</td>
+				<td th:text="${employee.phone}"></td>
+			</tr>
+			<tr>
+				<td>Stundenlohn:</td>
+				<td th:text="${employee.moneyToString() + '€'}"></td>
+			</tr>
+			</table>
+			</div>
+    </div>
+</body>
+</html>

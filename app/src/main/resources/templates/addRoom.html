@@ -1,0 +1,65 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+    <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+    <title>UFO Kino</title>
+</head>
+
+<body>
+<header th:include="header :: header"></header>
+
+<div class="row">
+    <nav th:include="navigation :: navigation"></nav>
+
+    <div class="large-9 columns">
+        <nav th:include="subnav :: subnav"></nav>
+        <nav th:include="subnavRoomManagement :: subnavRoomManagement"></nav>
+        <div th:if="${succsesaMsg} ? true : false" class="panel"><span th:text="${succsesaMsg}">Text</span> </div>
+        <form method="post" role="form" class="gb-form" id="form" th:action="@{/addRoom}" th:object="${addroom}">
+        <fieldset>
+            <legend th:text="#{rooms.addRoom}">Benutzerkonto</legend>
+            
+            <div class="form-group">
+                <label for="name" th:text="#{addRoom.Name}">Name</label>
+                <label class="error"  th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></label>
+                <label class="error"  th:if="${duplicate != null}">Ein Raum mit diesem Namen existiert bereits.</label>
+                <input id="name" class="form-control" type="text" th:field="*{name}" th:errorclass="fieldError" />
+            </div>
+            
+            <div class="form-group">
+                <label for="rows" th:text="#{addRoom.Reihen}">Name</label>
+                <label class="error"  th:if="${#fields.hasErrors('rows')}" th:errors="*{rows}"></label>
+                <input id="rows" class="form-control" th:type="text" th:field="*{rows}"/>
+            </div>
+
+            <div class="form-group">
+                <label for="seats" th:text="#{addRoom.Plätze}">Name</label>
+				<label class="error"  th:if="${#fields.hasErrors('seats')}" th:errors="*{seats}"></label>
+                <input id="seats" class="form-control" type="text" th:field="*{seats}" th:errorclass="fieldError" />
+            </div>
+
+            
+            
+             <div class="form-group" style="display:inline-block;">
+                <label for="basicCharge" th:text="#{addRoom.Parkett-Preis}">Name</label>
+                <label class="error"  th:if="${#fields.hasErrors('basicCharge')}" th:errors="*{basicCharge}"></label>
+                <input id="basicCharge" class="form-control" type="text" th:field="*{basicCharge}" th:errorclass="fieldError" />
+            </div>
+            
+             <div class="form-group" style="display:inline-block;">
+                <label for="extraCharge" th:text="#{addRoom.Loge-Preis}">Name</label>
+                <label class="error"  th:if="${#fields.hasErrors('basicCharge')}" th:errors="*{basicCharge}"></label>
+                <input id="extraCharge" class="form-control" type="text" th:field="*{extraCharge}" th:errorclass="fieldError" />
+            </div>
+            
+            <div>
+            <input type="submit" class="small button success radius" th:value="Bestätigen" value="Senden"/>
+            </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+        <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+        <title>UFO Kino</title>
+    </head>
+    
+    <body>
+        <nav th:fragment="subnavAccountManagement">
+        <ul sec:authorize="hasAnyRole('ROLE_CUSTOMER')" class="button-group even-4">
+            <li>
+                <a th:if="${#httpServletRequest.requestURI.contains('myorders')}" class="small success button" style="background-color: #368A55; width: 160px" th:href="@{/myorders.html}" href="myorders.html" th:text="#{account.myorders}">Raum erstellen</a>
+                <a th:unless="${#httpServletRequest.requestURI.contains('myorders')}" class="small success button" style="width: 160px" th:href="@{/myorders.html}" href="myorders.html" th:text="#{account.myorders}">Raum erstellen</a>
+            </li>
+            <li>
+                <a th:if="${#httpServletRequest.requestURI.contains('rate')}" class="small success button" style="background-color: #368A55; width: 160px" th:href="@{/rate.html}" href="rate.html" th:text="#{account.vote}">Raum ändern</a>
+                <a th:unless="${#httpServletRequest.requestURI.contains('/rate')}" class="small success button" style="width: 160px" th:href="@{/rate.html}" href="rate.html" th:text="#{account.vote}">Raum ändern</a>
+            </li>
+            <li>
+                <a th:if="${#httpServletRequest.requestURI.contains('/account.html')}" class="small success button" style="background-color: #368A55; width: 160px" th:href="@{/account.html}" href="account.html" th:text="#{account.edit}">Raum ändern</a>
+                <a th:unless="${#httpServletRequest.requestURI.contains('/account.html')}" class="small success button" style="width: 160px" th:href="@{/account.html}" href="account.html" th:text="#{account.edit}">Raum ändern</a>
+            </li>
+        </ul></nav>
+    </body>
+</html>

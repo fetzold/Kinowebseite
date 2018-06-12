@@ -1,0 +1,108 @@
+
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" th:href="@{/resources/css/foundation.css}" />
+        <script th:src="@{/resources/js/vendor/modernizr.js}"></script>
+        <title>UFO Kino</title>
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+        <script th:inline="javascript">
+            google.load("visualization", "1", {packages:["corechart"]});
+            google.setOnLoadCallback(drawChart);
+            function drawChart() {
+                var tmp = [['Film', 'Anzahl verkaufter Tickets']];
+
+                var movies = [[${movies}]];
+                var tickets = [[${allTickets}]];
+
+                var i = 0;
+                for (var movie in movies){
+                    tmp.push([movies[i], tickets[i]]);
+                    i++;
+
+                }
+
+
+                var data = google.visualization.arrayToDataTable(tmp);
+
+                var options = {
+                    title: 'Verkaufte Filmtickets Heute'
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                chart.draw(data, options);
+            }
+        </script>
+
+    </head>
+    
+    <body>
+        <header th:include="header :: header"></header>
+        
+        <div class="row">
+            <nav th:include="navigation :: navigation"> </nav>
+            
+            <div class="large-9 columns">
+                <nav th:include="subnavStatistic :: subnavStatistic"> </nav>
+                <nav th:include="subnavGetTickets :: subnavGetTickets"> </nav>
+                <div id="piechart" style="width: 800px; height: 600px;"></div>
+
+
+
+
+
+                <h3>Tägliche Ticketverkäufe</h3>
+                <table width="500">
+                <thead>
+                    <tr>
+                        <th width="300">Filmname</th>
+                        <th>Ermäßigt</th>
+                        <th>Vollpreis</th>
+                        <th>Gesamt</th>
+                    </tr>
+                 </thead>
+                    <!--/*@thymesVar id="dayMap" type="java.util.HashMap"*/-->
+                    <tr th:each="movie:${dayMap}">
+                        <td th:text="${movie.key.getName()}">Inhalt</td>
+                        <td th:each="int:${movie.value}" th:text="${int}">Inhalt</td>
+
+                    </tr>
+                </table>
+                <h3>Monatliche Ticketverkäufe</h3>
+                <table width="500">
+                <thead>
+                    <tr>
+                        <th width="300">Filmname</th>
+                        <th>Ermäßigt</th>
+                        <th>Vollpreis</th>
+                        <th>Gesamt</th>
+                    </tr>
+                 </thead>
+                    <!--/*@thymesVar id="dayMap" type="java.util.HashMap"*/-->
+                    <tr th:each="movie:${monthMap}">
+                        <td th:text="${movie.key.getName()}">Inhalt</td>
+                        <td th:each="int:${movie.value}" th:text="${int}">Inhalt</td>
+                    </tr>
+                </table>
+                <h3>Jährliche Ticketverkäufe</h3>
+                <table width="500">
+                <thead>
+                    <tr>
+                        <th width="300">Filmname</th>
+                        <th>Ermäßigt</th>
+                        <th>Vollpreis</th>
+                        <th>Gesamt</th>
+                    </tr>
+                 </thead>
+                    <!--/*@thymesVar id="dayMap" type="java.util.HashMap"*/-->
+                    <tr th:each="movie:${yearMap}">
+                        <td th:text="${movie.key.getName()}">Inhalt</td>
+                        <td th:each="int:${movie.value}" th:text="${int}">Inhalt</td>
+                    </tr> 
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

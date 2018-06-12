@@ -1,0 +1,11 @@
+|===
+ |Datum |Von |Bis |Was?
+ |17.10.2015	|14.00	|17.00	|Einarbeitung Aufgabe, Spring, adoc
+ |18.10.2015	|15.00	|18.00	|Einarbeitung Aufgabe, Spring, adoc
+ |24.10.2015	|18.00	|21.00	|Einarbeitung Videoshop
+ |25.10.2015	|15.00	|20.00	|Implementierung Videoshop
+ |26.10.2015	|13.00	|15.00	|Erstellung Top-Level-Architektur und Kontextmodell
+ |28.10.2015	|22.00	|23.00	|CRC Karten erstellen
+ |01.11.2015	|13.00	|20.00	|UML-Diagramme mergen(da Problem war komplett neu machen)
+ |02.11.2015	|22.30 	|00.00	|CRC Karten in adoc schreiben
+|=== 

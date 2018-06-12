@@ -1,0 +1,135 @@
+= Entwicklerdokumentation
+
+== Einführung und Ziele
+
+Dieses Dokument umreißt den Entwurf und die Architektur für die Software des Projekted der Gruppe 19.
+Es werden die Planungen für die Aufgaben der Klassen und ihre Beziehungen untereinander umrissen, Grundkonzepte für die Programmstruktur beschrieben und das grafische Design der Benutzeroberfläche dargelegt.
+
+*Aufgabenstellung*
+
+* evtl. Kopie des Aufgabenblatts
+* Aufgabe ist die Erstellung einer kompletten Software für das Ufo-Kino-Unternehmen mit Back- und Frontend unter Verwendung der Spring- und Salespoint-Frameworks
+* Die Software soll im Browser verwendbar sein, sowohl den Kunden als auch den Angestellten Zugriff und Funktionen bieten
+
+*Qualitätsziele*
+
+* Software läuft fehlerfrei, erfüllt alle Tests
+* Web-Oberfläche ist in allen Bereichen einheitlich
+* Navigation ist klar und effizient
+* Software ist in bestimmtem Rahmen erweiterbar
+
+== Randbedingungen
+
+* Hardware-Vorgaben
+** Client: Rechner mit Maus, Tastatur oder Mobilgerät, Internetzugang
+** Server: Rechner, Internetzugang
+
+* Software-Vorgaben
+** Client: Internet-Browser mit XML-Unterstützung
+** Server: Java JDK 8
+
+* Vorgaben zum Betrieb des Software
+** bestehende, durchgängige Internetverbindung an Client und Server
+** HTTP-Requests und Javascript-Befehle werden gesendet und verarbeitet
+
+== Kontextabgrenzung
+
+* Externe Schnittstellen
+
+Im aktuellen Rahmen der Software werden keine externen Schnittstellen benötigt. Dies kann sich in einer späteren Iteration ändern, im Zusammenhang mit externen Verleih-Katalogen und Zahlungsmöglichkeiten.
+
+== Lösungsstrategie
+
+Kurzer Überblick über Ihre grundlegenden Entscheidungen und Lösungsansätze, die jeder, der mit der Architektur zu tun hat, verstanden haben sollte.
+
+Die Aufgabe wird nach außen über einer Website gelöst, welche je nach Benutzerlevel Zugriff auf alle zulässigen Funktionen bietet.
+Das grafische Design wird mit Hilfe des CSS-Frameworks Foundation gelöst und vereinheitlicht. Zuständig für die Befüllung der Website mit relevanten Inhalten ist die Thymeleaf-Bibliothek, welche Texte und Daten aus entprechenden Datenbanken der Software bezieht und sie in HTML-Templates nach außen darstellt. Diese sind mit Controllern und Models Teil der Struktur des Spring-Frameworks, welches für die Realisierung der Software verwendet wird. Salespoint liefert die notwendigen Grundlagen für den Kartenverkauf.
+
+== Bausteinsicht
+* Package-Diagramme
+* momentane Packages: controller, model, model.eventManagement, model.Menu, model.validation
+
+== Entwurfsentscheidungen
+
+*Architektur*
+
+Verwendung vorgegebener Strukturen von Spring und Salespoint, beinhaltet Trennung von Controllern, Models und HTML-Templates
+Die Sprache des Programmcodes ist Englisch.
+
+* Spring:
+* Salespoint:
+
+
+* WelcomeController
+** 
+
+* CartController
+** 
+
+* LoginController
+** 
+
+* ProgramController
+** 
+
+* CheckReservationController
+** 
+
+* RentA_FilmCOntroller
+** 
+
+* StatisticsController
+** 
+
+Benutzer und ihre Vererbungen
+
+* CCustomer
+* CEmployee
+* CAuthEmp
+* CAdmin
+
+* Application
+
+Räume und Plätze
+
+* Plätze in einem Kinosaal werden durch CSeat-Objekte repräsentiert.
+* CRoom
+
+- klassen
+- frameworks
+- frontend
+
+*Verwendete Muster*
+
+* Singleton (CProgram)
+* Iterator (Thymeleaf)
+
+*Persistenz*
+
+* JPA
+
+*Benutzeroberfläche*
+
+Die Benutzeroberfläche wird komplett im Browser realisiert mit einer unkomplizierten Herangehensweise an die Navigation und einem möglichst einfachen Design der Seiten, um deren Inhalt klar darzustellen. Die Sprache der Website ist Deutsch.
+
+* Alle HTML-Webinhalte werden über Spring-Templates generiert und von Thymeleaf mit Inhalten gefüllt.
+* Das grafische Design der Oberfläche wird mit Hilfe von Foundation erstellt.
+* Der linke und rechte Rand der Website halten Abstand vom Bildschirmrand. Der Inhalt wird zentral präsentiert und verliert sich nicht über die Breite von Widescreen-Bildschirmen.
+* Am oberen Seitenrand befindet sich ein Banner mit dem Logo des Unternehmens. Es enthält einen Link, der zurück zur Hauptseite führt.
+* Die Navigation findet ihren Platz im traditionellen linken Teil der Website. Die wird dynamisch geladen und bietet ausschließlich Funktionen, die dem angemeldeten oder nicht angemeldeten Nutzer zur Verfügung stehen sollen. Ihr Inhalt ändert sich nicht beim Navigieren durch die Inhalte.
+* Je nach Benutzerlevel enthält die Navigation eine Auswahl der folgenden Punkte:
+** Home: Link zurück auf die Hauptseite
+** Programm: öffnet die Programmübersicht, erlaubt Zugriff auf Programmverwaltung
+** Film mieten: bietet Zugriff auf externe Verleih-Kataloge. Aufgrund von Beschränkungen im Projekt-Rahmen wird an Stelle der Kataloge ein Formular angeboten, welches manuelles Eintragen eines neuen Films erlaubt.
+** Reservierung überprüfen: 
+** Warenkorb: öffnet Warenkorb-Seite
+** Vewaltung: bietet je nach Benutzerlevel verschiedenen Funktionen um Daten der eigenen oder anderer Personen anzusehen oder zu ändern
+** Statistik: Zugriffslink für die unterschiedlichen Statistik-Ansichten
+** Login/Logout: bietet je nach Status die Funktion sich an- oder abzumelden
+** Registrierung: öffnet ein Formular, um einen neuen Benutzer anzulegen
+* Ein nicht-autorisierter Zugriffsversuch auf eine HTML-Seite wird mit Rückwurf auf die Login-Funktion beantwortet.
+* Der restliche Teil der Seite ist dem Inhalt vorbehalten. Erstreckt er sich weiter als der Bildschirm des Benutzers darstellen kann, ist die gesamte Website nach unten scrollbar.
+
+
+[appendix]
+== Glossar

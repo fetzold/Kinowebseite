@@ -1,0 +1,17 @@
+[options="header"]
+|===
+2+|*Zeit*
+|*_Unterklasse_*       |*_BusinessTime_*
+|Verantwortlichkeiten
+
+Datum kennen
+
+Uhrzeit kennen
+
+|Mithelfer
+
+-
+2+|Beschreibung
+
+Observer Patter (Zeit Observerbale). Wird genutzt für Systemereignisse z.B.: Reservierung löschen
+|===
